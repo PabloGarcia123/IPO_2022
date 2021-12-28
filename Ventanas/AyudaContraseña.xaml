@@ -10,7 +10,7 @@
     <Grid>
         <GroupBox x:Name="groupInfo" Header="Información" HorizontalAlignment="Left" Margin="10,10,-0.4,17.4" Width="384">
             <Label x:Name="lblInfo" Content="Si desea recuperar la contraseña mande un correo electrónico a: &#xA;                      Noel.Fernandez@alu.uclm.es&#xA;indicando: Su correo electrónico, DNI y número de teléfono.&#xA;Estableciendo como asunto HE OLVIDADO MI CONTRASEÑA.&#xA;Se pondrán en contacto con usted lo antes posible." 
-                   HorizontalAlignment="Left" Height="206" Margin="4,6,0,0" VerticalAlignment="Top" Width="347"/>
+                   HorizontalAlignment="Left" Height="106" Margin="4,6,0,0" VerticalAlignment="Top" Width="347"/>
         </GroupBox>
 
     </Grid>
