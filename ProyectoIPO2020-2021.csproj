@@ -172,6 +172,7 @@
     <Content Include="BBDDPerros.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Images\Mike-Wazowski2.jpg" />
     <Resource Include="Images\icono2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
