@@ -97,5 +97,7 @@ namespace ProyectoIPO2020_2021
             escribir.WriteLine(txtboxNombrePerro.Text + " " + txtboxRazaPerro.Text);
             escribir.Close();
         }
+
+       
     }
 }
