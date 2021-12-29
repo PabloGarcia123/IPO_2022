@@ -1,0 +1,30 @@
+﻿<Window x:Class="ProyectoIPO2020_2021.VentanaAyuda"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoIPO2020_2021"
+        mc:Ignorable="d"
+        Title="Ayuda" Height="427.515" Width="319.118"
+        MinHeight="427.515" MinWidth="319.118"
+        MaxHeight="427.515" MaxWidth="319.118">
+    <Grid Margin="0,0,407,0">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="143*"/>
+            <RowDefinition Height="143*"/>
+            <RowDefinition Height="77*"/>
+            <RowDefinition Height="22*"/>
+        </Grid.RowDefinitions>
+        <GroupBox x:Name="groupInfo" Header="Información" HorizontalAlignment="Left" Height="122" Margin="10,0,-290,0" Grid.Row="1" VerticalAlignment="Top" Width="280">
+            <Label x:Name="lblInfo" Content="Éste simbolo '*' significa campo obligatorio.&#xD;&#xA;Para cualquier consulta, por favor escribe a&#xD;&#xA;nuestro correo electronico: &#xD;&#xA;&#xD;&#xA;soporte.tecnico@prot3ctora.es" HorizontalAlignment="Left" Height="89" Margin="4,6,0,0" VerticalAlignment="Top" Width="260"/>
+        </GroupBox>
+        <GroupBox x:Name="groupAutores" Header="Autores" HorizontalAlignment="Left" Height="85" Margin="10,26,-290,0" Grid.Row="2" VerticalAlignment="Top" Width="280">
+            <Label x:Name="lblAutores" Content="Pablo García García de las Bayonas&#xD;&#xA;Noel Fernández de Sevilla Sánchez" HorizontalAlignment="Left" Height="55" Margin="4,3,0,0" VerticalAlignment="Top" Width="260"/>
+        </GroupBox>
+        <GroupBox x:Name="groupFecha" Header="Fecha de creación" HorizontalAlignment="Left" Height="61" Margin="10,9,-290,0" Grid.Row="3" VerticalAlignment="Top" Width="280">
+            <Label x:Name="lblFecha" Content="10 de enero de 2022" HorizontalAlignment="Left" Height="25" Margin="5,9,0,0" VerticalAlignment="Top" Width="259"/>
+        </GroupBox>
+
+    </Grid>
+</Window>
