@@ -57,6 +57,9 @@
       <SubType>Designer</SubType>
     </ApplicationDefinition>
     <Compile Include="Access\Conexion.cs" />
+    <Compile Include="Ventanas\AyudaContraseña.xaml.cs">
+      <DependentUpon>AyudaContraseña.xaml</DependentUpon>
+    </Compile>
     <Compile Include="BBDDPerrosDataSet.cs">
       <DependentUpon>BBDDPerrosDataSet.xsd</DependentUpon>
     </Compile>
@@ -75,6 +78,10 @@
       <DependentUpon>VentanaAyuda.xaml</DependentUpon>
     </Compile>
     <Compile Include="Clases\Voluntario.cs" />
+    <Page Include="Ventanas\AyudaContraseña.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Ventanas\Apadrinado.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -162,18 +169,11 @@
     <Resource Include="Images\Mike-Wazowski.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="Ventanas\icono.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Ventanas\Check.jpg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Ventanas\fondoLogin.jpg" />
-  </ItemGroup>
-  <ItemGroup>
     <Content Include="BBDDPerros.accdb">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
+    <Resource Include="Images\Mike-Wazowski2.jpg" />
+    <Resource Include="Images\icono2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -13,15 +13,16 @@
     <Grid Margin="0,0,76,0">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="0*"/>
-            <ColumnDefinition Width="83*"/>
-            <ColumnDefinition Width="94*"/>
-            <ColumnDefinition Width="47*"/>
-            <ColumnDefinition Width="95*"/>
-            <ColumnDefinition Width="47*"/>
-            <ColumnDefinition Width="47*"/>
-            <ColumnDefinition Width="44*"/>
-            <ColumnDefinition Width="50*"/>
+            <ColumnDefinition Width="105*"/>
+            <ColumnDefinition Width="119*"/>
             <ColumnDefinition Width="61*"/>
+            <ColumnDefinition Width="118*"/>
+            <ColumnDefinition Width="59*"/>
+            <ColumnDefinition Width="59*"/>
+            <ColumnDefinition Width="31*"/>
+            <ColumnDefinition Width="109*"/>
+            <ColumnDefinition Width="57*"/>
+            <ColumnDefinition Width="0*"/>
 
         </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
@@ -33,38 +34,39 @@
             <RowDefinition Height="23*"/>
             <RowDefinition Height="35*"/>
             <RowDefinition Height="23*"/>
-            <RowDefinition Height="39*"/>
-            <RowDefinition Height="35*"/>
-            <RowDefinition Height="97*"/>
+            <RowDefinition Height="51*"/>
+            <RowDefinition Height="38*"/>
+            <RowDefinition Height="82*"/>
             <RowDefinition Height="0*"/>
         </Grid.RowDefinitions>
 
 
 
-        <Rectangle x:Name="FondoVentana" Stroke="Black" Grid.RowSpan="11" Grid.ColumnSpan="10" Margin="0,0,-76,0">
+        <Rectangle x:Name="FondoVentana" Stroke="Black" Grid.RowSpan="12" Grid.ColumnSpan="11" Margin="0,0,-77.4,-0.6">
             <Rectangle.Fill>
-                <ImageBrush Opacity="0.6" ImageSource="fondoLogin.jpg"/>
+                <ImageBrush Opacity="0.6" ImageSource="/Images/fondoLogin.jpg"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle x:Name="FondoLogin" Margin="2,0,0,69" Stroke="Black" Grid.Row="2" Grid.Column="2" Grid.RowSpan="9" Grid.ColumnSpan="7">
+        <Rectangle x:Name="FondoLogin" Margin="2.2,102,27.6,0" Stroke="Black" Grid.Row="1" Grid.Column="2" Grid.RowSpan="9" Grid.ColumnSpan="8">
             <Rectangle.Fill>
                 <SolidColorBrush Color="#FFACBDA6"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Label x:Name="lblLogin" Content="Correo electrónico" Height="32" Margin="0,2,0,0" VerticalAlignment="Top" FontFamily="Sitka Text" FontSize="16" Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="4"/>
-        <TextBox x:Name="txtUsuario" TextWrapping="Wrap" Height="24" FontFamily="Sitka Text" Padding="4" TabIndex="1" KeyDown="txtUsuario_KeyDown" Grid.Row="5" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="4" VerticalAlignment="Top"/>
-        <Label x:Name="lblContraseña" Content="Contraseña" HorizontalAlignment="Left" Height="32" Margin="0,3,0,0" VerticalAlignment="Top" Width="150" FontFamily="Sitka Text" FontSize="16" Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="2"/>
-        <PasswordBox x:Name="passContra" VerticalAlignment="Top" Height="24" Padding="4" TabIndex="2" KeyUp="passContrasena_KeyUp" Grid.Row="7" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="4"/>
-        <Label x:Name="lblRecordarContra" Content="¿Olvidó su contraseña?" FontStyle="Italic" Height="35" VerticalAlignment="Top" Grid.Row="6" Grid.Column="5" Grid.ColumnSpan="3" Margin="0,0,1,0"/>
-        <Button x:Name="btnLogin" Content="Iniciar Sesion" Padding="6" TabIndex="3" AllowDrop="True" Click="btnLogin_Click" Grid.Row="9" Grid.Column="4" Grid.ColumnSpan="2" Height="35" VerticalAlignment="Top"/>
-        <Label x:Name="lblTituloLogin" Content="Iniciar Sesión" FontFamily="Sitka Text" FontSize="38" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="4" Margin="0,1,0,0" VerticalAlignment="Bottom"/>
-        <Image x:Name="imgIcono" Margin="2,1,0,0" Source="icono.png" Grid.Row="2" Grid.Column="2" Grid.RowSpan="2">
+        <Label x:Name="lblLogin" Content="Correo electrónico" Height="32" Margin="0,1.6,3.8,0" VerticalAlignment="Top" FontFamily="Sitka Text" FontSize="16" Grid.Row="4" Grid.Column="3" Grid.ColumnSpan="4"/>
+        <TextBox x:Name="txtUsuario" TextWrapping="Wrap" Height="24" FontFamily="Sitka Text" Padding="4" TabIndex="1" KeyDown="txtUsuario_KeyDown" Grid.Row="5" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="4" VerticalAlignment="Top" Margin="0,0.4,3.8,0"/>
+        <Label x:Name="lblContraseña" Content="Contraseña" HorizontalAlignment="Left" Height="32" Margin="0,3.2,0,0" VerticalAlignment="Top" Width="150" FontFamily="Sitka Text" FontSize="16" Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="2"/>
+        <PasswordBox x:Name="passContra" VerticalAlignment="Top" Height="24" Padding="4" TabIndex="2"  Grid.Row="7" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="4" Margin="0,0,3.8,0" KeyDown="passContra_KeyDown"/>
+        <Button x:Name="btnLogin" Content="Iniciar Sesion" Padding="6" TabIndex="3" AllowDrop="True" Click="btnLogin_Click" Grid.Row="8" Grid.Column="4" Grid.ColumnSpan="2" Height="35" VerticalAlignment="Top" Margin="1.2,38.8,0.6,0" Grid.RowSpan="2"/>
+        <Label x:Name="lblTituloLogin" Content="AdoptDog" FontFamily="Sitka Text" FontSize="43" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="4" Margin="0,0,3.8,8.4" VerticalAlignment="Bottom" Height="58" Grid.RowSpan="2"/>
+        <Image x:Name="imgAvatar" Margin="2.2,0.6,0,0.4" Source="/images/icono.png" Grid.Row="2" Grid.Column="2" Grid.RowSpan="2"  MouseEnter="imgAvatar_MouseEnter" MouseLeave="imgAvatar_MouseLeave">
             <Image.OpacityMask>
-                <ImageBrush ImageSource="icono.png"/>
+                <ImageBrush ImageSource="/images/icono.png"/>
             </Image.OpacityMask>
         </Image>
-        <Image x:Name="imgCheckUsuario" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="30" Grid.Row="5" Grid.Column="7" Grid.RowSpan="2"/>
-        <Image x:Name="imgCheckContrasena" HorizontalAlignment="Left" Height="30" Margin="0,2,0,0" VerticalAlignment="Top" Width="30" Grid.Row="7" Grid.Column="7" Grid.RowSpan="2"/>
+        <Image x:Name="imgCheckUsuario" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="30" Grid.Row="5" Grid.Column="7" Grid.RowSpan="2" Margin="0.2,0.4,0,0"/>
+        <Image x:Name="imgCheckContrasena" HorizontalAlignment="Left" Height="30" Margin="0.2,2,0,0" VerticalAlignment="Top" Width="30" Grid.Row="7" Grid.Column="7" Grid.RowSpan="2"/>
+        <Button x:Name="btnSalir" Content="Salir" Grid.Column="8" HorizontalAlignment="Left" Height="30" Margin="0,18.8,0,0" Grid.Row="8" VerticalAlignment="Top" Width="85" Click="btnSalir_Click" />
+        <Button x:Name ="ContraseñaOlvidada" Grid.ColumnSpan="4" Content="¿Ha olvidado su contraseña?" Grid.Column="5" HorizontalAlignment="Left" Height="20" Margin="45.6,5.6,0,0" Grid.Row="4" VerticalAlignment="Top" Width="156" Click="ContraseñaOlvidada_Click"/>
 
     </Grid>
 </Window>

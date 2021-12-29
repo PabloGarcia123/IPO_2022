@@ -30,6 +30,9 @@ namespace ProyectoIPO2020_2021
 
         private BitmapImage imagCheck = new BitmapImage(new Uri("/Images/Check.jpg", UriKind.Relative));
         private BitmapImage imagCross = new BitmapImage(new Uri("/Images/Cross.jpg", UriKind.Relative));
+        private BitmapImage imagOriginal = new BitmapImage(new Uri("/Images/icono.png", UriKind.Relative));
+        private BitmapImage imagRollOver = new BitmapImage(new Uri("/Images/icono2.png", UriKind.Relative));
+        private AyudaContraseña ventanaAyudaContraseña = new AyudaContraseña();
         private String correo = "Mario.Torres@gmail.com";
         private String contra = "123";
         
@@ -39,18 +42,13 @@ namespace ProyectoIPO2020_2021
             InitializeComponent();
             
         }
-
-
-        
-
-
         private void txtUsuario_KeyDown(object sender, KeyEventArgs e)
         {
+            txtUsuario.IsEnabled = true;
             // se hará la comprobación al pulsar el "Enter"
             if (e.Key == Key.Return)
-            {
-                
-                if (!String.IsNullOrEmpty(txtUsuario.Text) && ComprobarEntrada(txtUsuario.Text, correo, txtUsuario, imgCheckUsuario))
+            {    
+                if (!String.IsNullOrEmpty(txtUsuario.Text) && String.IsNullOrEmpty(passContra.Password) && ComprobarEntrada(txtUsuario.Text, correo, txtUsuario, imgCheckUsuario))
                 {
                     // habilitar entrada de contraseña y pasarle el foco
                     passContra.IsEnabled = true;
@@ -59,35 +57,32 @@ namespace ProyectoIPO2020_2021
                     txtUsuario.IsEnabled = false;
                 }
             }
+
+        }
+        private void passContra_KeyDown(object sender, KeyEventArgs e)
+        {
+                if (e.Key == Key.Return)
+                {
+
+                    if (!String.IsNullOrEmpty(txtUsuario.Text) && !String.IsNullOrEmpty(passContra.Password) && ComprobarEntrada(txtUsuario.Text, correo, txtUsuario, imgCheckUsuario) && ComprobarEntrada(passContra.Password, contra, passContra, imgCheckContrasena))
+                    {
+                        ventanaApp.Show();
+                    }
+                }
         }
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
             // La comprobación ya lleva implícita que las entradas
             // estén vacías
-            if (ComprobarEntrada(txtUsuario.Text, correo,
-            txtUsuario, imgCheckUsuario)
-            &&
-            ComprobarEntrada(passContra.Password, contra, passContra, imgCheckContrasena))
+            if (ComprobarEntrada(txtUsuario.Text, correo,txtUsuario, imgCheckUsuario) && (ComprobarEntrada(passContra.Password, contra, passContra, imgCheckContrasena)))
             {
-                //Application.Current.Shutdown();
-                
                 ventanaApp.Show();
-
-
             }
-            
-
         }
 
         private void VentanaPrincipal_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
             MessageBox.Show("¡Nos vemos! Hasta otra.", "Despedida");
-        }
-
-        private void passContrasena_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (ComprobarEntrada(passContra.Password, contra, passContra, imgCheckContrasena))
-                btnLogin.Focus();
         }
 
         private Boolean ComprobarEntrada(string valorIntroducido, string valorValido, Control componenteEntrada, Image imagenFeedBack)
@@ -105,8 +100,10 @@ namespace ProyectoIPO2020_2021
             }
             else
             {
-                // marcamos borde en rojo
+                // marcamos borde y fondo en rojo
                 componenteEntrada.BorderBrush = Brushes.Red;
+                componenteEntrada.Background = Brushes.LightSalmon;
+
                 // imagen al lado de la entrada de usuario --> cross
                 imagenFeedBack.Source = imagCross;
                 valido = false;
@@ -114,5 +111,32 @@ namespace ProyectoIPO2020_2021
             return valido;
         }
 
+        private void imgAvatar_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgAvatar.Source = imagRollOver;
+           
+        }
+        private void imgAvatar_MouseLeave(object sender, MouseEventArgs e)
+        {
+            imgAvatar.Source = imagOriginal;
+        }
+            
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
+
+            Application.Current.Shutdown();
+        }
+
+        private void btnSalir_Click(object sender, RoutedEventArgs e)
+        {
+           VentanaPrincipal.Close();
+
+        }
+
+        private void ContraseñaOlvidada_Click(object sender, RoutedEventArgs e)
+        {
+            ventanaAyudaContraseña.Show();
+        }
     }
 }

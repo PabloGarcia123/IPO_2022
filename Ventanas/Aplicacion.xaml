@@ -7,7 +7,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoIPO2020_2021"
         mc:Ignorable="d"
-        Title="My Prot3ctora" Height="582" Width="1157"
+        Title="AdoptDog" Height="582" Width="1157"
         MinHeight="583" MinWidth="1157"
         WindowStartupLocation="CenterScreen"
         HorizontalContentAlignment="Stretch"
@@ -30,18 +30,22 @@
         <TabControl TabStripPlacement="Left" Grid.ColumnSpan="3" Grid.Row="1">
             <TabItem x:Name="tabDatos" Header="Datos personales" FontFamily="Open Sans Semibold" >
                 <Grid x:Name="gridDatos" HorizontalAlignment="Left" Height="505" Margin="-1,0,-2,-2" VerticalAlignment="Top" Width="985">
-                    <Rectangle HorizontalAlignment="Left" Height="515" Stroke="Black" VerticalAlignment="Top" Width="975" Margin="0,-10,0,0">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="346*"/>
+                        <ColumnDefinition Width="639*"/>
+                    </Grid.ColumnDefinitions>
+                    <Rectangle HorizontalAlignment="Left" Height="515" Stroke="Black" VerticalAlignment="Top" Width="975" Margin="0,-10,0,0" Grid.ColumnSpan="2" >
                         <Rectangle.Fill>
                             <ImageBrush />
                         </Rectangle.Fill>
                     </Rectangle>
-                    <GroupBox x:Name="grpDetUser" Header="Detalles de usuario;" HorizontalAlignment="Left" Height="108" Margin="58,183,0,0" VerticalAlignment="Top" Width="355" Background="#FF61BF0F" FontSize="16" FontFamily="Open Sans Semibold" Opacity="0.8" FontStretch="ExtraCondensed">
+                    <GroupBox x:Name="grpDetUser" Header="Detalles de usuario" HorizontalAlignment="Left" Height="108" Margin="58,183,0,0" VerticalAlignment="Top" Width="355" Background="#FFADED76" FontSize="16" FontFamily="Open Sans Semibold" Opacity="0.8" FontStretch="ExtraCondensed" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Grid.ColumnSpan="2">
                         <StackPanel HorizontalAlignment="Left" Height="93" Margin="8,7,0,-19" VerticalAlignment="Top" Width="331">
-                            <Label Content="Dirección de correo" HorizontalAlignment="Left" Height="41" Width="321" FontStretch="Normal" FontSize="14"/>
-                            <TextBlock x:Name="txtblockDetUser" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Width="321" Margin="10,0,0,0" FontSize="14"/>
+                            <Label Content="Dirección de correo:" HorizontalAlignment="Left" Height="41" Width="321" FontStretch="Normal" FontSize="14" FontWeight="Normal"/>
+                            <TextBlock x:Name="txtblockDetUser" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Width="321" Margin="10,0,0,0" FontSize="14" FontWeight="Normal"/>
                         </StackPanel>
                     </GroupBox>
-                    <GroupBox x:Name="grpDetPers" Header="Detalles personales" HorizontalAlignment="Left" Height="185" Margin="486,149,0,0" VerticalAlignment="Top" Width="324" Background="#FF61BF0F" FontSize="16" FontFamily="Open Sans Semibold" Opacity="0.8">
+                    <GroupBox x:Name="grpDetPers" Header="Detalles personales" HorizontalAlignment="Left" Height="187" Margin="139.7,147,0,0" VerticalAlignment="Top" Width="324" Background="#FFADED76" FontSize="16" FontFamily="Open Sans Semibold" Opacity="0.8" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Grid.Column="1">
                         <GroupBox.OpacityMask>
                             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                 <GradientStop Color="Black" Offset="0"/>
@@ -49,27 +53,27 @@
                             </LinearGradientBrush>
                         </GroupBox.OpacityMask>
                         <StackPanel HorizontalAlignment="Left" Height="141" Margin="2,10,0,0" VerticalAlignment="Top" Width="306">
-                            <Label x:Name="lblDni" Content="DNI" HorizontalAlignment="Left" Height="32" Width="296" FontSize="14"/>
-                            <TextBlock x:Name="txtblockDni" HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" Width="286" Margin="10,0,0,0" FontSize="14"/>
-                            <Label x:Name="lbl_tlf" Content="Teléfono" HorizontalAlignment="Left" Height="34" Width="306" FontSize="14"/>
-                            <Label x:Name="lblTlf"  HorizontalAlignment="Left" Height="41" Width="286" Margin="10,0,0,0" FontSize="14"/>
+                            <Label x:Name="lblDni" Content="DNI:" HorizontalAlignment="Left" Height="32" Width="296" FontSize="14" FontWeight="Normal"/>
+                            <TextBlock x:Name="txtblockDni" HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" Width="286" Margin="10,0,0,0" FontSize="14" FontWeight="Normal"/>
+                            <Label x:Name="lbl_tlf" Content="Teléfono:" HorizontalAlignment="Left" Height="34" Width="306" FontSize="14" FontWeight="Normal"/>
+                            <Label x:Name="lblTlf"  HorizontalAlignment="Left" Height="41" Width="286" Margin="10,0,0,0" FontSize="14" FontWeight="Normal"/>
                         </StackPanel>
                     </GroupBox>
 
-                    <GroupBox x:Name="grpFecha" Header="Fecha del último acceso" HorizontalAlignment="Left" Height="66" Margin="58,365,0,0" VerticalAlignment="Top" Width="289" Background="#FF61BF0F" FontSize="16" FontFamily="Open Sans Semibold" Opacity="0.8">
-                        <Label x:Name="lblFecha"  HorizontalAlignment="Left" Height="32" Margin="10,0,0,0" VerticalAlignment="Top" Width="263" FontSize="14"/>
+                    <GroupBox x:Name="grpFecha" Header="Fecha del último acceso" HorizontalAlignment="Left" Height="66" Margin="58,365,0,0" VerticalAlignment="Top" Width="289" Background="#FFADED76" FontSize="16" FontFamily="Open Sans Semibold" Opacity="0.8" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Grid.ColumnSpan="2">
+                        <Label x:Name="lblFecha"  HorizontalAlignment="Left" Height="32" Margin="10,0,0,0" VerticalAlignment="Top" Width="263" FontSize="14" FontWeight="Normal"/>
                     </GroupBox>
-                    <Button x:Name="btnAyuda1" HorizontalAlignment="Left" Height="50" Margin="596,424,0,0" VerticalAlignment="Top" Width="102" Content="&#x9;Ayuda" Click="btnAyuda_Click"/>
-                    <StackPanel Orientation = "Horizontal" Margin="0,0,10,0">
+                    <Button x:Name="btnAyuda1" HorizontalAlignment="Left" Height="50" Margin="249.7,424,0,0" VerticalAlignment="Top" Width="102" Content="&#x9;Ayuda" Click="btnAyuda_Click" Grid.Column="1" BorderBrush="Black" BorderThickness="2" />
+                    <StackPanel Orientation = "Horizontal" Margin="0,0,10,0" Grid.ColumnSpan="2">
                         <Image HorizontalAlignment="Left" Height="42" Margin="603,428,0,0" VerticalAlignment="Top" Width="46" Source="/Images/imgAyuda.png"/>
                     </StackPanel>
 
-                    <Button x:Name="btnCerrar" HorizontalAlignment="Left" Height="50" Margin="742,424,0,0" VerticalAlignment="Top" Width="114" Content="Cerrar sesión" Background="#FFE81D1D" FontFamily="Open Sans Semibold" Click="btnCerrar_Click"/>
-                    <Border x:Name="bordeNombre" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="74" Margin="275,28,0,0" VerticalAlignment="Top" Width="484">
-                        <Label x:Name="lblNombre" HorizontalAlignment="Left" Height="73" VerticalAlignment="Top" Width="483" FontSize="30" Margin="0,0,-1,-1"/>
+                    <Button x:Name="btnCerrar" HorizontalAlignment="Left" Height="50" Margin="395.7,424,0,0" VerticalAlignment="Top" Width="114" Content="Cerrar sesión" Background="#FFE81D1D" FontFamily="Open Sans Semibold" Click="btnCerrar_Click" Grid.Column="1" BorderBrush="Black" BorderThickness="2"/>
+                    <Border x:Name="bordeNombre" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Center" Height="74" Margin="41.7,28,113,0" VerticalAlignment="Top" Width="484" Grid.Column="1">
+                        <Label x:Name="lblNombre" HorizontalAlignment="Center" Height="73" VerticalAlignment="Top" Width="483" FontSize="30" Margin="0,0,-1,-1" Content=""/>
                     </Border>
-                    <Border x:Name="bordeImg" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="150" Margin="58,28,0,0" VerticalAlignment="Top" Width="157">
-                        <Image x:Name="imgPerfil"  HorizontalAlignment="Left" Height="150" Margin="-1" VerticalAlignment="Top" Width="157" Source="{Binding img}">
+                    <Border x:Name="bordeImg" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Height="150" Margin="58,28,0,0" VerticalAlignment="Top" Width="157">
+                        <Image x:Name="imgPerfil"  HorizontalAlignment="Left" Height="140"  VerticalAlignment="Top" Width="140" Source="{Binding img}" Margin="8.4,0.4,0,-1.2">
                             <Image.OpacityMask>
                                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                                     <GradientStop Color="Black" Offset="0"/>
