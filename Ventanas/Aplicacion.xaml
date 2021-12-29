@@ -136,13 +136,13 @@
                             <TextBox x:Name="txtCorreoElectronico" HorizontalAlignment="Left" Height="22" Margin="164,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" FontSize="14"/>
                             <CheckBox x:Name="checkApadrinado1" HorizontalAlignment="Left" Height="17" Margin="205,176,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="0.36,-1.306" Grid.RowSpan="2"/>
                             <GroupBox Header="Disponibilidad" Height="193" Margin="-4,46,10,0" VerticalAlignment="Top" FontSize="14" Grid.Row="1">
-                                <TextBox x:Name="txtDescripcionPerro1" HorizontalAlignment="Left" Margin="10,0,0,18.6" TextWrapping="Wrap" Width="239" FontSize="12" Height="141" VerticalAlignment="Bottom" TextChanged="txtDescripcionPerro1_TextChanged"/>
+                                <TextBox x:Name="txtDescripcionPerro1" HorizontalAlignment="Left" Margin="10,0,0,18.6" TextWrapping="Wrap" Width="239" FontSize="12" Height="141" VerticalAlignment="Bottom" />
                             </GroupBox>
                             <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="89" Margin="384,14,0,0" VerticalAlignment="Top" Width="97">
                                 <Image x:Name="imgPerro1" HorizontalAlignment="Left" Height="69" VerticalAlignment="Top" Width="77" Margin="9,9,0,0"/>
                             </Border>
                             <TextBox x:Name="txtboxApellido" HorizontalAlignment="Left" Height="22" Margin="164,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" RenderTransformOrigin="2,0.509"/>
-                            <TextBox x:Name="txtDescripcionPerro1_Copy" HorizontalAlignment="Left" Margin="274,0,0,34.8" TextWrapping="Wrap" Width="235" FontSize="12" Height="141" VerticalAlignment="Bottom" TextChanged="txtDescripcionPerro1_TextChanged" Grid.Row="1"/>
+                            <TextBox x:Name="txtDescripcionPerro1_Copy" HorizontalAlignment="Left" Margin="274,0,0,34.8" TextWrapping="Wrap" Width="235" FontSize="12" Height="141" VerticalAlignment="Bottom"  Grid.Row="1"/>
 
                         </Grid>
                     </GroupBox>
