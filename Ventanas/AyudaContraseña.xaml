@@ -5,11 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoIPO2020_2021"
         mc:Ignorable="d"
-        Title="AyudaContraseña" Height="200
-        " Width="400">
-    <Grid>
+        Title="AyudaContraseña" Height="200"
+         Width="420">
+    <Grid Margin="6,0,-6.4,0.4">
         <GroupBox x:Name="groupInfo" Header="Información" HorizontalAlignment="Left" Margin="10,10,-0.4,17.4" Width="384">
-            <Label x:Name="lblInfo" Content="Si desea recuperar la contraseña mande un correo electrónico a: &#xA;                      Noel.Fernandez@alu.uclm.es&#xA;indicando: Su correo electrónico, DNI y número de teléfono.&#xA;Estableciendo como asunto HE OLVIDADO MI CONTRASEÑA.&#xA;Se pondrán en contacto con usted lo antes posible." 
+            <Label x:Name="lblInfo" Content="Si desea recuperar la contraseña mande un correo electrónico a: &#xA;                      soporte.tecnico@prot3ctora.es&#xA;indicando: Su correo electrónico, DNI y número de teléfono.&#xA;Estableciendo como asunto HE OLVIDADO MI CONTRASEÑA.&#xA;Se pondrán en contacto con usted lo antes posible." 
                    HorizontalAlignment="Left" Height="106" Margin="4,6,0,0" VerticalAlignment="Top" Width="347"/>
         </GroupBox>
 

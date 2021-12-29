@@ -55,8 +55,14 @@ namespace ProyectoIPO2020_2021
         private void btnCerrar_Click(object sender, RoutedEventArgs e)
         {
             this.Close();
+            
         }
+        protected override void OnClosed(EventArgs e)
+        {
+            base.OnClosed(e);
 
+            Application.Current.Shutdown();
+        }
         private void btnCbPerfil_Click(object sender, RoutedEventArgs e)
         {
             

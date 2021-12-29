@@ -85,12 +85,6 @@ namespace ProyectoIPO2020_2021
             MessageBox.Show("¡Nos vemos! Hasta otra.", "Despedida");
         }
 
-        /*private void passContrasena_KeyUp(object sender, KeyEventArgs e)
-        {
-            if (ComprobarEntrada(passContra.Password, contra, passContra, imgCheckContrasena))
-                btnLogin.Focus();
-        }*/
-
         private Boolean ComprobarEntrada(string valorIntroducido, string valorValido, Control componenteEntrada, Image imagenFeedBack)
         {
             Boolean valido = false;
