@@ -136,7 +136,9 @@ namespace ProyectoIPO2020_2021
 
         private void ContraseñaOlvidada_Click(object sender, RoutedEventArgs e)
         {
-            ventanaAyudaContraseña.Show();
+
+            MessageBox.Show("Si desea recuperar la contraseña mande un correo electrónico a: &#xA;                      soporte.tecnico@prot3ctora.es&#xA;indicando: Su correo electrónico, DNI y número de teléfono.&#xA;Estableciendo como asunto HE OLVIDADO MI CONTRASEÑA.&#xA;Se pondrán en contacto con usted lo antes posible.", "Cerrar");
+            //ventanaAyudaContraseña.Show();
         }
     }
 }
