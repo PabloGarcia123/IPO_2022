@@ -56,10 +56,6 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
-    <Compile Include="Access\Conexion.cs" />
-    <Compile Include="Ventanas\AyudaContraseña.xaml.cs">
-      <DependentUpon>AyudaContraseña.xaml</DependentUpon>
-    </Compile>
     <Compile Include="Ventanas\Apadrinado.xaml.cs">
       <DependentUpon>Apadrinado.xaml</DependentUpon>
     </Compile>
@@ -70,10 +66,6 @@
       <DependentUpon>VentanaAyuda.xaml</DependentUpon>
     </Compile>
     <Compile Include="Clases\Voluntario.cs" />
-    <Page Include="Ventanas\AyudaContraseña.xaml">
-      <SubType>Designer</SubType>
-      <Generator>MSBuild:Compile</Generator>
-    </Page>
     <Page Include="Ventanas\Apadrinado.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -119,14 +111,10 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <None Include="app.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
     </None>
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="Ventanas\App.config" />
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Images\icono.png" />
