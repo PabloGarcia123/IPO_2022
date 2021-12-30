@@ -56,17 +56,14 @@ namespace ProyectoIPO2020_2021
             this.Close();
             
         }
+
         protected override void OnClosed(EventArgs e)
         {
             base.OnClosed(e);
 
             Application.Current.Shutdown();
         }
-        private void btnCbPerfil_Click(object sender, RoutedEventArgs e)
-        {
-            
-        }
-
+       
         private void btnConsultaApadrinado_Click(object sender, RoutedEventArgs e)
         {
             ventanaPadrinos.Show();
@@ -93,10 +90,29 @@ namespace ProyectoIPO2020_2021
 
         private void btnAñadir_Click(object sender, RoutedEventArgs e)
         {
+            string sexo_perro = obtenerSexoPerro();
+            
             StreamWriter escribir = new StreamWriter("TablaPerros.txt");
-            escribir.WriteLine(txtboxNombrePerro.Text + " " + txtboxRazaPerro.Text);
+            escribir.WriteLine("Nombre " + " Sexo " + " Raza " + " Peso " + " Edad " + " Fecha de entrada " + " ¿Apadrinado? " + " Descripción ");
+            escribir.WriteLine(txtboxNombrePerro.Text + " " + sexo_perro + " " + txtboxRazaPerro.Text + " " + txtboxPesoPerro.Text + " " + txtEdadPerro.Text + " " + dateFechaPerro.Text + " " + checkApadrinado.IsChecked + " " + txtboxDescripcion.Text);
             escribir.Close();
         }
+
+        private string obtenerSexoPerro()
+        {
+            String sexo;
+            if (radiobMacho == null)
+            {
+                sexo = (string)radiobHembra.Content;
+            }
+            else
+            {
+                sexo = (string)radiobMacho.Content;
+            }
+            return sexo;
+        }
+
+
 
         private void CheckBoxLunes_Checked(object sender, RoutedEventArgs e)
         {

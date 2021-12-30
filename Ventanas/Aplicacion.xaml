@@ -100,7 +100,9 @@
                             <CheckBox x:Name="checkApadrinado" HorizontalAlignment="Left" Height="17" Margin="164,207,0,0" VerticalAlignment="Top" Width="20"/>
                             <Button x:Name="btnConsultaApadrinado" Content="Consultar Padrino" HorizontalAlignment="Left" Height="17" Margin="207,208,0,0" VerticalAlignment="Top" Width="99" FontSize="9" IsEnabled="{Binding ElementName=checkApadrinado, Path=IsChecked}" Click="btnConsultaApadrinado_Click"/>
                             <GroupBox Header="Descripción" HorizontalAlignment="Left" Height="153" Margin="-4,244,0,0" VerticalAlignment="Top" Width="426" FontSize="14">
-                                <Grid HorizontalAlignment="Left" Height="143" VerticalAlignment="Top" Width="416" Margin="0,0,-2.4,-13.4"/>
+                                <Grid HorizontalAlignment="Left" Height="143" VerticalAlignment="Top" Width="416" Margin="0,0,-2.4,-13.4">
+                                    <TextBox x:Name="txtboxDescripcion" HorizontalAlignment="Left" Height="123" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="396"/>
+                                </Grid>
 
                             </GroupBox>
                             <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="89" Margin="384,14,0,0" VerticalAlignment="Top" Width="97">
@@ -188,10 +190,7 @@
             <TabItem x:Name="tabSocios" Header="Gestión de socios" FontFamily="Open Sans Semibold" >
                 <Grid x:Name="gridSocios" HorizontalAlignment="Left" Height="505" VerticalAlignment="Top" Width="985" Margin="-2,0,-1,-2"/>
             </TabItem>
-            <DockPanel Height="134" LastChildFill="False" Width="191"/>
-            <CheckBox Content="CheckBox" Height="0" Width="31"/>
-            <RadioButton Content="RadioButton" Height="14" Width="64"/>
-            <DataGrid Height="100" Width="100"/>
+            
         </TabControl>
         <Button x:Name="btnAyuda" Grid.Column="2" HorizontalAlignment="Left" Height="23" Margin="12,5,0,0" VerticalAlignment="Top" Width="23" Click="btnAyuda_Click">
             <Image x:Name="imgAyuda" Height="19" Width="20" Source="/Images/imgAyuda.png"/>
@@ -203,7 +202,7 @@
                     <GradientStop Color="#FF531616" Offset="1"/>
                 </LinearGradientBrush>
             </ComboBox.Background>
-            <Button x:Name="btnCbPerfil" Content="Perfil Personal" FontFamily="Open Sans Semibold" Click="btnCbPerfil_Click" Width="143" Background="#FF3CFFE4"/>
+            <Button x:Name="btnCbPerfil" Content="Perfil Personal" FontFamily="Open Sans Semibold"  Width="143" Background="#FF3CFFE4"/>
             <Button x:Name="btnCbCerrarSesion" Content="Cerrar Sesión" Background="#FFE81D1D" FontFamily="Open Sans Semibold" Click="btnCerrar_Click" HorizontalAlignment="Center" Width="145"/>
 
 
