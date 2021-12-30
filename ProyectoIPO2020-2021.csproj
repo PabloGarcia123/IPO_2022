@@ -60,14 +60,6 @@
     <Compile Include="Ventanas\AyudaContraseña.xaml.cs">
       <DependentUpon>AyudaContraseña.xaml</DependentUpon>
     </Compile>
-    <Compile Include="BBDDPerrosDataSet.cs">
-      <DependentUpon>BBDDPerrosDataSet.xsd</DependentUpon>
-    </Compile>
-    <Compile Include="BBDDPerrosDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>BBDDPerrosDataSet.xsd</DependentUpon>
-    </Compile>
     <Compile Include="Ventanas\Apadrinado.xaml.cs">
       <DependentUpon>Apadrinado.xaml</DependentUpon>
     </Compile>
@@ -128,17 +120,6 @@
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
     <None Include="app.config" />
-    <None Include="BBDDPerrosDataSet.xsc">
-      <DependentUpon>BBDDPerrosDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="BBDDPerrosDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>BBDDPerrosDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="BBDDPerrosDataSet.xss">
-      <DependentUpon>BBDDPerrosDataSet.xsd</DependentUpon>
-    </None>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -169,10 +150,6 @@
     <Resource Include="Images\Mike-Wazowski.jpg" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="BBDDPerros.accdb">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-    <Resource Include="Images\Mike-Wazowski2.jpg" />
     <Resource Include="Images\icono2.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
