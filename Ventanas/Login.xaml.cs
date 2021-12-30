@@ -32,7 +32,7 @@ namespace ProyectoIPO2020_2021
         private BitmapImage imagCross = new BitmapImage(new Uri("/Images/Cross.jpg", UriKind.Relative));
         private BitmapImage imagOriginal = new BitmapImage(new Uri("/Images/icono.png", UriKind.Relative));
         private BitmapImage imagRollOver = new BitmapImage(new Uri("/Images/icono2.png", UriKind.Relative));
-        private AyudaContraseña ventanaAyudaContraseña = new AyudaContraseña();
+        
         private String correo = "Mario.Torres@gmail.com";
         private String contra = "123";
         
