@@ -212,5 +212,111 @@ namespace ProyectoIPO2020_2021
             CheckBoxLunesMa.IsChecked = false;
             CheckBoxLunesTar.IsChecked = false;
         }
+
+        private void txtboxNombreSocio_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtboxApellidoSocio.Focus();
+            }        
+        }
+
+        private void txtboxApellidoSocio_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtboxDNISocio.Focus();
+            }
+        }
+
+        private void txtboxDNISocio_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+               txtboxTelefonoVoluntario.Focus();
+            }
+        }
+
+        private void txtboxTelefonoSocio_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtCorreoElectronicoSocio.Focus();
+            }
+        }
+
+        private void txtCorreoElectronicoSocio_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+               txtEntidadBancaria.Focus();
+            }
+        }
+
+        private void txtEntidadBancaria_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtIBAN1.Focus();
+            }
+        }
+
+        private void txtIBAN1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtIBAN2.Focus();
+            }
+        }
+
+        private void txtIBAN2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtIBAN3.Focus();
+            }
+        }
+
+        private void txtIBAN3_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtIBAN4.Focus();
+            }
+        }
+
+        private void txtIBAN4_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtIBAN5.Focus();
+            }
+        }
+
+        private void txtIBAN5_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtIBAN6.Focus();
+            }
+        }
+
+        private void txtIBAN6_keyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtCuantia.Focus();
+            }
+        }
+
+        private void txtCuantia_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                cboxformPago.Focus();
+            }
+        }
+
+
     }
 }
