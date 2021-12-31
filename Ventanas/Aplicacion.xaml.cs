@@ -233,7 +233,7 @@ namespace ProyectoIPO2020_2021
         {
             if (e.Key == Key.Return)
             {
-               txtboxTelefonoVoluntario.Focus();
+               txtboxTelefonoSocio.Focus();
             }
         }
 
@@ -317,6 +317,36 @@ namespace ProyectoIPO2020_2021
             }
         }
 
+        private void txtboxNombreVoluntario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtboxApellidoVoluntario.Focus();
+            }
+        }
 
+        private void txtboxApellidoVoluntario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtboxDNIVoluntario.Focus();
+            }
+        }
+
+        private void txtboxDNIVoluntario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtboxTelefonoVoluntario.Focus();
+            }
+        }
+
+        private void txtboxTelefonoVoluntario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtCorreoElectronicoVoluntario.Focus();
+            }
+        }
     }
 }
