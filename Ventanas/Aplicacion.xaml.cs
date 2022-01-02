@@ -26,24 +26,58 @@ namespace ProyectoIPO2020_2021
         private VentanaAyuda ventanaAyuda = new VentanaAyuda();
         private Apadrinado ventanaPadrinos = new Apadrinado();
         
-
         private static BitmapImage imgUsuario1 = new BitmapImage(new Uri("/Images/Mike-Wazowski.jpg", UriKind.Relative));
-        private static Usuario usuario1 = new Usuario("Mario Torres Toledano", "Mario.Torres@gmail.com", "05285136F", 688455782, DateTime.Now, imgUsuario1, "123");
+        private static BitmapImage imgUsuario2 = new BitmapImage(new Uri("/Images/Boo.png", UriKind.Relative));
+        private static BitmapImage imgUsuario3 = new BitmapImage(new Uri("/Images/Sulley.png", UriKind.Relative));
         
-        
+        public static Usuario usuario1 = new Usuario("Mario Torres Toledano", "Mario.Torres@gmail.com", "05285136F", 688455782, DateTime.Now, imgUsuario1, "123");
+        public static Usuario usuario2 = new Usuario("Laura Castillo Rodriguez", "Laura.Castillo@gmail.com", "06742376C", 637328948, DateTime.Now, imgUsuario2, "123");
+        public static Usuario usuario3 = new Usuario("Ramon Llanos Espadas", "Ramon.LLanos@gmail.com", "03523428F", 698674651, DateTime.Now, imgUsuario3, "123");
         
         public Aplicacion()
         {
-            InitializeComponent();
             
+            InitializeComponent();
+            cargarInfo();
+            /*
             txtblockDetUser.Text = usuario1.correo;
             imgPerfil.Source = usuario1.img;
             lblNombre.Content = usuario1.nombre;
             txtblockDni.Text = usuario1.dni;
             lblTlf.Content = usuario1.n_tlf;
             lblFecha.Content = usuario1.ult_acceso;
-
+            */
  
+        }
+        private void cargarInfo()
+        {
+            if(Login.correo == usuario1.correo)
+            {
+                txtblockDetUser.Text = usuario1.correo;
+                imgPerfil.Source = usuario1.img;
+                lblNombre.Content = usuario1.nombre;
+                txtblockDni.Text = usuario1.dni;
+                lblTlf.Content = usuario1.n_tlf;
+                lblFecha.Content = usuario1.ult_acceso;
+            }
+            if (Login.correo == usuario2.correo)
+            {
+                txtblockDetUser.Text = usuario2.correo;
+                imgPerfil.Source = usuario2.img;
+                lblNombre.Content = usuario2.nombre;
+                txtblockDni.Text = usuario2.dni;
+                lblTlf.Content = usuario2.n_tlf;
+                lblFecha.Content = usuario2.ult_acceso;
+            }
+            if (Login.correo == usuario3.correo)
+            {
+                txtblockDetUser.Text = usuario3.correo;
+                imgPerfil.Source = usuario3.img;
+                lblNombre.Content = usuario3.nombre;
+                txtblockDni.Text = usuario3.dni;
+                lblTlf.Content = usuario3.n_tlf;
+                lblFecha.Content = usuario3.ult_acceso;
+            }
         }
 
         private void btnAyuda_Click(object sender, RoutedEventArgs e)
@@ -100,7 +134,7 @@ namespace ProyectoIPO2020_2021
 
         private string obtenerSexoPerro()
         {
-            String sexo;
+            string sexo;
             if (radiobMacho == null)
             {
                 sexo = (string)radiobHembra.Content;
@@ -211,142 +245,6 @@ namespace ProyectoIPO2020_2021
             CheckBoxLunesTar.IsEnabled = false;
             CheckBoxLunesMa.IsChecked = false;
             CheckBoxLunesTar.IsChecked = false;
-        }
-
-        private void txtboxNombreSocio_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-            {
-                txtboxApellidoSocio.Focus();
-            }        
-        }
-
-        private void txtboxApellidoSocio_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-            {
-                txtboxDNISocio.Focus();
-            }
-        }
-
-        private void txtboxDNISocio_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-            {
-               txtboxTelefonoSocio.Focus();
-            }
-        }
-
-        private void txtboxTelefonoSocio_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-            {
-                txtCorreoElectronicoSocio.Focus();
-            }
-        }
-
-        private void txtCorreoElectronicoSocio_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-            {
-               txtEntidadBancaria.Focus();
-            }
-        }
-
-        private void txtEntidadBancaria_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-            {
-                txtIBAN1.Focus();
-            }
-        }
-
-        private void txtIBAN1_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-            {
-                txtIBAN2.Focus();
-            }
-        }
-
-        private void txtIBAN2_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-            {
-                txtIBAN3.Focus();
-            }
-        }
-
-        private void txtIBAN3_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-            {
-                txtIBAN4.Focus();
-            }
-        }
-
-        private void txtIBAN4_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-            {
-                txtIBAN5.Focus();
-            }
-        }
-
-        private void txtIBAN5_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-            {
-                txtIBAN6.Focus();
-            }
-        }
-
-        private void txtIBAN6_keyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-            {
-                txtCuantia.Focus();
-            }
-        }
-
-        private void txtCuantia_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-            {
-                cboxformPago.Focus();
-            }
-        }
-
-        private void txtboxNombreVoluntario_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-            {
-                txtboxApellidoVoluntario.Focus();
-            }
-        }
-
-        private void txtboxApellidoVoluntario_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-            {
-                txtboxDNIVoluntario.Focus();
-            }
-        }
-
-        private void txtboxDNIVoluntario_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-            {
-                txtboxTelefonoVoluntario.Focus();
-            }
-        }
-
-        private void txtboxTelefonoVoluntario_KeyDown(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.Return)
-            {
-                txtCorreoElectronicoVoluntario.Focus();
-            }
         }
     }
 }

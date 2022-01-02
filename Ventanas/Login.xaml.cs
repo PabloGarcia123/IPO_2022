@@ -33,22 +33,69 @@ namespace ProyectoIPO2020_2021
         private BitmapImage imagOriginal = new BitmapImage(new Uri("/Images/icono.png", UriKind.Relative));
         private BitmapImage imagRollOver = new BitmapImage(new Uri("/Images/icono2.png", UriKind.Relative));
         
-        private String correo = "123";
-        private String contra = "123";
+        public static string correo = "";
+        public static string contra = "";
+        private string correo1 = Aplicacion.usuario1.correo;
+        private string contra1 = Aplicacion.usuario1.contraseña;
+        private string correo2 = Aplicacion.usuario2.correo;
+        private string contra2 = Aplicacion.usuario2.contraseña;
+        private string correo3 = Aplicacion.usuario3.correo;
+        private string contra3 = Aplicacion.usuario3.contraseña;
         
+
 
         public Login()
         {
+            
             InitializeComponent();
+           
             
         }
+
+        public string establecerCorreo()
+        {
+           
+            if (txtUsuario.Text == correo1)
+            {
+                correo = txtUsuario.Text;
+            }
+            if(txtUsuario.Text == correo2)
+            {
+                correo = correo2;
+            }
+            if(txtUsuario.Text == correo3)
+            {
+                correo = correo3;
+            }
+            return correo;
+        }
+
+        private string establecerContra()
+        {
+            if (passContra.Password == contra1)
+            {
+                contra = contra1;
+            }
+            if (passContra.Password == contra2)
+            {
+                contra = contra2;
+            }
+            if (passContra.Password == contra2)
+            {
+                contra = contra3;
+            }
+            return contra;
+        }
+
+
         private void txtUsuario_KeyDown(object sender, KeyEventArgs e)
         {
             txtUsuario.IsEnabled = true;
             // se hará la comprobación al pulsar el "Enter"
             if (e.Key == Key.Return)
             {    
-                if (!String.IsNullOrEmpty(txtUsuario.Text) && String.IsNullOrEmpty(passContra.Password) && ComprobarEntrada(txtUsuario.Text, correo, txtUsuario, imgCheckUsuario))
+                //
+                if (!string.IsNullOrEmpty(txtUsuario.Text) && string.IsNullOrEmpty(passContra.Password) && ComprobarEntrada(txtUsuario.Text, establecerCorreo(), txtUsuario, imgCheckUsuario))
                 {
                     // habilitar entrada de contraseña y pasarle el foco
                     passContra.IsEnabled = true;
@@ -64,7 +111,7 @@ namespace ProyectoIPO2020_2021
                 if (e.Key == Key.Return)
                 {
 
-                    if (!String.IsNullOrEmpty(txtUsuario.Text) && !String.IsNullOrEmpty(passContra.Password) && ComprobarEntrada(txtUsuario.Text, correo, txtUsuario, imgCheckUsuario) && ComprobarEntrada(passContra.Password, contra, passContra, imgCheckContrasena))
+                    if (!string.IsNullOrEmpty(txtUsuario.Text) && !string.IsNullOrEmpty(passContra.Password) && ComprobarEntrada(txtUsuario.Text, establecerCorreo(), txtUsuario, imgCheckUsuario) && ComprobarEntrada(passContra.Password, establecerContra(), passContra, imgCheckContrasena))
                     {
                         ventanaApp.Show();
                     }
@@ -74,7 +121,7 @@ namespace ProyectoIPO2020_2021
         {
             // La comprobación ya lleva implícita que las entradas
             // estén vacías
-            if (ComprobarEntrada(txtUsuario.Text, correo,txtUsuario, imgCheckUsuario) && (ComprobarEntrada(passContra.Password, contra, passContra, imgCheckContrasena)))
+            if (ComprobarEntrada(txtUsuario.Text, establecerCorreo(), txtUsuario, imgCheckUsuario) && (ComprobarEntrada(passContra.Password, establecerContra(), passContra, imgCheckContrasena)))
             {
                 ventanaApp.Show();
             }
@@ -85,9 +132,9 @@ namespace ProyectoIPO2020_2021
             MessageBox.Show("¡Nos vemos! Hasta otra.", "Despedida");
         }
 
-        private Boolean ComprobarEntrada(string valorIntroducido, string valorValido, Control componenteEntrada, Image imagenFeedBack)
+        private bool ComprobarEntrada(string valorIntroducido, string valorValido, Control componenteEntrada, Image imagenFeedBack)
         {
-            Boolean valido = false;
+            bool valido = false;
             componenteEntrada.BorderThickness = new Thickness(2);
             if (valorIntroducido.Equals(valorValido))
             {
@@ -137,13 +184,11 @@ namespace ProyectoIPO2020_2021
         private void ContraseñaOlvidada_Click(object sender, RoutedEventArgs e)
         {
 
-            MessageBox.Show("Si desea recuperar la contraseña mande un correo electrónico a:  " +
-                "soporte.tecnico@prot3ctora.es                                                                   " +
-                "indicando: Su correo electrónico, DNI y número de teléfono                               " +
-                "Estableciendo como asunto HE OLVIDADO MI CONTRASEÑA.                            " +
-                "Se pondrán en contacto con usted lo antes posible.                                       "
-                , "Cambio de contraseña");
-            
+            MessageBox.Show("Si desea recuperar la contraseña mande un correo electrónico a: " +
+                "soporte.tecnico@prot3ctora.es indicando: \nSu correo electrónico, DNI y número de teléfono.\n" +
+                "Estableciendo como asunto HE OLVIDADO MI CONTRASEÑA. Se pondrán en contacto con usted lo antes posible.", 
+                "Cerrar");
+            //ventanaAyudaContraseña.Show();
         }
     }
 }
