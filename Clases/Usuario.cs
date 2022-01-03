@@ -5,7 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Media.Imaging;
 
-namespace ProyectoIPO2020_2021
+namespace ProyectoIPO2020_2021.Clases
 {
     public class Usuario
     {

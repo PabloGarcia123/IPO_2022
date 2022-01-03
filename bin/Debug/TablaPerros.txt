@@ -1,1 +1,10 @@
-dfa
+Nombre: HOla
+Sexo: Macho
+Raza: AErfa
+Peso: 12
+Edad: 2
+Fecha de entrada: 06/01/2022
+¿Apadrinado?: True
+Descripción: wdasda
+
+

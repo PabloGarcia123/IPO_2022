@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.Win32;
 using System.IO;
-
+using ProyectoIPO2020_2021.Clases;
 
 namespace ProyectoIPO2020_2021
 {
@@ -127,9 +127,39 @@ namespace ProyectoIPO2020_2021
             string sexo_perro = obtenerSexoPerro();
             
             StreamWriter escribir = new StreamWriter("TablaPerros.txt");
-            escribir.WriteLine("Nombre " + " Sexo " + " Raza " + " Peso " + " Edad " + " Fecha de entrada " + " ¿Apadrinado? " + " Descripción ");
-            escribir.WriteLine(txtboxNombrePerro.Text + " " + sexo_perro + " " + txtboxRazaPerro.Text + " " + txtboxPesoPerro.Text + " " + txtEdadPerro.Text + " " + dateFechaPerro.Text + " " + checkApadrinado.IsChecked + " " + txtboxDescripcion.Text);
+            
+            escribir.WriteLine("Nombre: " + txtboxNombrePerro.Text);
+            escribir.WriteLine("Sexo: " + sexo_perro);
+            escribir.WriteLine("Raza: " + txtboxRazaPerro.Text);
+            escribir.WriteLine("Peso: " + txtboxPesoPerro.Text);
+            escribir.WriteLine("Edad: " + txtEdadPerro.Text);
+            escribir.WriteLine("Fecha de entrada: " + dateFechaPerro.Text);
+            escribir.WriteLine("¿Apadrinado?: " + checkApadrinado.IsChecked);
+            escribir.WriteLine("Descripción: " + txtboxDescripcion.Text);
+            escribir.WriteLine("\n");
             escribir.Close();
+        }
+
+        private void btnListar_Click(object sender, RoutedEventArgs e)
+        {
+            richPerros.Document.Blocks.Clear();
+            StreamReader leer = new StreamReader("TablaPerros.txt");
+            string linea;
+            
+            try
+            {
+                linea = leer.ReadLine();
+                while (linea != null)
+                {
+                    richPerros.AppendText(linea + "\n");
+                    linea = leer.ReadLine();
+
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Error");
+            }
         }
 
         private string obtenerSexoPerro()
@@ -145,7 +175,6 @@ namespace ProyectoIPO2020_2021
             }
             return sexo;
         }
-
 
 
         private void CheckBoxLunes_Checked(object sender, RoutedEventArgs e)
@@ -246,5 +275,7 @@ namespace ProyectoIPO2020_2021
             CheckBoxLunesMa.IsChecked = false;
             CheckBoxLunesTar.IsChecked = false;
         }
+
+        
     }
 }

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ProyectoIPO2020_2021
+namespace ProyectoIPO2020_2021.Clases
 {
     class Perro
     {
