@@ -7,17 +7,17 @@ using System.Windows.Media.Imaging;
 
 namespace ProyectoIPO2020_2021
 {
-    class Usuario
+    public class Usuario
     {
-        public String nombre { set; get; }
-        public String correo { set; get; }
-        public String dni { set; get; }
+        public string nombre { set; get; }
+        public string correo { set; get; }
+        public string dni { set; get; }
         public int n_tlf { set; get; }
         public DateTime ult_acceso { set; get; }
         public BitmapImage img { set; get; }
-        public String contraseña { set; get; }
+        public string contraseña { set; get; }
 
-        public Usuario(String nombre, String correo, String dni, int n_tlf, DateTime ult_acceso, BitmapImage img, String contraseña)
+        public Usuario(string nombre, string correo, string dni, int n_tlf, DateTime ult_acceso, BitmapImage img, string contraseña)
         {
             this.nombre = nombre;
             this.correo = correo;
