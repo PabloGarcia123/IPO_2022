@@ -8,14 +8,14 @@ namespace ProyectoIPO2020_2021
 {
     class Socio
     {
-        public String nombre { set; get; }
-        public String dni { set; get; }
-        public String correo { set; get; }
+        public string nombre { set; get; }
+        public string dni { set; get; }
+        public string correo { set; get; }
         public int n_tlf { set; get; }
         public int n_cuenta { set; get; }
-        public String ent_bancaria { set; get; }
-        public String metodo_pago { set; get; }
-        public String img { set; get; }
+        public string ent_bancaria { set; get; }
+        public string metodo_pago { set; get; }
+        public string img { set; get; }
 
         public Socio(string nombre, string dni, string correo, int n_tlf, int n_cuenta, string ent_bancaria, string metodo_pago, string img)
         {

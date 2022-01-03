@@ -8,16 +8,16 @@ namespace ProyectoIPO2020_2021
 {
     class Perro
     {
-        public String nombre { set; get; }
-        public Boolean sexo { set; get; }
-        public String raza { set; get; }
+        public string nombre { set; get; }
+        public bool sexo { set; get; }
+        public string raza { set; get; }
         public int peso { set; get; }
         public int edad { set; get; }
         public DateTime fecha_entrada { set; get; }
-        public String estado { set; get; }
-        public Boolean apadrinado { set; get; }
-        public String descripcion { set; get; }
-        public String img { set; get; }
+        public string estado { set; get; }
+        public bool apadrinado { set; get; }
+        public string descripcion { set; get; }
+        public string img { set; get; }
 
         public Perro(string nombre, bool sexo, string raza, int peso, int edad, DateTime fecha_entrada, string estado, bool apadrinado, string descripcion, string img)
         {
