@@ -6,29 +6,27 @@ using System.Threading.Tasks;
 
 namespace ProyectoIPO2020_2021.Clases
 {
-    class Socio
+    class Padrino
     {
         public string nombre { set; get; }
         public string dni { set; get; }
         public string correo { set; get; }
         public int n_tlf { set; get; }
+        public int aportacion { set; get; }
+        public string forma_pago { set; get; }
         public int n_cuenta { set; get; }
-        public string ent_bancaria { set; get; }
-        public string metodo_pago { set; get; }
-        public string img { set; get; }
+        public DateTime fecha_apadrinamiento { set; get; }
 
-        public Socio(string nombre, string dni, string correo, int n_tlf, int n_cuenta, string ent_bancaria, string metodo_pago, string img)
+        public Padrino(string nombre, string dni, string correo, int n_tlf, int aportacion, string forma_pago, int n_cuenta, DateTime fecha_apadrinamiento)
         {
             this.nombre = nombre;
             this.dni = dni;
             this.correo = correo;
             this.n_tlf = n_tlf;
+            this.aportacion = aportacion;
+            this.forma_pago = forma_pago;
             this.n_cuenta = n_cuenta;
-            this.ent_bancaria = ent_bancaria;
-            this.metodo_pago = metodo_pago;
-            this.img = img;
+            this.fecha_apadrinamiento = fecha_apadrinamiento;
         }
-
-       
     }
 }
