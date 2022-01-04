@@ -12,8 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.Win32;
-using System.Data.OleDb;
-using Oracle.DataAccess;
+
 
 namespace ProyectoIPO2020_2021
 {
