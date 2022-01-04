@@ -1,0 +1,10 @@
+Nombre: Huevos
+Sexo: Macho
+Raza: cacniche
+Peso: 12
+Edad: 12
+Fecha de entrada: 22/01/2022
+¿Apadrinado?: True
+Descripción: tonto
+
+
