@@ -26,19 +26,13 @@ namespace ProyectoIPO2020_2021
         private VentanaAyuda ventanaAyuda = new VentanaAyuda();
         private Apadrinado ventanaPadrinos = new Apadrinado();
         
-        private static BitmapImage imgUsuario1 = new BitmapImage(new Uri("/Images/Mike-Wazowski.jpg", UriKind.Relative));
-        private static BitmapImage imgUsuario2 = new BitmapImage(new Uri("/Images/Boo.png", UriKind.Relative));
-        private static BitmapImage imgUsuario3 = new BitmapImage(new Uri("/Images/Sulley.png", UriKind.Relative));
         
-        public static Usuario usuario1 = new Usuario("Mario Torres Toledano", "Mario.Torres@gmail.com", "05285136F", 688455782, DateTime.Now, imgUsuario1, "123");
-        public static Usuario usuario2 = new Usuario("Laura Castillo Rodriguez", "Laura.Castillo@gmail.com", "06742376C", 637328948, DateTime.Now, imgUsuario2, "123");
-        public static Usuario usuario3 = new Usuario("Ramon Llanos Espadas", "Ramon.LLanos@gmail.com", "03523428F", 698674651, DateTime.Now, imgUsuario3, "123");
-        
+
         public Aplicacion()
         {
             
             InitializeComponent();
-            cargarInfo();
+            //cargarInfo();
             /*
             txtblockDetUser.Text = usuario1.correo;
             imgPerfil.Source = usuario1.img;
@@ -49,7 +43,7 @@ namespace ProyectoIPO2020_2021
             */
  
         }
-        private void cargarInfo()
+        /*private void cargarInfo()
         {
             if(Login.correo == usuario1.correo)
             {
@@ -78,7 +72,7 @@ namespace ProyectoIPO2020_2021
                 lblTlf.Content = usuario3.n_tlf;
                 lblFecha.Content = usuario3.ult_acceso;
             }
-        }
+        }*/
 
         private void btnAyuda_Click(object sender, RoutedEventArgs e)
         {
@@ -124,20 +118,62 @@ namespace ProyectoIPO2020_2021
 
         private void btnAñadir_Click(object sender, RoutedEventArgs e)
         {
-            string sexo_perro = obtenerSexoPerro();
+            if (string.IsNullOrEmpty(txtboxNombrePerro.Text))
+            {
+                txtboxNombrePerro.BorderBrush = Brushes.Red;
+                txtboxNombrePerro.Background = Brushes.LightSalmon;
+            }
+            else if (!(radiobMacho.IsChecked.Value))
+            {
+                if(!(radiobHembra.IsChecked.Value)){
+                    MessageBox.Show("No ha definido el sexo del perro ", "SexoPerro");
+                }
+                
+            }
+            else if (string.IsNullOrEmpty(txtboxRazaPerro.Text))
+            {
+                txtboxRazaPerro.BorderBrush = Brushes.Red;
+                txtboxRazaPerro.Background = Brushes.LightSalmon;
+            }
+            else if (string.IsNullOrEmpty(txtboxPesoPerro.Text))
+            {
+                txtboxPesoPerro.BorderBrush = Brushes.Red;
+                txtboxPesoPerro.Background = Brushes.LightSalmon;
+            }
+            else if (string.IsNullOrEmpty(txtEdadPerro.Text))
+            {
+                txtEdadPerro.BorderBrush = Brushes.Red;
+                txtEdadPerro.Background = Brushes.LightSalmon;
+            }
+            else if (string.IsNullOrEmpty(dateFechaPerro.Text))
+            {
+                dateFechaPerro.BorderBrush = Brushes.Red;
+                dateFechaPerro.Background = Brushes.LightSalmon;
+            }
+            else if (string.IsNullOrEmpty(txtboxDescripcion.Text))
+            {
+                txtboxDescripcion.BorderBrush = Brushes.Red;
+                txtboxDescripcion.Background = Brushes.LightSalmon;
+            }
+            else
+            {
+                string sexo_perro = obtenerSexoPerro();
+
+                StreamWriter escribir = new StreamWriter("TablaPerros.txt");
+
+                escribir.WriteLine("Nombre: " + txtboxNombrePerro.Text);
+                escribir.WriteLine("Sexo: " + sexo_perro);
+                escribir.WriteLine("Raza: " + txtboxRazaPerro.Text);
+                escribir.WriteLine("Peso: " + txtboxPesoPerro.Text);
+                escribir.WriteLine("Edad: " + txtEdadPerro.Text);
+                escribir.WriteLine("Fecha de entrada: " + dateFechaPerro.Text);
+                escribir.WriteLine("¿Apadrinado?: " + checkApadrinado.IsChecked);
+                escribir.WriteLine("Descripción: " + txtboxDescripcion.Text);
+                escribir.WriteLine("\n");
+                escribir.Close();
+                MessageBox.Show("El perro ha sido añadido ", "Perro");
+            }
             
-            StreamWriter escribir = new StreamWriter("TablaPerros.txt");
-            
-            escribir.WriteLine("Nombre: " + txtboxNombrePerro.Text);
-            escribir.WriteLine("Sexo: " + sexo_perro);
-            escribir.WriteLine("Raza: " + txtboxRazaPerro.Text);
-            escribir.WriteLine("Peso: " + txtboxPesoPerro.Text);
-            escribir.WriteLine("Edad: " + txtEdadPerro.Text);
-            escribir.WriteLine("Fecha de entrada: " + dateFechaPerro.Text);
-            escribir.WriteLine("¿Apadrinado?: " + checkApadrinado.IsChecked);
-            escribir.WriteLine("Descripción: " + txtboxDescripcion.Text);
-            escribir.WriteLine("\n");
-            escribir.Close();
         }
 
         private void btnListar_Click(object sender, RoutedEventArgs e)
@@ -276,6 +312,187 @@ namespace ProyectoIPO2020_2021
             CheckBoxLunesTar.IsChecked = false;
         }
 
-        
+        private void txtboxNombreSocio_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtboxApellidoSocio.Focus();
+            }
+        }
+
+        private void txtboxApellidoSocio_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtboxDNISocio.Focus();
+            }
+        }
+
+        private void txtboxDNISocio_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtboxTelefonoSocio.Focus();
+            }
+        }
+
+        private void txtboxTelefonoSocio_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtCorreoElectronicoSocio.Focus();
+            }
+        }
+
+        private void txtCorreoElectronicoSocio_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtEntidadBancaria.Focus();
+            }
+        }
+
+        private void txtEntidadBancaria_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtIBAN1.Focus();
+            }
+        }
+
+        private void txtIBAN1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtIBAN2.Focus();
+            }
+        }
+
+        private void txtIBAN2_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtIBAN3.Focus();
+            }
+        }
+
+        private void txtIBAN3_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtIBAN4.Focus();
+            }
+        }
+
+        private void txtIBAN4_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtIBAN5.Focus();
+            }
+        }
+
+        private void txtIBAN5_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtIBAN6.Focus();
+            }
+        }
+
+        private void txtIBAN6_keyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtCuantia.Focus();
+            }
+        }
+
+        private void txtCuantia_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                cboxformPago.Focus();
+            }
+        }
+
+        private void txtboxNombreVoluntario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtboxApellidoVoluntario.Focus();
+            }
+        }
+
+        private void txtboxApellidoVoluntario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtboxDNIVoluntario.Focus();
+            }
+        }
+
+        private void txtboxDNIVoluntario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtboxTelefonoVoluntario.Focus();
+            }
+        }
+
+        private void txtboxTelefonoVoluntario_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtCorreoElectronicoVoluntario.Focus();
+            }
+        }
+
+        private void txtboxNombrePerro_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                radiobMacho.Focus();
+            }
+        }
+
+        private void radiobMacho_Checked(object sender, RoutedEventArgs e)
+        {
+            txtboxRazaPerro.Focus();   
+        }
+
+        private void radiobHembra_Checked(object sender, RoutedEventArgs e)
+        {
+            txtboxRazaPerro.Focus();
+        }
+
+        private void txtboxRazaPerro_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtboxPesoPerro.Focus();
+            }
+        }
+
+        private void txtboxPesoPerro_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                txtEdadPerro.Focus();
+            }
+        }
+
+        private void txtEdadPerro_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                dateFechaPerro.Focus();
+            }
+        }
+
+        private void checkApadrinado_Checked(object sender, RoutedEventArgs e)
+        {
+            txtboxDescripcion.Focus();
+        }
     }
 }

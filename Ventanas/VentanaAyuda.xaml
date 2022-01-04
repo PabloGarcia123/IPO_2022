@@ -5,24 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoIPO2020_2021"
         mc:Ignorable="d"
-        Title="Ayuda" Height="427.515" Width="319.118"
-        MinHeight="427.515" MinWidth="319.118"
-        MaxHeight="427.515" MaxWidth="319.118">
-    <Grid Margin="0,0,407,0">
+        Title="Ayuda" Height="600" Width="417.518">
+
+    <Grid Margin="0,0,-1.2,-132.4">
         <Grid.RowDefinitions>
-            <RowDefinition Height="40*"/>
-            <RowDefinition Height="143*"/>
-            <RowDefinition Height="143*"/>
-            <RowDefinition Height="77*"/>
-            <RowDefinition Height="22*"/>
+            <RowDefinition Height="32*"/>
+            <RowDefinition Height="294*"/>
+            <RowDefinition Height="147*"/>
+            <RowDefinition Height="194*"/>
+            <RowDefinition Height="36*"/>
         </Grid.RowDefinitions>
-        <GroupBox x:Name="groupInfo" Header="Información" HorizontalAlignment="Left" Height="122" Margin="10,0,-290,0" Grid.Row="1" VerticalAlignment="Top" Width="280">
-            <Label x:Name="lblInfo" Content="Éste simbolo '*' significa campo obligatorio.&#xD;&#xA;Para cualquier consulta, por favor escribe a&#xD;&#xA;nuestro correo electronico: &#xD;&#xA;&#xD;&#xA;soporte.tecnico@prot3ctora.es" HorizontalAlignment="Left" Height="89" Margin="4,6,0,0" VerticalAlignment="Top" Width="260"/>
+        <GroupBox x:Name="groupInfo" Header="Información" HorizontalAlignment="Left" Height="273" Margin="10,0,0,0" Grid.Row="1" VerticalAlignment="Top" Width="375">
+            <Label x:Name="lblInfo" Content="Para navegar por los diferentes gestores use las pestañas de la&#xD;&#xA; izquierda.&#xD;&#xA; En las pestañas Listado de Perros, Voluntarios de la Protectora&#xD;&#xA; y Gestión de socios es obligatorio rellenar todos los campos&#xD;&#xA; para poder Añadir.&#xD;&#xA;Para escribir en los cuadros de texto debe pinchar en ellos o &#xD;&#xA;ir navegando pulsando Enter de manera que se &#xD;&#xA;autoseleccionará el cuadro de texto siguiente.&#xA;                    &#xA;Para cualquier consulta, por favor escribe a&#xA;nuestro correo electronico: &#xA;&#xA;soporte.tecnico@prot3ctora.es" HorizontalAlignment="Left" Height="234" Margin="4,6,0,0" VerticalAlignment="Top" Width="342"/>
         </GroupBox>
-        <GroupBox x:Name="groupAutores" Header="Autores" HorizontalAlignment="Left" Height="85" Margin="10,26,-290,0" Grid.Row="2" VerticalAlignment="Top" Width="280">
+        <GroupBox x:Name="groupAutores" Header="Autores" HorizontalAlignment="Left" Height="85" Margin="10,24.6,0,0" Grid.Row="2" VerticalAlignment="Top" Width="280">
             <Label x:Name="lblAutores" Content="Pablo García García de las Bayonas&#xD;&#xA;Noel Fernández de Sevilla Sánchez" HorizontalAlignment="Left" Height="55" Margin="4,3,0,0" VerticalAlignment="Top" Width="260"/>
         </GroupBox>
-        <GroupBox x:Name="groupFecha" Header="Fecha de creación" HorizontalAlignment="Left" Height="61" Margin="10,9,-290,0" Grid.Row="3" VerticalAlignment="Top" Width="280">
+        <GroupBox x:Name="groupFecha" Header="Fecha de creación" HorizontalAlignment="Left" Height="61" Margin="10,7.4,0,0" Grid.Row="3" VerticalAlignment="Top" Width="280">
             <Label x:Name="lblFecha" Content="10 de enero de 2022" HorizontalAlignment="Left" Height="25" Margin="5,9,0,0" VerticalAlignment="Top" Width="259"/>
         </GroupBox>
 
