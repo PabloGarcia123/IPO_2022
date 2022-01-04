@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using Microsoft.Win32;
 using System.IO;
 using ProyectoIPO2020_2021.Clases;
+using System.Windows.Media.Imaging;
 
 namespace ProyectoIPO2020_2021
 {
@@ -25,13 +26,13 @@ namespace ProyectoIPO2020_2021
         
         private VentanaAyuda ventanaAyuda = new VentanaAyuda();
         private Apadrinado ventanaPadrinos = new Apadrinado();
-        
-        
 
+       
         public Aplicacion()
         {
             
             InitializeComponent();
+            limpiar();
             //cargarInfo();
             /*
             txtblockDetUser.Text = usuario1.correo;
@@ -123,7 +124,7 @@ namespace ProyectoIPO2020_2021
                 txtboxNombrePerro.BorderBrush = Brushes.Red;
                 txtboxNombrePerro.Background = Brushes.LightSalmon;
             }
-            else if (!(radiobMacho.IsChecked.Value))
+            else if (!(radiobMacho.IsChecked.Value || radiobHembra.IsChecked.Value))
             {
                 if(!(radiobHembra.IsChecked.Value)){
                     MessageBox.Show("No ha definido el sexo del perro ", "SexoPerro");
@@ -157,28 +158,17 @@ namespace ProyectoIPO2020_2021
             }
             else
             {
-                string sexo_perro = obtenerSexoPerro();
-
-                StreamWriter escribir = new StreamWriter("TablaPerros.txt");
-
-                escribir.WriteLine("Nombre: " + txtboxNombrePerro.Text);
-                escribir.WriteLine("Sexo: " + sexo_perro);
-                escribir.WriteLine("Raza: " + txtboxRazaPerro.Text);
-                escribir.WriteLine("Peso: " + txtboxPesoPerro.Text);
-                escribir.WriteLine("Edad: " + txtEdadPerro.Text);
-                escribir.WriteLine("Fecha de entrada: " + dateFechaPerro.Text);
-                escribir.WriteLine("¿Apadrinado?: " + checkApadrinado.IsChecked);
-                escribir.WriteLine("Descripción: " + txtboxDescripcion.Text);
-                escribir.WriteLine("\n");
-                escribir.Close();
-                MessageBox.Show("El perro ha sido añadido ", "Perro");
+                
+                Perro perro = new Perro(txtboxNombrePerro.Text, obtenerSexoPerro(), txtboxRazaPerro.Text, txtboxPesoPerro.Text, txtEdadPerro.Text, dateFechaPerro.Text, (bool)checkApadrinado.IsChecked, txtboxDescripcion.Text, obtenerImagenPerro());
+                dataGridPerros.Items.Add(perro);
+                limpiar();
             }
             
         }
 
         private void btnListar_Click(object sender, RoutedEventArgs e)
         {
-            richPerros.Document.Blocks.Clear();
+            //dataGridPerros.ClearDetailsVisibilityForItem();
             StreamReader leer = new StreamReader("TablaPerros.txt");
             string linea;
             
@@ -187,7 +177,7 @@ namespace ProyectoIPO2020_2021
                 linea = leer.ReadLine();
                 while (linea != null)
                 {
-                    richPerros.AppendText(linea + "\n");
+                    //dataGridPerros.Items.Add();
                     linea = leer.ReadLine();
 
                 }
@@ -196,6 +186,21 @@ namespace ProyectoIPO2020_2021
             {
                 MessageBox.Show("Error");
             }
+        }
+
+        private void limpiar()
+        {
+            btnBorrar.IsEnabled = false;
+            btnEditar.IsEnabled = false;
+            txtboxNombrePerro.Text = "";
+            radiobHembra.IsChecked = false;
+            radiobHembra.IsChecked = false;
+            txtboxRazaPerro.Text = "";
+            txtboxPesoPerro.Text = "";
+            txtEdadPerro.Text = "";
+            dateFechaPerro.SelectedDate = null;
+            checkApadrinado.IsChecked = false;
+            txtboxDescripcion.Text = "";
         }
 
         private string obtenerSexoPerro()
@@ -211,7 +216,14 @@ namespace ProyectoIPO2020_2021
             }
             return sexo;
         }
+        private static string obtenerImagenPerro()
+        {
+            string imagen= "hola";
 
+
+
+            return imagen;
+        }
 
         private void CheckBoxLunes_Checked(object sender, RoutedEventArgs e)
         {
@@ -493,6 +505,13 @@ namespace ProyectoIPO2020_2021
         private void checkApadrinado_Checked(object sender, RoutedEventArgs e)
         {
             txtboxDescripcion.Focus();
+        }
+
+
+        //Luego sigo yo con este metodo, es para seleccionar las filas y que se muestre en los txtbox 
+        private void dataGridPerros_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
         }
     }
 }

@@ -112,13 +112,24 @@
                         </Grid>
                     </GroupBox>
                     <Button x:Name="btnAñadirImagenPerro" Content="Añadir Imagen" HorizontalAlignment="Left" Height="20" Margin="419,157,0,0" VerticalAlignment="Top" Width="70" Click="btnAñadirImagenPerro_Click" FontSize="9" />
-                    <Button x:Name="btnListar" Content="Listar" HorizontalAlignment="Left" Height="46" Margin="569,324,0,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnListar_Click" />
-                    <Button x:Name="btnAñadir" Content="Añadir" HorizontalAlignment="Left" Height="46" Margin="775,324,0,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnAñadir_Click"/>
-                    <Button x:Name="btnBorrar" Content="Borrar" HorizontalAlignment="Left" Height="46" Margin="775,405,0,0" VerticalAlignment="Top" Width="123" FontSize="14"/>
-                    <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Height="46" Margin="569,405,0,0" VerticalAlignment="Top" Width="123" FontSize="14"/>
-                    <RichTextBox x:Name="richPerros" HorizontalAlignment="Left" Height="230" Margin="569,46,0,0" VerticalAlignment="Top" Width="371">
-                        <FlowDocument/>
-                    </RichTextBox>
+                    <Button x:Name="btnListar" Content="Listar" HorizontalAlignment="Left" Height="46" Margin="569,350,0,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnListar_Click" />
+                    <Button x:Name="btnAñadir" Content="Añadir" HorizontalAlignment="Left" Height="46" Margin="775,350,0,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnAñadir_Click"/>
+                    <Button x:Name="btnBorrar" Content="Borrar" HorizontalAlignment="Left" Height="46" Margin="775,416,0,0" VerticalAlignment="Top" Width="123" FontSize="14"/>
+                    <Button x:Name="btnEditar" Content="Editar" HorizontalAlignment="Left" Height="46" Margin="569,416,0,0" VerticalAlignment="Top" Width="123" FontSize="14"/>
+                    <DataGrid x:Name="dataGridPerros" HorizontalAlignment="Left" Height="277" Margin="534,23,0,0" VerticalAlignment="Top" Width="420" SelectionChanged="dataGridPerros_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Sexo" Binding="{Binding sexo}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Raza" Binding="{Binding raza}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Peso" Binding="{Binding peso}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Edad" Binding="{Binding edad}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Fecha de entrada" Binding="{Binding fecha_entrada}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="¿Apadrinado?" Binding="{Binding apadrinado}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Descripción" Binding="{Binding descripcion}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Imagen" Binding="{Binding img}" ClipboardContentBinding="{x:Null}"/>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                    
 
                 </Grid>
             </TabItem>
