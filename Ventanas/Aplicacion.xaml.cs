@@ -14,6 +14,7 @@ using System.Windows.Shapes;
 using Microsoft.Win32;
 using System.IO;
 using ProyectoIPO2020_2021.Clases;
+using System.Windows.Media.Imaging;
 
 namespace ProyectoIPO2020_2021
 {
@@ -25,13 +26,13 @@ namespace ProyectoIPO2020_2021
         
         private VentanaAyuda ventanaAyuda = new VentanaAyuda();
         private Apadrinado ventanaPadrinos = new Apadrinado();
-        
-        
 
+       
         public Aplicacion()
         {
             
             InitializeComponent();
+            limpiar();
             //cargarInfo();
             /*
             txtblockDetUser.Text = usuario1.correo;
@@ -97,7 +98,7 @@ namespace ProyectoIPO2020_2021
             ventanaPadrinos.Show();
         }
 
-        private void btnAñadirImagenPerro_Click(object sender, RoutedEventArgs e)
+        private void btnAñadirImagen_Click(object sender, RoutedEventArgs e)
         {
             var abrirDialog = new OpenFileDialog();
             abrirDialog.Filter = "Images|*.jpg;*.gif;*.bmp;*.png";
@@ -107,78 +108,217 @@ namespace ProyectoIPO2020_2021
                 {
                     var bitmap = new BitmapImage(new Uri(abrirDialog.FileName,
                     UriKind.Absolute));
-                    imgPerro.Source = bitmap;
+                    if(sender == btnAñadirImagenPerro)
+                    {
+                        imgPerro.Source = bitmap;
+                    }
+                    if (sender == btnAñadirImagenVoluntario)
+                    {
+                        imgVoluntario.Source = bitmap;
+                    }
+                    if (sender == btnAñadirImagenSocio)
+                    {
+                        imgSocio.Source = bitmap;
+                    }
+
+
                 }
                 catch (Exception ex)
                 {
                     MessageBox.Show("Error al cargar la imagen " + ex.Message);
                 }
             }
+           
         }
 
+     
         private void btnAñadir_Click(object sender, RoutedEventArgs e)
         {
-            if (string.IsNullOrEmpty(txtboxNombrePerro.Text))
+            if (sender == btnAñadirPerro)
             {
-                txtboxNombrePerro.BorderBrush = Brushes.Red;
-                txtboxNombrePerro.Background = Brushes.LightSalmon;
-            }
-            else if (!(radiobMacho.IsChecked.Value))
-            {
-                if(!(radiobHembra.IsChecked.Value)){
+                if (string.IsNullOrEmpty(txtboxNombrePerro.Text))
+                {
+                    txtboxNombrePerro.BorderBrush = Brushes.Red;
+                    txtboxNombrePerro.Background = Brushes.LightSalmon;
+                }
+                else if (!(radiobMacho.IsChecked.Value || radiobHembra.IsChecked.Value))
+                {
                     MessageBox.Show("No ha definido el sexo del perro ", "SexoPerro");
                 }
+                else if (string.IsNullOrEmpty(txtboxRazaPerro.Text))
+                {
+                    txtboxRazaPerro.BorderBrush = Brushes.Red;
+                    txtboxRazaPerro.Background = Brushes.LightSalmon;
+                }
+                else if (string.IsNullOrEmpty(txtboxPesoPerro.Text))
+                {
+                    txtboxPesoPerro.BorderBrush = Brushes.Red;
+                    txtboxPesoPerro.Background = Brushes.LightSalmon;
+                }
+                else if (string.IsNullOrEmpty(txtEdadPerro.Text))
+                {
+                    txtEdadPerro.BorderBrush = Brushes.Red;
+                    txtEdadPerro.Background = Brushes.LightSalmon;
+                }
+                else if (string.IsNullOrEmpty(dateFechaPerro.Text))
+                {
+                    dateFechaPerro.BorderBrush = Brushes.Red;
+                    dateFechaPerro.Background = Brushes.LightSalmon;
+                }
+                else if (string.IsNullOrEmpty(txtboxDescripcion.Text))
+                {
+                    txtboxDescripcion.BorderBrush = Brushes.Red;
+                    txtboxDescripcion.Background = Brushes.LightSalmon;
+                }
+                else if (imgPerro.Source == null)
+                {
+                    bordeImagenPerro.BorderBrush = Brushes.Red;
+                    bordeImagenPerro.Background = Brushes.LightSalmon;
+                }
+
+                else
+                {
+
+                    Perro perro = new Perro(txtboxNombrePerro.Text, obtenerSexoPerro(), txtboxRazaPerro.Text, txtboxPesoPerro.Text, txtEdadPerro.Text, dateFechaPerro.Text, (bool)checkApadrinado.IsChecked, txtboxDescripcion.Text, obtenerImagenPerro());
+                    dataGridPerros.Items.Add(perro);
+                    limpiar();
+                }
+            }
+            else if(sender == btnAñadirVoluntario)
+            {
+                if (string.IsNullOrEmpty(txtboxNombreVoluntario.Text))
+                {
+                    txtboxNombreVoluntario.BorderBrush = Brushes.Red;
+                    txtboxNombreVoluntario.Background = Brushes.LightSalmon;
+                }
+                else if (string.IsNullOrEmpty(txtboxApellidoVoluntario.Text))
+                {
+                    txtboxApellidoVoluntario.BorderBrush = Brushes.Red;
+                    txtboxApellidoVoluntario.Background = Brushes.LightSalmon;
+                }
+                else if (string.IsNullOrEmpty(txtboxDNIVoluntario.Text))
+                {
+                    txtboxDNIVoluntario.BorderBrush = Brushes.Red;
+                    txtboxDNIVoluntario.Background = Brushes.LightSalmon;
+                }
+                else if (string.IsNullOrEmpty(txtboxTelefonoVoluntario.Text))
+                {
+                    txtboxTelefonoVoluntario.BorderBrush = Brushes.Red;
+                    txtboxTelefonoVoluntario.Background = Brushes.LightSalmon;
+                }
+                else if (string.IsNullOrEmpty(txtCorreoElectronicoVoluntario.Text))
+                {
+                    txtCorreoElectronicoVoluntario.BorderBrush = Brushes.Red;
+                    txtCorreoElectronicoVoluntario.Background = Brushes.LightSalmon;
+                }
                 
-            }
-            else if (string.IsNullOrEmpty(txtboxRazaPerro.Text))
-            {
-                txtboxRazaPerro.BorderBrush = Brushes.Red;
-                txtboxRazaPerro.Background = Brushes.LightSalmon;
-            }
-            else if (string.IsNullOrEmpty(txtboxPesoPerro.Text))
-            {
-                txtboxPesoPerro.BorderBrush = Brushes.Red;
-                txtboxPesoPerro.Background = Brushes.LightSalmon;
-            }
-            else if (string.IsNullOrEmpty(txtEdadPerro.Text))
-            {
-                txtEdadPerro.BorderBrush = Brushes.Red;
-                txtEdadPerro.Background = Brushes.LightSalmon;
-            }
-            else if (string.IsNullOrEmpty(dateFechaPerro.Text))
-            {
-                dateFechaPerro.BorderBrush = Brushes.Red;
-                dateFechaPerro.Background = Brushes.LightSalmon;
-            }
-            else if (string.IsNullOrEmpty(txtboxDescripcion.Text))
-            {
-                txtboxDescripcion.BorderBrush = Brushes.Red;
-                txtboxDescripcion.Background = Brushes.LightSalmon;
-            }
-            else
-            {
-                string sexo_perro = obtenerSexoPerro();
+                else if (imgVoluntario.Source == null)
+                {
+                    bordeImgVoluntario.BorderBrush = Brushes.Red;
+                    bordeImgVoluntario.Background = Brushes.LightSalmon;
+                }
 
-                StreamWriter escribir = new StreamWriter("TablaPerros.txt");
+                else
+                {
 
-                escribir.WriteLine("Nombre: " + txtboxNombrePerro.Text);
-                escribir.WriteLine("Sexo: " + sexo_perro);
-                escribir.WriteLine("Raza: " + txtboxRazaPerro.Text);
-                escribir.WriteLine("Peso: " + txtboxPesoPerro.Text);
-                escribir.WriteLine("Edad: " + txtEdadPerro.Text);
-                escribir.WriteLine("Fecha de entrada: " + dateFechaPerro.Text);
-                escribir.WriteLine("¿Apadrinado?: " + checkApadrinado.IsChecked);
-                escribir.WriteLine("Descripción: " + txtboxDescripcion.Text);
-                escribir.WriteLine("\n");
-                escribir.Close();
-                MessageBox.Show("El perro ha sido añadido ", "Perro");
+                    Voluntario voluntario = new Voluntario(txtboxNombreVoluntario.Text, txtboxApellidoVoluntario.Text, txtboxDNIVoluntario.Text, int.Parse(txtboxTelefonoVoluntario.Text), txtCorreoElectronicoVoluntario.Text, (bool)checkConocimientosVeterinarios.IsChecked, "hola", obtenerImagenPerro());
+                    dataGridVoluntarios.Items.Add(voluntario);
+                    limpiar();
+                }
             }
-            
+            else if (sender == btnAñadirSocio)
+            {
+                if (string.IsNullOrEmpty(txtboxNombreSocio.Text))
+                {
+                    txtboxNombreSocio.BorderBrush = Brushes.Red;
+                    txtboxNombreSocio.Background = Brushes.LightSalmon;
+                }
+                else if (string.IsNullOrEmpty(txtboxApellidoSocio.Text))
+                {
+                    txtboxApellidoSocio.BorderBrush = Brushes.Red;
+                    txtboxApellidoSocio.Background = Brushes.LightSalmon;
+                }
+                else if (string.IsNullOrEmpty(txtboxDNISocio.Text))
+                {
+                    txtboxDNISocio.BorderBrush = Brushes.Red;
+                    txtboxDNISocio.Background = Brushes.LightSalmon;
+                }
+                else if (string.IsNullOrEmpty(txtboxTelefonoSocio.Text))
+                {
+                    txtboxTelefonoSocio.BorderBrush = Brushes.Red;
+                    txtboxTelefonoSocio.Background = Brushes.LightSalmon;
+                }
+                else if (string.IsNullOrEmpty(txtCorreoElectronicoSocio.Text))
+                {
+                    txtCorreoElectronicoSocio.BorderBrush = Brushes.Red;
+                    txtCorreoElectronicoSocio.Background = Brushes.LightSalmon;
+                }
+                else if (string.IsNullOrEmpty(txtEntidadBancaria.Text))
+                {
+                    txtEntidadBancaria.BorderBrush = Brushes.Red;
+                    txtEntidadBancaria.Background = Brushes.LightSalmon;
+                }
+                else if (string.IsNullOrEmpty(txtIBAN1.Text))
+                {
+                    txtIBAN1.BorderBrush = Brushes.Red;
+                    txtIBAN1.Background = Brushes.LightSalmon;
+                }
+                else if (string.IsNullOrEmpty(txtIBAN2.Text))
+                {
+                    txtIBAN2.BorderBrush = Brushes.Red;
+                    txtIBAN2.Background = Brushes.LightSalmon;
+                }
+                else if (string.IsNullOrEmpty(txtIBAN3.Text))
+                {
+                    txtIBAN3.BorderBrush = Brushes.Red;
+                    txtIBAN3.Background = Brushes.LightSalmon;
+                }
+                else if (string.IsNullOrEmpty(txtIBAN4.Text))
+                {
+                    txtIBAN4.BorderBrush = Brushes.Red;
+                    txtIBAN4.Background = Brushes.LightSalmon;
+                }
+                else if (string.IsNullOrEmpty(txtIBAN5.Text))
+                {
+                    txtIBAN5.BorderBrush = Brushes.Red;
+                    txtIBAN5.Background = Brushes.LightSalmon;
+                }
+                else if (string.IsNullOrEmpty(txtIBAN6.Text))
+                {
+                    txtIBAN6.BorderBrush = Brushes.Red;
+                    txtIBAN6.Background = Brushes.LightSalmon;
+                }
+                else if (string.IsNullOrEmpty(txtCuantia.Text))
+                {
+                    txtCuantia.BorderBrush = Brushes.Red;
+                    txtCuantia.Background = Brushes.LightSalmon;
+                }
+                else if (string.IsNullOrEmpty(cboxformPago.Text))
+                {
+                    MessageBox.Show("No ha definido el mñetodo de pago ", "Método de pago");
+                }
+                else if (imgSocio.Source == null)
+                {
+                    bordeImgSocio.BorderBrush = Brushes.Red;
+                    bordeImgSocio.Background = Brushes.LightSalmon;
+                }
+
+                else
+                {
+
+                    Socio socio = new Socio(txtboxNombreSocio.Text, txtboxApellidoSocio.Text, txtboxDNISocio.Text, int.Parse(txtboxTelefonoSocio.Text), txtCorreoElectronicoSocio.Text, txtEntidadBancaria.Text, int.Parse(txtIBAN1.Text), int.Parse(txtIBAN2.Text), int.Parse(txtIBAN3.Text), int.Parse(txtIBAN4.Text), int.Parse(txtIBAN5.Text), int.Parse(txtIBAN6.Text), int.Parse(txtCuantia.Text),cboxformPago.Text, obtenerImagenPerro());
+                    dataGridSocio.Items.Add(socio);
+                    limpiar();
+                }
+            }
+
+
+
         }
 
         private void btnListar_Click(object sender, RoutedEventArgs e)
         {
-            richPerros.Document.Blocks.Clear();
+            //dataGridPerros.ClearDetailsVisibilityForItem();
             StreamReader leer = new StreamReader("TablaPerros.txt");
             string linea;
             
@@ -187,7 +327,7 @@ namespace ProyectoIPO2020_2021
                 linea = leer.ReadLine();
                 while (linea != null)
                 {
-                    richPerros.AppendText(linea + "\n");
+                    //dataGridPerros.Items.Add();
                     linea = leer.ReadLine();
 
                 }
@@ -196,6 +336,116 @@ namespace ProyectoIPO2020_2021
             {
                 MessageBox.Show("Error");
             }
+        }
+
+        private void limpiar()
+        {
+            //limpia perro
+            btnBorrarPerro.IsEnabled = false;
+            btnEditarPerro.IsEnabled = false;
+            txtboxNombrePerro.Text = "";
+            radiobHembra.IsChecked = false;
+            radiobHembra.IsChecked = false;
+            txtboxRazaPerro.Text = "";
+            txtboxPesoPerro.Text = "";
+            txtEdadPerro.Text = "";
+            dateFechaPerro.SelectedDate = null;
+            checkApadrinado.IsChecked = false;
+            txtboxDescripcion.Text = "";
+            txtboxNombrePerro.BorderBrush = Brushes.Black;
+            txtboxNombrePerro.Background = Brushes.White;
+            txtboxRazaPerro.BorderBrush = Brushes.Black;
+            txtboxRazaPerro.Background = Brushes.White;
+            txtboxPesoPerro.BorderBrush = Brushes.Black;
+            txtboxPesoPerro.Background = Brushes.White;
+            txtEdadPerro.BorderBrush = Brushes.Black;
+            txtEdadPerro.Background = Brushes.White;
+            dateFechaPerro.BorderBrush = Brushes.Black;
+            dateFechaPerro.Background = Brushes.White;
+            txtboxDescripcion.BorderBrush = Brushes.Black;
+            txtboxDescripcion.Background = Brushes.White;
+            bordeImagenPerro.BorderBrush = Brushes.Black;
+            bordeImagenPerro.Background = Brushes.White;
+            imgPerro.Source = null;
+
+            //limpiar voluntario
+            btnBorrarVoluntario.IsEnabled = false;
+            btnEditarVoluntario.IsEnabled = false;
+            txtboxNombreVoluntario.Text = "";
+            txtboxApellidoVoluntario.Text = "";
+            txtboxDNIVoluntario.Text = "";
+            txtboxTelefonoVoluntario.Text = "";
+            txtCorreoElectronicoVoluntario.Text = "";
+            CheckBoxLunes.IsChecked = false;
+            CheckBoxMartes.IsChecked = false;
+            CheckBoxMiercoles.IsChecked = false;
+            CheckBoxJueves.IsChecked = false;
+            CheckBoxViernes.IsChecked = false;
+            CheckBoxSabado.IsChecked = false;
+            CheckBoxDomingo.IsChecked = false;
+            txtboxNombreVoluntario.BorderBrush = Brushes.Black;
+            txtboxNombreVoluntario.Background = Brushes.White;
+            txtboxApellidoVoluntario.BorderBrush = Brushes.Black;
+            txtboxApellidoVoluntario.Background = Brushes.White;
+            txtboxDNIVoluntario.BorderBrush = Brushes.Black;
+            txtboxDNIVoluntario.Background = Brushes.White;
+            txtboxTelefonoVoluntario.BorderBrush = Brushes.Black;
+            txtboxTelefonoVoluntario.Background = Brushes.White;
+            txtCorreoElectronicoVoluntario.BorderBrush = Brushes.Black;
+            txtCorreoElectronicoVoluntario.Background = Brushes.White;
+            bordeImgVoluntario.BorderBrush = Brushes.Black;
+            bordeImgVoluntario.Background = Brushes.White;
+            imgVoluntario.Source = null;
+
+            //limpiar socio
+            btnBorrarSocio.IsEnabled = false;
+            btnEditarSocio.IsEnabled = false;
+            txtboxNombreSocio.Text = "";
+            txtboxApellidoSocio.Text = "";
+            txtboxDNISocio.Text = "";
+            txtboxTelefonoSocio.Text = "";
+            txtCorreoElectronicoSocio.Text = "";
+            txtEntidadBancaria.Text = "";
+            txtIBAN1.Text = "";
+            txtIBAN2.Text = "";
+            txtIBAN3.Text = "";
+            txtIBAN4.Text = "";
+            txtIBAN5.Text = "";
+            txtIBAN6.Text = "";
+            txtCuantia.Text = "";
+            cboxformPago.Text = "";
+
+            txtboxNombreSocio.BorderBrush = Brushes.Black;
+            txtboxNombreSocio.Background = Brushes.White;
+            txtboxApellidoSocio.BorderBrush = Brushes.Black;
+            txtboxApellidoSocio.Background = Brushes.White;
+            txtboxDNISocio.BorderBrush = Brushes.Black;
+            txtboxDNISocio.Background = Brushes.White;
+            txtboxTelefonoSocio.BorderBrush = Brushes.Black;
+            txtboxTelefonoSocio.Background = Brushes.White;
+            txtCorreoElectronicoSocio.BorderBrush = Brushes.Black;
+            txtCorreoElectronicoSocio.Background = Brushes.White;
+            txtEntidadBancaria.BorderBrush = Brushes.Black;
+            txtEntidadBancaria.Background = Brushes.White;
+            txtIBAN1.BorderBrush = Brushes.Black;
+            txtIBAN1.Background = Brushes.White;
+            txtIBAN2.BorderBrush = Brushes.Black;
+            txtIBAN2.Background = Brushes.White;
+            txtIBAN3.BorderBrush = Brushes.Black;
+            txtIBAN3.Background = Brushes.White;
+            txtIBAN4.BorderBrush = Brushes.Black;
+            txtIBAN4.Background = Brushes.White;
+            txtIBAN5.BorderBrush = Brushes.Black;
+            txtIBAN5.Background = Brushes.White;
+            txtIBAN6.BorderBrush = Brushes.Black;
+            txtIBAN6.Background = Brushes.White;
+            txtCuantia.BorderBrush = Brushes.Black;
+            txtCuantia.Background = Brushes.White;
+            bordeImgSocio.BorderBrush = Brushes.Black;
+            bordeImgSocio.Background = Brushes.White;
+            imgSocio.Source = null;
+
+
         }
 
         private string obtenerSexoPerro()
@@ -211,7 +461,14 @@ namespace ProyectoIPO2020_2021
             }
             return sexo;
         }
+        private static string obtenerImagenPerro()
+        {
+            string imagen= "hola";
 
+
+
+            return imagen;
+        }
 
         private void CheckBoxLunes_Checked(object sender, RoutedEventArgs e)
         {
@@ -493,6 +750,13 @@ namespace ProyectoIPO2020_2021
         private void checkApadrinado_Checked(object sender, RoutedEventArgs e)
         {
             txtboxDescripcion.Focus();
+        }
+
+
+        //Luego sigo yo con este metodo, es para seleccionar las filas y que se muestre en los txtbox 
+        private void dataGridPerros_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+            
         }
     }
 }
