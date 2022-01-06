@@ -1,10 +1,10 @@
-Nombre: HOla
+Nombre: Huevos
 Sexo: Macho
-Raza: AErfa
+Raza: cacniche
 Peso: 12
-Edad: 2
-Fecha de entrada: 06/01/2022
+Edad: 12
+Fecha de entrada: 22/01/2022
 ¿Apadrinado?: True
-Descripción: wdasda
+Descripción: tonto
 
 

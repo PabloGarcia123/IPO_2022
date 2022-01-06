@@ -12,7 +12,8 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.Win32;
-
+using System.Data.OleDb;
+using Oracle.DataAccess;
 
 namespace ProyectoIPO2020_2021
 {
@@ -43,7 +44,7 @@ namespace ProyectoIPO2020_2021
         
         public static string correo = "";
         public static string contra = "";
-        private string correo1 =usuario1.correo;
+        private string correo1 = usuario1.correo;
         private string contra1 = usuario1.contraseña;
         private string correo2 = usuario2.correo;
         private string contra2 = usuario2.contraseña;
@@ -157,7 +158,7 @@ namespace ProyectoIPO2020_2021
 
         private void VentanaPrincipal_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-            MessageBox.Show("¡Nos vemos! Hasta otra.", "Despedida");
+            MessageBox.Show("¡Nos vemos! Hasta pronto.", "Despedida");
         }
 
         private bool ComprobarEntrada(string valorIntroducido, string valorValido, Control componenteEntrada, Image imagenFeedBack)
