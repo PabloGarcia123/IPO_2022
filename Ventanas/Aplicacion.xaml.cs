@@ -26,8 +26,9 @@ namespace ProyectoIPO2020_2021
         
         private VentanaAyuda ventanaAyuda = new VentanaAyuda();
         private Apadrinado ventanaPadrinos = new Apadrinado();
+        
+        
 
-       
         public Aplicacion()
         {
             
@@ -314,7 +315,7 @@ namespace ProyectoIPO2020_2021
             btnBorrarPerro.IsEnabled = false;
             btnEditarPerro.IsEnabled = false;
             txtboxNombrePerro.Text = "";
-            radiobHembra.IsChecked = false;
+            radiobMacho.IsChecked = false;
             radiobHembra.IsChecked = false;
             txtboxRazaPerro.Text = "";
             txtboxPesoPerro.Text = "";
