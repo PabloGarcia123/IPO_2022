@@ -1,0 +1,1 @@
+Perro1,Macho,tonto,122,3,15/01/2022,True,maquinot e,file:///C:/Users/noelf/OneDrive/Escritorio/IPO/Practicas/IPO_2022-main/Images/icono2.png
