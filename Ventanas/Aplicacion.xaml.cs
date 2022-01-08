@@ -21,59 +21,26 @@ namespace ProyectoIPO2020_2021
     /// <summary>
     /// Lógica de interacción para Aplicacion.xaml
     /// </summary>
-    public partial class Aplicacion : Window
+    public partial class Aplicacion :  Window
     {
         
         private VentanaAyuda ventanaAyuda = new VentanaAyuda();
         private Apadrinado ventanaPadrinos = new Apadrinado();
+        
+        
 
-       
         public Aplicacion()
         {
             
             InitializeComponent();
-            limpiar();
-            //cargarInfo();
-            /*
-            txtblockDetUser.Text = usuario1.correo;
-            imgPerfil.Source = usuario1.img;
-            lblNombre.Content = usuario1.nombre;
-            txtblockDni.Text = usuario1.dni;
-            lblTlf.Content = usuario1.n_tlf;
-            lblFecha.Content = usuario1.ult_acceso;
-            */
+
+            limpiarPerro();
+            limpiarVoluntario();
+            limpiarSocio();
+            
+            
  
         }
-        /*private void cargarInfo()
-        {
-            if(Login.correo == usuario1.correo)
-            {
-                txtblockDetUser.Text = usuario1.correo;
-                imgPerfil.Source = usuario1.img;
-                lblNombre.Content = usuario1.nombre;
-                txtblockDni.Text = usuario1.dni;
-                lblTlf.Content = usuario1.n_tlf;
-                lblFecha.Content = usuario1.ult_acceso;
-            }
-            if (Login.correo == usuario2.correo)
-            {
-                txtblockDetUser.Text = usuario2.correo;
-                imgPerfil.Source = usuario2.img;
-                lblNombre.Content = usuario2.nombre;
-                txtblockDni.Text = usuario2.dni;
-                lblTlf.Content = usuario2.n_tlf;
-                lblFecha.Content = usuario2.ult_acceso;
-            }
-            if (Login.correo == usuario3.correo)
-            {
-                txtblockDetUser.Text = usuario3.correo;
-                imgPerfil.Source = usuario3.img;
-                lblNombre.Content = usuario3.nombre;
-                txtblockDni.Text = usuario3.dni;
-                lblTlf.Content = usuario3.n_tlf;
-                lblFecha.Content = usuario3.ult_acceso;
-            }
-        }*/
 
         private void btnAyuda_Click(object sender, RoutedEventArgs e)
         {
@@ -106,8 +73,7 @@ namespace ProyectoIPO2020_2021
             {
                 try
                 {
-                    var bitmap = new BitmapImage(new Uri(abrirDialog.FileName,
-                    UriKind.Absolute));
+                    var bitmap = new BitmapImage(new Uri(abrirDialog.FileName, UriKind.Absolute));
                     if(sender == btnAñadirImagenPerro)
                     {
                         imgPerro.Source = bitmap;
@@ -130,8 +96,26 @@ namespace ProyectoIPO2020_2021
             }
            
         }
+        private void Save(object sender, RoutedEventArgs e) 
+        {
+            SaveFileDialog datos = new SaveFileDialog();
+            datos.Filter = "Texto(*.txt) | *.txt";
 
-     
+            if (datos.ShowDialog() == true)
+            {
+                string archivo = datos.FileName;
+                StringBuilder strB = new StringBuilder();
+                Console.WriteLine("El indicador es : " + dataGridPerros.Items.Count);
+                for (int i = 0; i < dataGridPerros.Items.Count; i++)
+                {
+
+                    Perro line = (Perro)dataGridPerros.Items[i];
+                    strB.AppendLine(line.nombre.ToString()+"," + line.sexo.ToString() +","+ line.raza.ToString() +","+ line.peso.ToString()+","+line.edad.ToString()+"," + line.fecha_entrada.ToString()+","+line.apadrinado.ToString()+ "," + line.descripcion.ToString()+","+ line.img.ToString());
+                    
+            }
+                File.WriteAllText(archivo, strB.ToString());
+            }
+        }
         private void btnAñadir_Click(object sender, RoutedEventArgs e)
         {
             if (sender == btnAñadirPerro)
@@ -179,9 +163,13 @@ namespace ProyectoIPO2020_2021
                 else
                 {
 
-                    Perro perro = new Perro(txtboxNombrePerro.Text, obtenerSexoPerro(), txtboxRazaPerro.Text, txtboxPesoPerro.Text, txtEdadPerro.Text, dateFechaPerro.Text, (bool)checkApadrinado.IsChecked, txtboxDescripcion.Text, obtenerImagenPerro());
+                    Perro perro = new Perro(txtboxNombrePerro.Text, obtenerSexoPerro(), txtboxRazaPerro.Text, txtboxPesoPerro.Text, txtEdadPerro.Text, dateFechaPerro.Text, (bool)checkApadrinado.IsChecked, txtboxDescripcion.Text, imgPerro.Source);
                     dataGridPerros.Items.Add(perro);
-                    limpiar();
+                    limpiarPerro();
+                    
+                    Save(sender, e);
+
+
                 }
             }
             else if(sender == btnAñadirVoluntario)
@@ -221,9 +209,9 @@ namespace ProyectoIPO2020_2021
                 else
                 {
 
-                    Voluntario voluntario = new Voluntario(txtboxNombreVoluntario.Text, txtboxApellidoVoluntario.Text, txtboxDNIVoluntario.Text, int.Parse(txtboxTelefonoVoluntario.Text), txtCorreoElectronicoVoluntario.Text, (bool)checkConocimientosVeterinarios.IsChecked, "hola", obtenerImagenPerro());
+                    Voluntario voluntario = new Voluntario(txtboxNombreVoluntario.Text, txtboxApellidoVoluntario.Text, txtboxDNIVoluntario.Text, int.Parse(txtboxTelefonoVoluntario.Text), txtCorreoElectronicoVoluntario.Text, (bool)checkConocimientosVeterinarios.IsChecked, "hola", imgVoluntario.Source);
                     dataGridVoluntarios.Items.Add(voluntario);
-                    limpiar();
+                    limpiarVoluntario();
                 }
             }
             else if (sender == btnAñadirSocio)
@@ -306,9 +294,9 @@ namespace ProyectoIPO2020_2021
                 else
                 {
 
-                    Socio socio = new Socio(txtboxNombreSocio.Text, txtboxApellidoSocio.Text, txtboxDNISocio.Text, int.Parse(txtboxTelefonoSocio.Text), txtCorreoElectronicoSocio.Text, txtEntidadBancaria.Text, int.Parse(txtIBAN1.Text), int.Parse(txtIBAN2.Text), int.Parse(txtIBAN3.Text), int.Parse(txtIBAN4.Text), int.Parse(txtIBAN5.Text), int.Parse(txtIBAN6.Text), int.Parse(txtCuantia.Text),cboxformPago.Text, obtenerImagenPerro());
+                    Socio socio = new Socio(txtboxNombreSocio.Text, txtboxApellidoSocio.Text, txtboxDNISocio.Text, int.Parse(txtboxTelefonoSocio.Text), txtCorreoElectronicoSocio.Text, txtEntidadBancaria.Text, int.Parse(txtIBAN1.Text), int.Parse(txtIBAN2.Text), int.Parse(txtIBAN3.Text), int.Parse(txtIBAN4.Text), int.Parse(txtIBAN5.Text), int.Parse(txtIBAN6.Text), int.Parse(txtCuantia.Text),cboxformPago.Text, imgSocio.Source);
                     dataGridSocio.Items.Add(socio);
-                    limpiar();
+                    limpiarSocio();
                 }
             }
 
@@ -338,13 +326,19 @@ namespace ProyectoIPO2020_2021
             }
         }
 
-        private void limpiar()
+        private void btnBorrar_Click(object sender, RoutedEventArgs e)
+        {
+            dataGridPerros.Items.RemoveAt(dataGridPerros.SelectedIndex);
+            btnBorrarPerro.IsEnabled = false;
+        }
+
+        private void limpiarPerro()
         {
             //limpia perro
             btnBorrarPerro.IsEnabled = false;
             btnEditarPerro.IsEnabled = false;
             txtboxNombrePerro.Text = "";
-            radiobHembra.IsChecked = false;
+            radiobMacho.IsChecked = false;
             radiobHembra.IsChecked = false;
             txtboxRazaPerro.Text = "";
             txtboxPesoPerro.Text = "";
@@ -367,7 +361,10 @@ namespace ProyectoIPO2020_2021
             bordeImagenPerro.BorderBrush = Brushes.Black;
             bordeImagenPerro.Background = Brushes.White;
             imgPerro.Source = null;
+        }
 
+        private void limpiarVoluntario()
+        {
             //limpiar voluntario
             btnBorrarVoluntario.IsEnabled = false;
             btnEditarVoluntario.IsEnabled = false;
@@ -396,7 +393,10 @@ namespace ProyectoIPO2020_2021
             bordeImgVoluntario.BorderBrush = Brushes.Black;
             bordeImgVoluntario.Background = Brushes.White;
             imgVoluntario.Source = null;
+        }
 
+        private void limpiarSocio()
+        {
             //limpiar socio
             btnBorrarSocio.IsEnabled = false;
             btnEditarSocio.IsEnabled = false;
@@ -444,31 +444,23 @@ namespace ProyectoIPO2020_2021
             bordeImgSocio.BorderBrush = Brushes.Black;
             bordeImgSocio.Background = Brushes.White;
             imgSocio.Source = null;
-
-
         }
 
         private string obtenerSexoPerro()
         {
-            string sexo;
-            if (radiobMacho == null)
-            {
-                sexo = (string)radiobHembra.Content;
-            }
-            else
+            string sexo="";
+            if (radiobMacho.IsChecked == true)
             {
                 sexo = (string)radiobMacho.Content;
             }
+            if (radiobHembra.IsChecked == true)
+            {
+                sexo = (string)radiobHembra.Content;
+            }
             return sexo;
         }
-        private static string obtenerImagenPerro()
-        {
-            string imagen= "hola";
 
 
-
-            return imagen;
-        }
 
         private void CheckBoxLunes_Checked(object sender, RoutedEventArgs e)
         {
@@ -756,7 +748,12 @@ namespace ProyectoIPO2020_2021
         //Luego sigo yo con este metodo, es para seleccionar las filas y que se muestre en los txtbox 
         private void dataGridPerros_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
+            btnBorrarPerro.IsEnabled = true;
+            btnEditarPerro.IsEnabled = true;
             
+            //txtboxNombrePerro.Text = Convert.ToString(dataGridPerros.SelectedItem);
         }
+
+        
     }
 }
