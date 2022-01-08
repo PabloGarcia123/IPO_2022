@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace ProyectoIPO2020_2021.Clases
 {
@@ -15,9 +16,9 @@ namespace ProyectoIPO2020_2021.Clases
         public string correo { set; get; }
         public bool conocimientos { set; get; }
         public string disponibilidad { set; get; }
-        public string img { set; get; }
+        public ImageSource img { set; get; }
 
-        public Voluntario(string nombre, string apellido, string dni, int n_tlf,string correo,bool conocimientos, string disponibilidad, string img)
+        public Voluntario(string nombre, string apellido, string dni, int n_tlf,string correo,bool conocimientos, string disponibilidad, ImageSource img)
         {
             this.nombre = nombre;
             this.apellido = apellido;

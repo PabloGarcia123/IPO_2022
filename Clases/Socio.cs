@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace ProyectoIPO2020_2021.Clases
 {
@@ -22,9 +23,9 @@ namespace ProyectoIPO2020_2021.Clases
         public int IBAN6 { set; get; }
         public int cuantia { set; get; }
         public string metodo_pago { set; get; }
-        public string img { set; get; }
+        public ImageSource img { set; get; }
 
-        public Socio(string nombre, string apellido, string dni, int n_tlf, string correo, string ent_bancaria, int IBAN1, int IBAN2, int IBAN3, int IBAN4, int IBAN5, int IBAN6, int cuantia, string metodo_pago, string img)
+        public Socio(string nombre, string apellido, string dni, int n_tlf, string correo, string ent_bancaria, int IBAN1, int IBAN2, int IBAN3, int IBAN4, int IBAN5, int IBAN6, int cuantia, string metodo_pago, ImageSource img)
         {
 
             this.nombre = nombre;
