@@ -1,2 +1,1 @@
-Uno,Hembra,superior,22,3,26/01/2022,True,Calma,file:///C:/Users/noelf/Downloads/IPO_2022-PabloGarcia123-patch-1/Images/Boo.png
-Segundo,Macho,perro de agua,333,12,12/01/2022,False,es una maquina,file:///C:/Users/noelf/Downloads/IPO_2022-PabloGarcia123-patch-1/Images/Mike-Wazowski.jpg
+Perro1,Macho,tonto,122,3,15/01/2022,True,maquinot e,file:///C:/Users/noelf/OneDrive/Escritorio/IPO/Practicas/IPO_2022-main/Images/icono2.png
