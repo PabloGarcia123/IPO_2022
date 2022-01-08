@@ -105,14 +105,30 @@ namespace ProyectoIPO2020_2021
             {
                 string archivo = datos.FileName;
                 StringBuilder strB = new StringBuilder();
-                Console.WriteLine("El indicador es : " + dataGridPerros.Items.Count);
-                for (int i = 0; i < dataGridPerros.Items.Count; i++)
+                if (sender == btnAñadirPerro)
                 {
-
-                    Perro line = (Perro)dataGridPerros.Items[i];
-                    strB.AppendLine(line.nombre.ToString()+"," + line.sexo.ToString() +","+ line.raza.ToString() +","+ line.peso.ToString()+","+line.edad.ToString()+"," + line.fecha_entrada.ToString()+","+line.apadrinado.ToString()+ "," + line.descripcion.ToString()+","+ line.img.ToString());
-                    
-            }
+                    for (int i = 0; i < dataGridPerros.Items.Count; i++)
+                    {
+                        Perro line = (Perro)dataGridPerros.Items[i];
+                        strB.AppendLine(line.nombre.ToString() + "," + line.sexo.ToString() + "," + line.raza.ToString() + "," + line.peso.ToString() + "," + line.edad.ToString() + "," + line.fecha_entrada.ToString() + "," + line.apadrinado.ToString() + "," + line.descripcion.ToString() + "," + line.img.ToString());
+                    }
+                }
+                if (sender == btnAñadirVoluntario)
+                {
+                    for (int i = 0; i < dataGridVoluntarios.Items.Count; i++)
+                    {
+                        Voluntario line = (Voluntario)dataGridVoluntarios.Items[i];
+                        strB.AppendLine(line.nombre.ToString() + "," + line.apellido.ToString() + "," + line.dni.ToString() + "," + line.n_tlf.ToString() + "," + line.correo.ToString() + "," + line.conocimientos.ToString() + "," + line.disponibilidad.ToString() + "," + line.img.ToString());
+                    }
+                }
+                if (sender == btnAñadirSocio)
+                {
+                    for (int i = 0; i < dataGridSocio.Items.Count; i++)
+                    {
+                        Socio line = (Socio)dataGridSocio.Items[i];
+                        strB.AppendLine(line.nombre.ToString() + "," + line.apellido.ToString() + "," + line.dni.ToString() + "," + line.n_tlf.ToString() + "," + line.correo.ToString() + "," + line.ent_bancaria.ToString() + "," + line.IBAN1.ToString() + "," + line.IBAN2.ToString() + "," + line.IBAN3.ToString()+"," + line.IBAN4.ToString() + "," + line.IBAN5.ToString() + "," + line.IBAN6.ToString() + "," + line.cuantia.ToString() + "," + line.metodo_pago.ToString() + "," + line.img.ToString());
+                    }
+                }
                 File.WriteAllText(archivo, strB.ToString());
             }
         }
@@ -165,8 +181,7 @@ namespace ProyectoIPO2020_2021
 
                     Perro perro = new Perro(txtboxNombrePerro.Text, obtenerSexoPerro(), txtboxRazaPerro.Text, txtboxPesoPerro.Text, txtEdadPerro.Text, dateFechaPerro.Text, (bool)checkApadrinado.IsChecked, txtboxDescripcion.Text, imgPerro.Source);
                     dataGridPerros.Items.Add(perro);
-                    limpiarPerro();
-                    
+                    limpiarPerro(); 
                     Save(sender, e);
 
 
@@ -209,9 +224,10 @@ namespace ProyectoIPO2020_2021
                 else
                 {
 
-                    Voluntario voluntario = new Voluntario(txtboxNombreVoluntario.Text, txtboxApellidoVoluntario.Text, txtboxDNIVoluntario.Text, int.Parse(txtboxTelefonoVoluntario.Text), txtCorreoElectronicoVoluntario.Text, (bool)checkConocimientosVeterinarios.IsChecked, "hola", imgVoluntario.Source);
+                    Voluntario voluntario = new Voluntario(txtboxNombreVoluntario.Text, txtboxApellidoVoluntario.Text, txtboxDNIVoluntario.Text, int.Parse(txtboxTelefonoVoluntario.Text), txtCorreoElectronicoVoluntario.Text, (bool)checkConocimientosVeterinarios.IsChecked, obtenerDisponibilidad(), imgVoluntario.Source);
                     dataGridVoluntarios.Items.Add(voluntario);
                     limpiarVoluntario();
+                    Save(sender, e);
                 }
             }
             else if (sender == btnAñadirSocio)
@@ -297,17 +313,120 @@ namespace ProyectoIPO2020_2021
                     Socio socio = new Socio(txtboxNombreSocio.Text, txtboxApellidoSocio.Text, txtboxDNISocio.Text, int.Parse(txtboxTelefonoSocio.Text), txtCorreoElectronicoSocio.Text, txtEntidadBancaria.Text, int.Parse(txtIBAN1.Text), int.Parse(txtIBAN2.Text), int.Parse(txtIBAN3.Text), int.Parse(txtIBAN4.Text), int.Parse(txtIBAN5.Text), int.Parse(txtIBAN6.Text), int.Parse(txtCuantia.Text),cboxformPago.Text, imgSocio.Source);
                     dataGridSocio.Items.Add(socio);
                     limpiarSocio();
+                    Save(sender, e);
                 }
             }
 
 
 
         }
+        private string obtenerDisponibilidad()
+        {
+            string disponibilidad = "";
+            if (CheckBoxLunes.IsChecked == true)
+            {
+                disponibilidad = "Lunes:";
+                if (CheckBoxLunesMa.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Mañana";
+                }
+                if (CheckBoxLunesTar.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Tarde";
+                }
+                disponibilidad = disponibilidad + ";    ";
+            }
 
+            if (CheckBoxMartes.IsChecked == true)
+            {
+                disponibilidad = disponibilidad + "Martes:";
+                if (CheckBoxMartesMa.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Mañana";
+                }
+                if (CheckBoxMartesTar.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Tarde";
+                }
+                disponibilidad = disponibilidad + ";    ";
+            }
+
+            if (CheckBoxMiercoles.IsChecked == true)
+            {
+                disponibilidad =disponibilidad + "Miercoles:";
+                if (CheckBoxMiercolesMa.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Mañana";
+                }
+                if (CheckBoxMiercolesTar.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Tarde";
+                }
+                disponibilidad = disponibilidad + ";    ";
+            }
+
+            if (CheckBoxJueves.IsChecked == true)
+            {
+                disponibilidad = disponibilidad + "Jueves:";
+                if (CheckBoxJuevesMa.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Mañana";
+                }
+                if (CheckBoxJuevesTar.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Tarde";
+                }
+                disponibilidad = disponibilidad + ";    ";
+            }
+
+            if (CheckBoxViernes.IsChecked == true)
+            {
+                disponibilidad = disponibilidad + "Viernes:";
+                if (CheckBoxViernesMa.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Mañana";
+                }
+                if (CheckBoxViernesTar.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Tarde";
+                }
+                disponibilidad = disponibilidad + ";    ";
+            }
+
+            if (CheckBoxSabado.IsChecked == true)
+            {
+                disponibilidad = disponibilidad + "Sábado:";
+                if (CheckBoxSabadoMa.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Mañana";
+                }
+                if (CheckBoxSabadoTar.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Tarde";
+                }
+                disponibilidad = disponibilidad + ";    ";
+            }
+
+            if (CheckBoxDomingo.IsChecked == true)
+            {
+                disponibilidad =disponibilidad + "Domingo:";
+                if (CheckBoxDomingoMa.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Mañana";
+                }
+                if (CheckBoxDomingoTar.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Tarde";
+                }
+                disponibilidad = disponibilidad + ";    ";
+            }
+
+            return disponibilidad;
+        }
         private void btnListar_Click(object sender, RoutedEventArgs e)
         {
             //dataGridPerros.ClearDetailsVisibilityForItem();
-            StreamReader leer = new StreamReader("TablaPerros.txt");
+            StreamReader leer = new StreamReader("Perros.txt");
             string linea;
             
             try
