@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media.Imaging;
 
 namespace ProyectoIPO2020_2021
 {
@@ -17,8 +18,9 @@ namespace ProyectoIPO2020_2021
         public string forma_pago { set; get; }
         public long n_cuenta { set; get; }
         public DateTime fecha_apadrinamiento { set; get; }
+        public BitmapImage img { set; get; }
 
-        public Padrino(string nombre, string apellido, string dni, string correo, int n_tlf, int aportacion, string forma_pago, long n_cuenta, DateTime fecha_apadrinamiento)
+        public Padrino(string nombre, string apellido, string dni, string correo, int n_tlf, int aportacion, string forma_pago, long n_cuenta, DateTime fecha_apadrinamiento, BitmapImage img)
         {
             this.nombre = nombre;
             this.apellido = apellido;
@@ -29,6 +31,7 @@ namespace ProyectoIPO2020_2021
             this.forma_pago = forma_pago;
             this.n_cuenta = n_cuenta;
             this.fecha_apadrinamiento = fecha_apadrinamiento;
+            this.img = img;
         }
     }
 }

@@ -79,8 +79,13 @@
             </TabItem>
             <TabItem x:Name="tabListaPerros" Header="Listado de perros" FontFamily="Open Sans Semibold" >
                 <Grid x:Name="gridListadoPerros" HorizontalAlignment="Left" Height="505" VerticalAlignment="Top" Width="964" Margin="-2,0,-6,-2">
-                    <GroupBox x:Name="gridDatPerro" Header="Datos del perro" HorizontalAlignment="Left" Height="439" Margin="10,23,0,0" VerticalAlignment="Top" Width="519" FontSize="18">
-                        <Grid x:Name="gridDatosPerro" HorizontalAlignment="Left" Height="407" Margin="4,3,-2,0" VerticalAlignment="Top" Width="505">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="156*"/>
+                        <ColumnDefinition Width="23*"/>
+                        <ColumnDefinition Width="785*"/>
+                    </Grid.ColumnDefinitions>
+                    <GroupBox x:Name="gridDatPerro" Header="Datos del perro" HorizontalAlignment="Left" Height="461" Margin="10,23,0,0" VerticalAlignment="Top" Width="519" FontSize="18" Grid.ColumnSpan="3">
+                        <Grid x:Name="gridDatosPerro" HorizontalAlignment="Left" Height="426" Margin="4,3,-2,-22" VerticalAlignment="Top" Width="505">
                             <Label x:Name="lblNombrePerro" Content="&#x9;Nombre:" Height="26" Margin="0,14,0,0" Width="123" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                             <TextBox x:Name="txtboxNombrePerro" HorizontalAlignment="Left" Height="22" Margin="164,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" FontSize="13" KeyDown="txtboxNombrePerro_KeyDown"/>
                             <Label x:Name="lblSexoPerro" Content="&#x9;      Sexo:" HorizontalAlignment="Left" Height="26" Margin="-4,45,0,0" VerticalAlignment="Top" Width="127" FontSize="14"/>
@@ -94,34 +99,50 @@
                             <Label x:Name="lblAños" Content="Años" HorizontalAlignment="Left" Height="29" Margin="207,138,0,0" VerticalAlignment="Top" Width="55" FontSize="14" />
                             <Label x:Name="lblApadrinadoPerro" Content="      ¿Apadrinado?" HorizontalAlignment="Left" Height="29" Margin="0,200,0,0" VerticalAlignment="Top" Width="123" FontSize="14"/>
                             <TextBox x:Name="txtboxPesoPerro" HorizontalAlignment="Left" Height="22" Margin="164,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" KeyDown="txtboxPesoPerro_KeyDown" FontSize="13"/>
-                            <Label  x:Name="lblEdad" Content="Kg" HorizontalAlignment="Left" Height="29" Margin="207,104,0,0" VerticalAlignment="Top" Width="33" FontSize="14" RenderTransformOrigin="0.5,0.5">
-
-
-                            </Label>
+                            <Label  x:Name="lblKg" Content="Kg" HorizontalAlignment="Left" Height="29" Margin="207,104,0,0" VerticalAlignment="Top" Width="33" FontSize="14" RenderTransformOrigin="0.5,0.5"/>
                             <TextBox x:Name="txtEdadPerro" HorizontalAlignment="Left" Height="22" Margin="164,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" KeyDown="txtEdadPerro_KeyDown" FontSize="13"/>
                             <DatePicker x:Name="dateFechaPerro" HorizontalAlignment="Left" Height="25" Margin="164,172,0,0" VerticalAlignment="Top" Width="156" FontSize="13"  />
                             <CheckBox x:Name="checkApadrinado" HorizontalAlignment="Left" Height="17" Margin="164,207,0,0" VerticalAlignment="Top" Width="20" Checked="checkApadrinado_Checked"/>
-                            <Button x:Name="btnConsultaApadrinado" Content="Consultar Padrino" HorizontalAlignment="Left" Height="17" Margin="207,208,0,0" VerticalAlignment="Top" Width="99" FontSize="9" IsEnabled="{Binding ElementName=checkApadrinado, Path=IsChecked}" Click="btnConsultaApadrinado_Click"/>
-
+                            <Button x:Name="btnConsultaApadrinado" Content="Consultar Padrino" HorizontalAlignment="Left" Height="17" Margin="382,217,0,0" VerticalAlignment="Top" Width="99" FontSize="9" IsEnabled="{Binding ElementName=cboxPadrinos, Path=IsEnabled}" Click="btnConsultaApadrinado_Click"/>
                             <Button x:Name="btnAñadirImagenPerro" Content="Añadir Imagen" HorizontalAlignment="Left" Height="20" Margin="398,120,0,0" VerticalAlignment="Top" Width="70" Click="btnAñadirImagen_Click" FontSize="9" />
-                            <GroupBox Header="Descripción" HorizontalAlignment="Left" Height="153" Margin="-4,244,0,0" VerticalAlignment="Top" Width="426" FontSize="14">
-                                <Grid HorizontalAlignment="Left" Height="143" VerticalAlignment="Top" Width="416" Margin="0,0,-2.4,-13.4">
-                                    <TextBox x:Name="txtboxDescripcion" HorizontalAlignment="Left" Height="123" Margin="10,10,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="396" FontSize="13"/>
+                            <GroupBox Header="Descripción" HorizontalAlignment="Left" Height="153" Margin="-4,263,0,0" VerticalAlignment="Top" Width="426" FontSize="14">
+                                <Grid HorizontalAlignment="Left" Height="133" VerticalAlignment="Top" Width="416" Margin="0,10,-2,-16">
+                                    <TextBox x:Name="txtboxDescripcion" HorizontalAlignment="Left" Height="111" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="396" FontSize="13"/>
                                 </Grid>
 
                             </GroupBox>
                             <Border x:Name="bordeImagenPerro" BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="89" Margin="384,14,0,0" VerticalAlignment="Top" Width="97">
                                 <Image x:Name="imgPerro" HorizontalAlignment="Center" Height="69" VerticalAlignment="Top" Width="77" Margin="10,9,10,10"/>
                             </Border>
+                            <ComboBox x:Name="cboxPadrinos" HorizontalAlignment="Left" Height="33" Margin="207,207,0,0" VerticalAlignment="Top" Width="145" IsEnabled="{Binding ElementName=checkApadrinado, Path=IsChecked}">
 
+                                <ComboBoxItem x:Name="cbItemP1">
+                                    <StackPanel Orientation="Horizontal">
+
+                                        <TextBlock Text= "Lorenzo"  VerticalAlignment="center" Margin="5,0,0,0" Width="75"/>
+                                    </StackPanel>
+                                </ComboBoxItem>
+                                <ComboBoxItem x:Name="cbItemP2">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="Images/Roz.png" Width="20" />
+                                        <TextBlock Text= "Sheila" VerticalAlignment="center" Margin="5,0,0,0" Width="75"/>
+                                    </StackPanel>
+                                </ComboBoxItem>
+                                <ComboBoxItem x:Name="cbItemP3">
+                                    <StackPanel Orientation="Horizontal">
+                                        <Image Source="Images/Henry.png" Width="20" />
+                                        <TextBlock Text= "Sergio" VerticalAlignment="center" Margin="5,0,0,0" Width="76"/>
+                                    </StackPanel>
+                                </ComboBoxItem>
+                            </ComboBox>
                         </Grid>
                     </GroupBox>
 
-                    <Button x:Name="btnListarPerro" Content="Listar" HorizontalAlignment="Left" Height="46" Margin="569,350,0,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnListar_Click" />
-                    <Button x:Name="btnAñadirPerro" Content="Añadir" HorizontalAlignment="Left" Height="46" Margin="775,350,0,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnAñadir_Click"/>
-                    <Button x:Name="btnBorrarPerro" Content="Borrar" HorizontalAlignment="Left" Height="46" Margin="775,416,0,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnBorrar_Click"/>
-                    <Button x:Name="btnEditarPerro" Content="Editar" HorizontalAlignment="Left" Height="46" Margin="569,416,0,0" VerticalAlignment="Top" Width="123" FontSize="14"/>
-                    <DataGrid x:Name="dataGridPerros" HorizontalAlignment="Left" Height="277" Margin="534,23,0,0" VerticalAlignment="Top" Width="420" SelectionChanged="dataGridPerros_SelectionChanged" AutoGenerateColumns="False">
+                    <Button x:Name="btnListarPerro" Content="Listar" HorizontalAlignment="Left" Height="46" Margin="390,350,0,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnListar_Click" Grid.Column="2" />
+                    <Button x:Name="btnAñadirPerro" Content="Añadir" HorizontalAlignment="Left" Height="46" Margin="596,350,0,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnAñadir_Click" Grid.Column="2"/>
+                    <Button x:Name="btnBorrarPerro" Content="Borrar" HorizontalAlignment="Left" Height="46" Margin="596,416,0,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnBorrar_Click" Grid.Column="2"/>
+                    <Button x:Name="btnEditarPerro" Content="Editar" HorizontalAlignment="Left" Height="46" Margin="390,416,0,0" VerticalAlignment="Top" Width="123" FontSize="14" Grid.Column="2"/>
+                    <DataGrid x:Name="dataGridPerros" HorizontalAlignment="Left" Height="277" Margin="355,23,0,0" VerticalAlignment="Top" Width="420" SelectionChanged="dataGridPerros_SelectionChanged" AutoGenerateColumns="False" Grid.Column="2">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}" ClipboardContentBinding="{x:Null}"/>
                             <DataGridTextColumn Header="Sexo" Binding="{Binding sexo}" ClipboardContentBinding="{x:Null}"/>
@@ -341,11 +362,6 @@
             </ComboBox.Background>
             <Button x:Name="btnCbPerfil" Content="Perfil Personal" FontFamily="Open Sans Semibold"  Width="143" Background="#FF3CFFE4"/>
             <Button x:Name="btnCbCerrarSesion" Content="Cerrar Sesión" Background="#FFE81D1D" FontFamily="Open Sans Semibold" Click="btnCerrar_Click" HorizontalAlignment="Center" Width="145"/>
-
-
         </ComboBox>
-
-
-
     </Grid>
 </Window>

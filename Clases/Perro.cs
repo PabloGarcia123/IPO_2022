@@ -20,6 +20,8 @@ namespace ProyectoIPO2020_2021.Clases
         public string descripcion { set; get; }
         public ImageSource img { set; get; }
 
+
+
         public Perro(string nombre, string sexo, string raza, string peso, string edad, string fecha_entrada, bool apadrinado, string descripcion, ImageSource img)
         {
             this.nombre = nombre;
@@ -32,5 +34,6 @@ namespace ProyectoIPO2020_2021.Clases
             this.descripcion = descripcion;
             this.img = img;
         }
+
     }
 }

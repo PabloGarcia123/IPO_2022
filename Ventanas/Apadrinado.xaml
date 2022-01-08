@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoIPO2020_2021"
         mc:Ignorable="d"
-        Title="Apadrinado" Height="450" Width="739.526">
+        Title="Apadrinado" Height="450" Width="862.148">
     <Grid Margin="0,0,2,0">
         <GroupBox Header="Datos Personales" HorizontalAlignment="Left" Height="335" Margin="33,41,0,0" VerticalAlignment="Top" Width="286" Background="#FFBFE6E6" FontSize="16" FontFamily="Open Sans Semibold" Opacity="0.8" FontStretch="ExtraCondensed" BorderBrush="Black" BorderThickness="2" FontWeight="Bold">
             <StackPanel HorizontalAlignment="Left" Height="309" Margin="10,0,-2,-11" VerticalAlignment="Top" Width="266">
@@ -21,7 +21,7 @@
                 <TextBlock x:Name="txtblockNtlf" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Width="143" Margin="10,0,0,0" FontSize="13" FontWeight="Normal" />
             </StackPanel>
         </GroupBox>
-        <GroupBox Header="Datos Bancarios" HorizontalAlignment="Left" Height="160" Margin="353,41,0,0" VerticalAlignment="Top" Width="300" Background="#FFBFE6E6" FontSize="16" FontFamily="Open Sans Semibold" Opacity="0.8" FontStretch="ExtraCondensed" BorderBrush="Black" BorderThickness="2" FontWeight="Bold">
+        <GroupBox Header="Datos Bancarios" HorizontalAlignment="Left" Height="160" Margin="337,216,0,0" VerticalAlignment="Top" Width="421" Background="#FFBFE6E6" FontSize="16" FontFamily="Open Sans Semibold" Opacity="0.8" FontStretch="ExtraCondensed" BorderBrush="Black" BorderThickness="2" FontWeight="Bold">
             <StackPanel HorizontalAlignment="Left" Height="121" Margin="4,3,0,0" VerticalAlignment="Top" Width="258">
                 <Label Content="Numero de cuenta:" HorizontalAlignment="Left" Height="26" Width="143" FontStretch="Normal" FontSize="14" FontWeight="Normal"/>
                 <TextBlock x:Name="txtblockNCuenta" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Width="209" Margin="10,0,0,0" FontSize="13" FontWeight="Normal" />
@@ -29,7 +29,7 @@
                 <TextBlock x:Name="txtblockFormapago" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Width="156" Margin="10,0,0,0" FontSize="13" FontWeight="Normal" />
             </StackPanel>
         </GroupBox>
-        <GroupBox Header="Datos del apadrinamiento" HorizontalAlignment="Left" Height="157" Margin="353,219,0,0" VerticalAlignment="Top" Width="300" Background="#FFBFE6E6" FontSize="16" FontFamily="Open Sans Semibold" Opacity="0.8" FontStretch="ExtraCondensed" BorderBrush="Black" BorderThickness="2" FontWeight="Bold">
+        <GroupBox Header="Datos del apadrinamiento" HorizontalAlignment="Left" Height="157" Margin="337,41,0,0" VerticalAlignment="Top" Width="300" Background="#FFBFE6E6" FontSize="16" FontFamily="Open Sans Semibold" Opacity="0.8" FontStretch="ExtraCondensed" BorderBrush="Black" BorderThickness="2" FontWeight="Bold">
             <StackPanel HorizontalAlignment="Left" Height="122" Margin="4,3,0,0" VerticalAlignment="Top" Width="258">
                 <Label Content="Fecha de apadrinamiento:" HorizontalAlignment="Left" Height="26" Width="190" FontStretch="Normal" FontSize="14" FontWeight="Normal"/>
                 <TextBlock x:Name="txtblockFechaapa" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Width="156" Margin="10,0,0,0" FontSize="13" FontWeight="Normal" />
@@ -38,5 +38,15 @@
 
             </StackPanel>
         </GroupBox>
+        <Border x:Name="bordeImg" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Height="150" Margin="672,51,0,0" VerticalAlignment="Top" Width="157">
+            <Image x:Name="imgPerfil"  HorizontalAlignment="Center" Height="140"  VerticalAlignment="Top" Width="140" Source="{Binding imagen}" Margin="8.4,0.4,0,-1.2">
+                <Image.OpacityMask>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Image.OpacityMask>
+            </Image>
+        </Border>
     </Grid>
 </Window>

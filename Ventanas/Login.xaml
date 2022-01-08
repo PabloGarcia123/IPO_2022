@@ -56,7 +56,7 @@
         <TextBox x:Name="txtUsuario" TextWrapping="Wrap" Height="24" FontFamily="Sitka Text" Padding="4" TabIndex="1" KeyDown="txtUsuario_KeyDown" Grid.Row="5" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="4" VerticalAlignment="Top" Margin="0,0,4,0"/>
         <Label x:Name="lblContraseña" Content="Contraseña" HorizontalAlignment="Left" Height="32" Margin="0,3,0,0" VerticalAlignment="Top" Width="150" FontFamily="Sitka Text" FontSize="16" Grid.Row="6" Grid.Column="3" Grid.ColumnSpan="2"/>
         <PasswordBox x:Name="passContra" VerticalAlignment="Top" Height="24" Padding="4" TabIndex="2"  Grid.Row="7" Grid.Column="3" Grid.RowSpan="2" Grid.ColumnSpan="4" Margin="0,0,4,0" KeyDown="passContra_KeyDown"/>
-        <Button x:Name="btnLogin" Content="Iniciar Sesión" Padding="6" TabIndex="3" AllowDrop="True" Click="btnLogin_Click" Grid.Row="8" Grid.Column="4" Grid.ColumnSpan="2" Height="35" VerticalAlignment="Top" Margin="1,39,1,0" Grid.RowSpan="2"/>
+        <Button x:Name="btnLogin" Content="Iniciar Sesion" Padding="6" TabIndex="3" AllowDrop="True" Click="btnLogin_Click" Grid.Row="8" Grid.Column="4" Grid.ColumnSpan="2" Height="35" VerticalAlignment="Top" Margin="1,39,1,0" Grid.RowSpan="2"/>
         <Label x:Name="lblTituloLogin" Content="AdoptDog" FontFamily="Sitka Text" FontSize="43" Grid.Row="2" Grid.Column="3" Grid.ColumnSpan="4" Margin="0,0,4,8" VerticalAlignment="Bottom" Height="58" Grid.RowSpan="2"/>
         <Image x:Name="imgAvatar" Margin="2,1,0,0" Source="/images/icono.png" Grid.Row="2" Grid.Column="2" Grid.RowSpan="2"  MouseEnter="imgAvatar_MouseEnter" MouseLeave="imgAvatar_MouseLeave">
             <Image.OpacityMask>
