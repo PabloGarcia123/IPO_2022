@@ -1,0 +1,1 @@
+juan,perico,12321,924712122,noeflahelasdg,True,Lunes: Mañana Tarde;    Martes: Mañana Tarde;    Miercoles: Mañana Tarde;    Jueves: Mañana Tarde;    Viernes: Mañana Tarde;    Sábado: Mañana Tarde;    Domingo: Mañana Tarde;    ,file:///C:/Users/noelf/OneDrive/Escritorio/IPO/Practicas/IPO_2022-main/Images/Mike-Wazowski.jpg

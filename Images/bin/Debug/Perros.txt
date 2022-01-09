@@ -1,0 +1,4 @@
+Nera, Hembra, qweq, 123, 123, 20/01/2022, False, , qweqwe,
+file:///C:/Users/05980124/Desktop/AAAABas8Ah2dmxDUKIc58IJy3YSUEmN6R4aI6rx7-geD8OKA95XhlQ5iwF3NUJ73ymL6AbIcehgSkyG9srfiEkuEgj-PWVc9.png
+Sexo, Hembra, wqeqw, 123, 123, 06/01/2022, False, , qweqwe,
+file:///C:/Users/05980124/Desktop/AAAABas8Ah2dmxDUKIc58IJy3YSUEmN6R4aI6rx7-geD8OKA95XhlQ5iwF3NUJ73ymL6AbIcehgSkyG9srfiEkuEgj-PWVc9.png
