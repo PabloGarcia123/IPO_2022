@@ -43,12 +43,13 @@ namespace ProyectoIPO2020_2021
             
  
         }
+
         public void cargarPadrinos(object sender, RoutedEventArgs e)
         {
-            Console.WriteLine(cboxPadrinos.SelectedItem.ToString());
+            Console.WriteLine(cboxPadrino.SelectedItem.ToString());
             
            
-            if (cboxPadrinos.SelectedIndex == 0) { 
+            if (cboxPadrino.SelectedIndex == 0) { 
                 
                 Padrino padrino1 = new Padrino("Lorenzo", "Galván Moreno", "05980126D", "Lorenzo.Galvan@gmail.com", 664231235, 50, "Efectivo", 01289193000244163980, DateTime.Now, imgPadrino1);
                 ventanaPadrinos.txtblockNombre.Text = padrino1.nombre;
@@ -62,7 +63,7 @@ namespace ProyectoIPO2020_2021
                 ventanaPadrinos.txtblockAportacion.Text = padrino1.aportacion.ToString();
                 ventanaPadrinos.imgPerfil.Source = padrino1.img;
             }
-            else if (cboxPadrinos.SelectedIndex == 1)
+            else if (cboxPadrino.SelectedIndex == 1)
             {
                
                 Padrino padrino2 = new Padrino("Sheila", "Soria Pozo", "05986526D", "Sheila.Soria@gmail.com", 652345633, 100, "Transferencia Bancaria", 0002252228352538144762, DateTime.Now, imgPadrino2);
@@ -77,7 +78,7 @@ namespace ProyectoIPO2020_2021
                 ventanaPadrinos.txtblockAportacion.Text = padrino2.aportacion.ToString();
                 ventanaPadrinos.imgPerfil.Source = padrino2.img;
             }
-            else if (cboxPadrinos.SelectedIndex == 2)
+            else if (cboxPadrino.SelectedIndex == 2)
             {
                 Padrino padrino3 = new Padrino("Sergio", "Mateu-Belmonte", "05123126D", "Sergio.Mateu@gmail.com", 678453456, 85, "Bizum", 0002252228456784344762, DateTime.Now, imgPadrino3);
                 ventanaPadrinos.txtblockNombre.Text = padrino3.nombre;
@@ -114,8 +115,7 @@ namespace ProyectoIPO2020_2021
         private void btnConsultaApadrinado_Click(object sender, RoutedEventArgs e) 
         {
             
-                cargarPadrinos(sender,e);
-           
+            cargarPadrinos(sender,e);
             ventanaPadrinos.Show();
           
         }
@@ -155,6 +155,7 @@ namespace ProyectoIPO2020_2021
         private void Save(object sender, RoutedEventArgs e) 
         {
             SaveFileDialog datos = new SaveFileDialog();
+            Console.WriteLine(datos);
             datos.Filter = "Texto(*.txt) | *.txt";
 
             if (datos.ShowDialog() == true)
@@ -166,7 +167,7 @@ namespace ProyectoIPO2020_2021
                     for (int i = 0; i < dataGridPerros.Items.Count; i++)
                     {
                         Perro line = (Perro)dataGridPerros.Items[i];
-                        strB.AppendLine(line.nombre.ToString() + "," + line.sexo.ToString() + "," + line.raza.ToString() + "," + line.peso.ToString() + "," + line.edad.ToString() + "," + line.fecha_entrada.ToString() + "," + line.apadrinado.ToString() + "," + line.descripcion.ToString() + "," + line.img.ToString());
+                        strB.AppendLine(line.nombre.ToString() + ", " + line.sexo.ToString() + ", " + line.raza.ToString() + ", " + line.peso.ToString() + ", " + line.edad.ToString() + ", " + line.fecha_entrada.ToString() + ", " + line.apadrinado.ToString() + ", " + line.n_padrino.ToString() + ", " + line.descripcion.ToString() + ",\n" + line.img.ToString());
                     }
                 }
                 if (sender == btnAñadirVoluntario)
@@ -174,7 +175,7 @@ namespace ProyectoIPO2020_2021
                     for (int i = 0; i < dataGridVoluntarios.Items.Count; i++)
                     {
                         Voluntario line = (Voluntario)dataGridVoluntarios.Items[i];
-                        strB.AppendLine(line.nombre.ToString() + "," + line.apellido.ToString() + "," + line.dni.ToString() + "," + line.n_tlf.ToString() + "," + line.correo.ToString() + "," + line.conocimientos.ToString() + "," + line.disponibilidad.ToString() + "," + line.img.ToString());
+                        strB.AppendLine(line.nombre.ToString() + ", " + line.apellido.ToString() + ", " + line.dni.ToString() + ", " + line.n_tlf.ToString() + ", " + line.correo.ToString() + ", " + line.conocimientos.ToString() + ", " + line.disponibilidad.ToString() + ",\n" + line.img.ToString());
                     }
                 }
                 if (sender == btnAñadirSocio)
@@ -182,7 +183,7 @@ namespace ProyectoIPO2020_2021
                     for (int i = 0; i < dataGridSocio.Items.Count; i++)
                     {
                         Socio line = (Socio)dataGridSocio.Items[i];
-                        strB.AppendLine(line.nombre.ToString() + "," + line.apellido.ToString() + "," + line.dni.ToString() + "," + line.n_tlf.ToString() + "," + line.correo.ToString() + "," + line.ent_bancaria.ToString() + "," + line.IBAN1.ToString() + "," + line.IBAN2.ToString() + "," + line.IBAN3.ToString()+"," + line.IBAN4.ToString() + "," + line.IBAN5.ToString() + "," + line.IBAN6.ToString() + "," + line.cuantia.ToString() + "," + line.metodo_pago.ToString() + "," + line.img.ToString());
+                        strB.AppendLine(line.nombre.ToString() + ", " + line.apellido.ToString() + ", " + line.dni.ToString() + ", " + line.n_tlf.ToString() + ", " + line.correo.ToString() + ", " + line.ent_bancaria.ToString() + ", " + line.IBAN1.ToString() + ", " + line.IBAN2.ToString() + ", " + line.IBAN3.ToString()+", " + line.IBAN4.ToString() + ", " + line.IBAN5.ToString() + ", " + line.IBAN6.ToString() + ", " + line.cuantia.ToString() + ", " + line.metodo_pago.ToString() + ",\n" + line.img.ToString());
                     }
                 }
                 File.WriteAllText(archivo, strB.ToString());
@@ -222,6 +223,10 @@ namespace ProyectoIPO2020_2021
                     dateFechaPerro.BorderBrush = Brushes.Red;
                     dateFechaPerro.Background = Brushes.LightSalmon;
                 }
+                else if (string.IsNullOrEmpty(cboxPadrino.Text) && (checkApadrinado.IsChecked==true))
+                {
+                    MessageBox.Show("No ha definido el padrino ", "Padrino");  
+                }
                 else if (string.IsNullOrEmpty(txtboxDescripcion.Text))
                 {
                     txtboxDescripcion.BorderBrush = Brushes.Red;
@@ -236,7 +241,7 @@ namespace ProyectoIPO2020_2021
                 else
                 {
 
-                    Perro perro = new Perro(txtboxNombrePerro.Text, obtenerSexoPerro(), txtboxRazaPerro.Text, txtboxPesoPerro.Text, txtEdadPerro.Text, dateFechaPerro.Text, (bool)checkApadrinado.IsChecked, txtboxDescripcion.Text, imgPerro.Source);
+                    Perro perro = new Perro(txtboxNombrePerro.Text, obtenerSexoPerro(), txtboxRazaPerro.Text, txtboxPesoPerro.Text, txtEdadPerro.Text, dateFechaPerro.Text, (bool)checkApadrinado.IsChecked, cboxPadrino.Text, txtboxDescripcion.Text, imgPerro.Source);
                     dataGridPerros.Items.Add(perro);
                     limpiarPerro(); 
                     Save(sender, e);
@@ -373,49 +378,153 @@ namespace ProyectoIPO2020_2021
                     Save(sender, e);
                 }
             }
-
-
-
         }
-
 
         private void btnListar_Click(object sender, RoutedEventArgs e)
         {
-            //dataGridPerros.ClearDetailsVisibilityForItem();
-            StreamReader leer = new StreamReader("Perros.txt");
-            string linea;
-            
-            try
+            if (sender == btnListarPerro)
             {
-                linea = leer.ReadLine();
-                while (linea != null)
-                {
-                    //dataGridPerros.Items.Add();
-                    linea = leer.ReadLine();
-
-                }
+                limpiarPerro();
+                TextReader Leer = new StreamReader("Perros.txt");
+                MessageBox.Show(Leer.ReadToEnd());
+                Leer.Close();
             }
-            catch
+            if(sender == btnListarVoluntario)
             {
-                MessageBox.Show("Error");
+                limpiarVoluntario();
+                TextReader Leer = new StreamReader("Voluntarios.txt");
+                MessageBox.Show(Leer.ReadToEnd());
+                Leer.Close();
+            }
+            if (sender == btnListarSocio)
+            {
+                limpiarSocio();
+                TextReader Leer = new StreamReader("Socios.txt");
+                MessageBox.Show(Leer.ReadToEnd());
+                Leer.Close();
             }
         }
 
         private void btnBorrar_Click(object sender, RoutedEventArgs e)
         {
-            dataGridPerros.Items.RemoveAt(dataGridPerros.SelectedIndex);
-            btnBorrarPerro.IsEnabled = false;
+            if(sender == btnBorrarPerro)
+            {
+                dataGridPerros.Items.Remove(dataGridPerros.SelectedItem);
+                btnBorrarPerro.IsEnabled = false;
+                limpiarPerro();
+            }
+            else if(sender == btnBorrarVoluntario)
+            {
+                dataGridVoluntarios.Items.RemoveAt(dataGridVoluntarios.SelectedIndex);
+                btnBorrarPerro.IsEnabled = false;
+                limpiarVoluntario();
+            }
+            else if(sender == btnBorrarSocio)
+            {
+                dataGridSocio.Items.RemoveAt(dataGridSocio.SelectedIndex);
+                btnBorrarSocio.IsEnabled = false;
+                limpiarSocio();
+            }
         }
 
         private void dataGridPerros_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
-            btnBorrarPerro.IsEnabled = true;
-            btnEditarPerro.IsEnabled = true;
-            
+            if((sender == dataGridPerros) && dataGridPerros.SelectedItem != null)
+            {
+                limpiarPerro();
+                btnBorrarPerro.IsEnabled = true;
+                btnEditarPerro.IsEnabled = true;
 
-            //txtboxNombrePerro.Text = dataGridPerros.
-            
+                Perro line = (Perro)dataGridPerros.SelectedItem;
 
+
+                txtboxNombrePerro.Text = line.nombre.ToString();
+                if (line.sexo.ToString() == "Macho")
+                {
+                    radiobMacho.IsChecked = true;
+                }
+                else
+                {
+                    radiobHembra.IsChecked = true;
+                }
+                txtboxRazaPerro.Text = line.raza.ToString();
+                txtboxPesoPerro.Text = line.peso.ToString();
+                txtEdadPerro.Text = line.edad.ToString();
+                dateFechaPerro.Text = line.fecha_entrada.ToString();
+                if (line.apadrinado.ToString() == "True")
+                {
+                    checkApadrinado.IsChecked = true;
+
+                }
+                cboxPadrino.Text = line.n_padrino.ToString();
+
+                /*if(line.n_padrino.ToString() == "Lorenzo")
+                {
+                    cboxPadrinos.SelectedItem = 0;
+                    Console.WriteLine(line.n_padrino.ToString());
+                }
+                if (line.n_padrino.ToString() == "Sheila")
+                {
+                    cboxPadrinos.SelectedItem = 1;
+                }
+                if (line.n_padrino.ToString() == "Sergio")
+                {
+                    cboxPadrinos.SelectedItem = 2;
+                }*/
+
+                txtboxDescripcion.Text = line.descripcion;
+                imgPerro.Source = line.img;
+           }
+            if (sender == dataGridVoluntarios && dataGridVoluntarios.SelectedItem != null)
+            {
+                limpiarVoluntario();
+                btnBorrarVoluntario.IsEnabled = true;
+                btnEditarVoluntario.IsEnabled = true;
+
+                Voluntario line = (Voluntario)dataGridVoluntarios.SelectedItem;
+
+
+                txtboxNombreVoluntario.Text = line.nombre.ToString();
+                txtboxApellidoVoluntario.Text = line.apellido.ToString();
+                txtboxDNIVoluntario.Text = line.dni.ToString();
+                txtboxTelefonoVoluntario.Text = line.n_tlf.ToString();
+                txtCorreoElectronicoVoluntario.Text = line.correo.ToString();
+                imgVoluntario.Source = line.img;
+                if (line.conocimientos.ToString() == "True")
+                {
+                    checkConocimientosVeterinarios.IsChecked = true;
+                }
+                
+                if (line.disponibilidad.ToString() == "True")
+                {
+                    CheckBoxLunes.IsChecked = true;
+                }
+            }
+            if (sender == dataGridSocio && dataGridSocio.SelectedItem != null)
+            {
+                limpiarSocio();
+                btnBorrarSocio.IsEnabled = true;
+                btnEditarSocio.IsEnabled = true;
+
+                Socio line = (Socio)dataGridSocio.SelectedItem;
+
+
+                txtboxNombreSocio.Text = line.nombre.ToString();
+                txtboxApellidoSocio.Text = line.apellido.ToString();
+                txtboxDNISocio.Text = line.dni.ToString();
+                txtboxTelefonoSocio.Text = line.n_tlf.ToString();
+                txtCorreoElectronicoSocio.Text = line.correo.ToString();
+                txtEntidadBancaria.Text = line.ent_bancaria;
+                txtIBAN1.Text = line.IBAN1.ToString();
+                txtIBAN2.Text = line.IBAN2.ToString();
+                txtIBAN3.Text = line.IBAN3.ToString();
+                txtIBAN4.Text = line.IBAN4.ToString();
+                txtIBAN5.Text = line.IBAN5.ToString();
+                txtIBAN6.Text = line.IBAN6.ToString();
+                txtCuantia.Text = line.cuantia.ToString();
+                cboxformPago.Text = line.metodo_pago.ToString();
+                imgSocio.Source = line.img;
+            }
 
         }
 
@@ -428,6 +537,8 @@ namespace ProyectoIPO2020_2021
             radiobMacho.IsChecked = false;
             radiobHembra.IsChecked = false;
             txtboxRazaPerro.Text = "";
+            //cboxPadrinos.Text = "";
+            cboxPadrino.Text = "";
             txtboxPesoPerro.Text = "";
             txtEdadPerro.Text = "";
             dateFechaPerro.SelectedDate = null;
@@ -460,6 +571,7 @@ namespace ProyectoIPO2020_2021
             txtboxDNIVoluntario.Text = "";
             txtboxTelefonoVoluntario.Text = "";
             txtCorreoElectronicoVoluntario.Text = "";
+            checkConocimientosVeterinarios.IsChecked = false;
             CheckBoxLunes.IsChecked = false;
             CheckBoxMartes.IsChecked = false;
             CheckBoxMiercoles.IsChecked = false;
