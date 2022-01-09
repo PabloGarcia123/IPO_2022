@@ -57,8 +57,9 @@ namespace ProyectoIPO2020_2021
         {
          
             InitializeComponent();
-
+  
         }
+
 
         public string establecerCorreo()
         {
@@ -72,8 +73,6 @@ namespace ProyectoIPO2020_2021
                 ventanaApp.txtblockDni.Text = usuario1.dni;
                 ventanaApp.txtblockTelefenoUsuario.Text = usuario1.n_tlf.ToString();
                 ventanaApp.txtblockFecha.Text = usuario1.ult_acceso.ToString();
-
-
             }
             if(txtUsuario.Text == correo2)
             {

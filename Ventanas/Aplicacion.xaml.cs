@@ -26,8 +26,10 @@ namespace ProyectoIPO2020_2021
         
         private VentanaAyuda ventanaAyuda = new VentanaAyuda();
         private Apadrinado ventanaPadrinos = new Apadrinado();
-        
-        
+
+        private static BitmapImage imgPadrino1 = new BitmapImage(new Uri("/Images/George.png", UriKind.Relative));
+        private static BitmapImage imgPadrino2 = new BitmapImage(new Uri("/Images/Roz.png", UriKind.Relative));
+        private static BitmapImage imgPadrino3 = new BitmapImage(new Uri("/Images/Henry.png", UriKind.Relative));
 
         public Aplicacion()
         {
@@ -40,6 +42,55 @@ namespace ProyectoIPO2020_2021
             
             
  
+        }
+        public void cargarPadrinos(object sender, RoutedEventArgs e)
+        {
+            Console.WriteLine(cboxPadrino.SelectedItem.ToString());
+            
+           
+            if (cboxPadrino.SelectedIndex == 0) { 
+                
+                Padrino padrino1 = new Padrino("Lorenzo", "Galván Moreno", "05980126D", "Lorenzo.Galvan@gmail.com", 664231235, 50, "Efectivo", 01289193000244163980, DateTime.Now, imgPadrino1);
+                ventanaPadrinos.txtblockNombre.Text = padrino1.nombre;
+                ventanaPadrinos.txtblockApellido.Text = padrino1.apellido;
+                ventanaPadrinos.txtblockDNI.Text = padrino1.dni;
+                ventanaPadrinos.txtblockCorreo.Text = padrino1.correo;
+                ventanaPadrinos.txtblockNtlf.Text = padrino1.n_tlf.ToString();
+                ventanaPadrinos.txtblockNCuenta.Text = padrino1.n_cuenta.ToString();
+                ventanaPadrinos.txtblockFormapago.Text = padrino1.forma_pago;
+                ventanaPadrinos.txtblockFechaapa.Text = padrino1.fecha_apadrinamiento.ToString();
+                ventanaPadrinos.txtblockAportacion.Text = padrino1.aportacion.ToString();
+                ventanaPadrinos.imgPerfil.Source = padrino1.img;
+            }
+            else if (cboxPadrino.SelectedIndex == 1)
+            {
+               
+                Padrino padrino2 = new Padrino("Sheila", "Soria Pozo", "05986526D", "Sheila.Soria@gmail.com", 652345633, 100, "Transferencia Bancaria", 0002252228352538144762, DateTime.Now, imgPadrino2);
+                ventanaPadrinos.txtblockNombre.Text = padrino2.nombre;
+                ventanaPadrinos.txtblockApellido.Text = padrino2.apellido;
+                ventanaPadrinos.txtblockDNI.Text = padrino2.dni;
+                ventanaPadrinos.txtblockCorreo.Text = padrino2.correo;
+                ventanaPadrinos.txtblockNtlf.Text = padrino2.n_tlf.ToString();
+                ventanaPadrinos.txtblockNCuenta.Text = padrino2.n_cuenta.ToString();
+                ventanaPadrinos.txtblockFormapago.Text = padrino2.forma_pago;
+                ventanaPadrinos.txtblockFechaapa.Text = padrino2.fecha_apadrinamiento.ToString();
+                ventanaPadrinos.txtblockAportacion.Text = padrino2.aportacion.ToString();
+                ventanaPadrinos.imgPerfil.Source = padrino2.img;
+            }
+            else if (cboxPadrino.SelectedIndex == 2)
+            {
+                Padrino padrino3 = new Padrino("Sergio", "Mateu-Belmonte", "05123126D", "Sergio.Mateu@gmail.com", 678453456, 85, "Bizum", 0002252228456784344762, DateTime.Now, imgPadrino3);
+                ventanaPadrinos.txtblockNombre.Text = padrino3.nombre;
+                ventanaPadrinos.txtblockApellido.Text = padrino3.apellido;
+                ventanaPadrinos.txtblockDNI.Text = padrino3.dni;
+                ventanaPadrinos.txtblockCorreo.Text = padrino3.correo;
+                ventanaPadrinos.txtblockNtlf.Text = padrino3.n_tlf.ToString();
+                ventanaPadrinos.txtblockNCuenta.Text = padrino3.n_cuenta.ToString();
+                ventanaPadrinos.txtblockFormapago.Text = padrino3.forma_pago;
+                ventanaPadrinos.txtblockFechaapa.Text = padrino3.fecha_apadrinamiento.ToString();
+                ventanaPadrinos.txtblockAportacion.Text = padrino3.aportacion.ToString();
+                ventanaPadrinos.imgPerfil.Source = padrino3.img;
+            }
         }
 
         private void btnAyuda_Click(object sender, RoutedEventArgs e)
@@ -60,9 +111,13 @@ namespace ProyectoIPO2020_2021
             Application.Current.Shutdown();
         }
        
-        private void btnConsultaApadrinado_Click(object sender, RoutedEventArgs e)
+        private void btnConsultaApadrinado_Click(object sender, RoutedEventArgs e) 
         {
+            
+                cargarPadrinos(sender,e);
+           
             ventanaPadrinos.Show();
+          
         }
 
         private void btnAñadirImagen_Click(object sender, RoutedEventArgs e)
@@ -96,9 +151,11 @@ namespace ProyectoIPO2020_2021
             }
            
         }
+
         private void Save(object sender, RoutedEventArgs e) 
         {
             SaveFileDialog datos = new SaveFileDialog();
+            Console.WriteLine(datos);
             datos.Filter = "Texto(*.txt) | *.txt";
 
             if (datos.ShowDialog() == true)
@@ -110,7 +167,7 @@ namespace ProyectoIPO2020_2021
                     for (int i = 0; i < dataGridPerros.Items.Count; i++)
                     {
                         Perro line = (Perro)dataGridPerros.Items[i];
-                        strB.AppendLine(line.nombre.ToString() + "," + line.sexo.ToString() + "," + line.raza.ToString() + "," + line.peso.ToString() + "," + line.edad.ToString() + "," + line.fecha_entrada.ToString() + "," + line.apadrinado.ToString() + "," + line.descripcion.ToString() + "," + line.img.ToString());
+                        strB.AppendLine(line.nombre.ToString() + "," + line.sexo.ToString() + "," + line.raza.ToString() + "," + line.peso.ToString() + "," + line.edad.ToString() + "," + line.fecha_entrada.ToString() + "," + line.apadrinado.ToString() + "," + line.n_padrino.ToString() + "," + line.descripcion.ToString() + "," + line.img.ToString());
                     }
                 }
                 if (sender == btnAñadirVoluntario)
@@ -132,6 +189,7 @@ namespace ProyectoIPO2020_2021
                 File.WriteAllText(archivo, strB.ToString());
             }
         }
+
         private void btnAñadir_Click(object sender, RoutedEventArgs e)
         {
             if (sender == btnAñadirPerro)
@@ -165,6 +223,10 @@ namespace ProyectoIPO2020_2021
                     dateFechaPerro.BorderBrush = Brushes.Red;
                     dateFechaPerro.Background = Brushes.LightSalmon;
                 }
+                else if (string.IsNullOrEmpty(cboxPadrino.Text) && (checkApadrinado.IsChecked==true))
+                {
+                    MessageBox.Show("No ha definido el padrino ", "Padrino");  
+                }
                 else if (string.IsNullOrEmpty(txtboxDescripcion.Text))
                 {
                     txtboxDescripcion.BorderBrush = Brushes.Red;
@@ -179,7 +241,7 @@ namespace ProyectoIPO2020_2021
                 else
                 {
 
-                    Perro perro = new Perro(txtboxNombrePerro.Text, obtenerSexoPerro(), txtboxRazaPerro.Text, txtboxPesoPerro.Text, txtEdadPerro.Text, dateFechaPerro.Text, (bool)checkApadrinado.IsChecked, txtboxDescripcion.Text, imgPerro.Source);
+                    Perro perro = new Perro(txtboxNombrePerro.Text, obtenerSexoPerro(), txtboxRazaPerro.Text, txtboxPesoPerro.Text, txtEdadPerro.Text, dateFechaPerro.Text, (bool)checkApadrinado.IsChecked, cboxPadrino.Text, txtboxDescripcion.Text, imgPerro.Source);
                     dataGridPerros.Items.Add(perro);
                     limpiarPerro(); 
                     Save(sender, e);
@@ -299,7 +361,7 @@ namespace ProyectoIPO2020_2021
                 }
                 else if (string.IsNullOrEmpty(cboxformPago.Text))
                 {
-                    MessageBox.Show("No ha definido el mñetodo de pago ", "Método de pago");
+                    MessageBox.Show("No ha definido el metodo de pago ", "Método de pago");
                 }
                 else if (imgSocio.Source == null)
                 {
@@ -320,109 +382,8 @@ namespace ProyectoIPO2020_2021
 
 
         }
-        private string obtenerDisponibilidad()
-        {
-            string disponibilidad = "";
-            if (CheckBoxLunes.IsChecked == true)
-            {
-                disponibilidad = "Lunes:";
-                if (CheckBoxLunesMa.IsChecked == true)
-                {
-                    disponibilidad = disponibilidad + " Mañana";
-                }
-                if (CheckBoxLunesTar.IsChecked == true)
-                {
-                    disponibilidad = disponibilidad + " Tarde";
-                }
-                disponibilidad = disponibilidad + ";    ";
-            }
 
-            if (CheckBoxMartes.IsChecked == true)
-            {
-                disponibilidad = disponibilidad + "Martes:";
-                if (CheckBoxMartesMa.IsChecked == true)
-                {
-                    disponibilidad = disponibilidad + " Mañana";
-                }
-                if (CheckBoxMartesTar.IsChecked == true)
-                {
-                    disponibilidad = disponibilidad + " Tarde";
-                }
-                disponibilidad = disponibilidad + ";    ";
-            }
 
-            if (CheckBoxMiercoles.IsChecked == true)
-            {
-                disponibilidad =disponibilidad + "Miercoles:";
-                if (CheckBoxMiercolesMa.IsChecked == true)
-                {
-                    disponibilidad = disponibilidad + " Mañana";
-                }
-                if (CheckBoxMiercolesTar.IsChecked == true)
-                {
-                    disponibilidad = disponibilidad + " Tarde";
-                }
-                disponibilidad = disponibilidad + ";    ";
-            }
-
-            if (CheckBoxJueves.IsChecked == true)
-            {
-                disponibilidad = disponibilidad + "Jueves:";
-                if (CheckBoxJuevesMa.IsChecked == true)
-                {
-                    disponibilidad = disponibilidad + " Mañana";
-                }
-                if (CheckBoxJuevesTar.IsChecked == true)
-                {
-                    disponibilidad = disponibilidad + " Tarde";
-                }
-                disponibilidad = disponibilidad + ";    ";
-            }
-
-            if (CheckBoxViernes.IsChecked == true)
-            {
-                disponibilidad = disponibilidad + "Viernes:";
-                if (CheckBoxViernesMa.IsChecked == true)
-                {
-                    disponibilidad = disponibilidad + " Mañana";
-                }
-                if (CheckBoxViernesTar.IsChecked == true)
-                {
-                    disponibilidad = disponibilidad + " Tarde";
-                }
-                disponibilidad = disponibilidad + ";    ";
-            }
-
-            if (CheckBoxSabado.IsChecked == true)
-            {
-                disponibilidad = disponibilidad + "Sábado:";
-                if (CheckBoxSabadoMa.IsChecked == true)
-                {
-                    disponibilidad = disponibilidad + " Mañana";
-                }
-                if (CheckBoxSabadoTar.IsChecked == true)
-                {
-                    disponibilidad = disponibilidad + " Tarde";
-                }
-                disponibilidad = disponibilidad + ";    ";
-            }
-
-            if (CheckBoxDomingo.IsChecked == true)
-            {
-                disponibilidad =disponibilidad + "Domingo:";
-                if (CheckBoxDomingoMa.IsChecked == true)
-                {
-                    disponibilidad = disponibilidad + " Mañana";
-                }
-                if (CheckBoxDomingoTar.IsChecked == true)
-                {
-                    disponibilidad = disponibilidad + " Tarde";
-                }
-                disponibilidad = disponibilidad + ";    ";
-            }
-
-            return disponibilidad;
-        }
         private void btnListar_Click(object sender, RoutedEventArgs e)
         {
             //dataGridPerros.ClearDetailsVisibilityForItem();
@@ -451,6 +412,102 @@ namespace ProyectoIPO2020_2021
             btnBorrarPerro.IsEnabled = false;
         }
 
+        private void dataGridPerros_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+           if(sender == dataGridPerros)
+           {
+                limpiarPerro();
+                btnBorrarPerro.IsEnabled = true;
+                btnEditarPerro.IsEnabled = true;
+
+                Perro line = (Perro)dataGridPerros.SelectedItem;
+
+
+                txtboxNombrePerro.Text = line.nombre.ToString();
+                if (line.sexo.ToString() == "Macho")
+                {
+                    radiobMacho.IsChecked = true;
+                }
+                else
+                {
+                    radiobHembra.IsChecked = true;
+                }
+                txtboxRazaPerro.Text = line.raza.ToString();
+                txtboxPesoPerro.Text = line.peso.ToString();
+                txtEdadPerro.Text = line.edad.ToString();
+                dateFechaPerro.Text = line.fecha_entrada.ToString();
+                if (line.apadrinado.ToString() == "True")
+                {
+                    checkApadrinado.IsChecked = true;
+
+                }
+                cboxPadrino.Text = line.n_padrino.ToString();
+
+                /*if(line.n_padrino.ToString() == "Lorenzo")
+                {
+                    cboxPadrinos.SelectedItem = 0;
+                    Console.WriteLine(line.n_padrino.ToString());
+                }
+                if (line.n_padrino.ToString() == "Sheila")
+                {
+                    cboxPadrinos.SelectedItem = 1;
+                }
+                if (line.n_padrino.ToString() == "Sergio")
+                {
+                    cboxPadrinos.SelectedItem = 2;
+                }*/
+
+                txtboxDescripcion.Text = line.descripcion;
+                imgPerro.Source = line.img;
+           }
+            if (sender == dataGridVoluntarios)
+            {
+                limpiarVoluntario();
+                btnBorrarVoluntario.IsEnabled = true;
+                btnEditarVoluntario.IsEnabled = true;
+
+                Voluntario line = (Voluntario)dataGridVoluntarios.SelectedItem;
+
+
+                txtboxNombreVoluntario.Text = line.nombre.ToString();
+                txtboxApellidoVoluntario.Text = line.apellido.ToString();
+                txtboxDNIVoluntario.Text = line.dni.ToString();
+                txtboxTelefonoVoluntario.Text = line.n_tlf.ToString();
+                txtCorreoElectronicoVoluntario.Text = line.correo.ToString();
+                if (line.conocimientos.ToString() == "True")
+                {
+                    checkConocimientosVeterinarios.IsChecked = true;
+                }
+                imgVoluntario.Source = line.img;
+            }
+            if (sender == dataGridSocio)
+            {
+                limpiarSocio();
+                btnBorrarSocio.IsEnabled = true;
+                btnEditarSocio.IsEnabled = true;
+
+                Socio line = (Socio)dataGridSocio.SelectedItem;
+
+
+                txtboxNombreSocio.Text = line.nombre.ToString();
+                txtboxApellidoSocio.Text = line.apellido.ToString();
+                txtboxDNISocio.Text = line.dni.ToString();
+                txtboxTelefonoSocio.Text = line.n_tlf.ToString();
+                txtCorreoElectronicoSocio.Text = line.correo.ToString();
+                txtEntidadBancaria.Text = line.ent_bancaria;
+                txtIBAN1.Text = line.IBAN1.ToString();
+                txtIBAN2.Text = line.IBAN2.ToString();
+                txtIBAN3.Text = line.IBAN3.ToString();
+                txtIBAN4.Text = line.IBAN4.ToString();
+                txtIBAN5.Text = line.IBAN5.ToString();
+                txtIBAN6.Text = line.IBAN6.ToString();
+                txtCuantia.Text = line.cuantia.ToString();
+                cboxformPago.Text = line.metodo_pago.ToString();
+                imgSocio.Source = line.img;
+            }
+
+        }
+
         private void limpiarPerro()
         {
             //limpia perro
@@ -460,6 +517,8 @@ namespace ProyectoIPO2020_2021
             radiobMacho.IsChecked = false;
             radiobHembra.IsChecked = false;
             txtboxRazaPerro.Text = "";
+            //cboxPadrinos.Text = "";
+            cboxPadrino.Text = "";
             txtboxPesoPerro.Text = "";
             txtEdadPerro.Text = "";
             dateFechaPerro.SelectedDate = null;
@@ -492,6 +551,7 @@ namespace ProyectoIPO2020_2021
             txtboxDNIVoluntario.Text = "";
             txtboxTelefonoVoluntario.Text = "";
             txtCorreoElectronicoVoluntario.Text = "";
+            checkConocimientosVeterinarios.IsChecked = false;
             CheckBoxLunes.IsChecked = false;
             CheckBoxMartes.IsChecked = false;
             CheckBoxMiercoles.IsChecked = false;
@@ -578,6 +638,112 @@ namespace ProyectoIPO2020_2021
             }
             return sexo;
         }
+       
+
+        private string obtenerDisponibilidad()
+        {
+            string disponibilidad = "";
+            if (CheckBoxLunes.IsChecked == true)
+            {
+                disponibilidad = "Lunes:";
+                if (CheckBoxLunesMa.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Mañana";
+                }
+                if (CheckBoxLunesTar.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Tarde";
+                }
+                disponibilidad = disponibilidad + ";    ";
+            }
+
+            if (CheckBoxMartes.IsChecked == true)
+            {
+                disponibilidad = disponibilidad + "Martes:";
+                if (CheckBoxMartesMa.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Mañana";
+                }
+                if (CheckBoxMartesTar.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Tarde";
+                }
+                disponibilidad = disponibilidad + ";    ";
+            }
+
+            if (CheckBoxMiercoles.IsChecked == true)
+            {
+                disponibilidad = disponibilidad + "Miercoles:";
+                if (CheckBoxMiercolesMa.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Mañana";
+                }
+                if (CheckBoxMiercolesTar.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Tarde";
+                }
+                disponibilidad = disponibilidad + ";    ";
+            }
+
+            if (CheckBoxJueves.IsChecked == true)
+            {
+                disponibilidad = disponibilidad + "Jueves:";
+                if (CheckBoxJuevesMa.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Mañana";
+                }
+                if (CheckBoxJuevesTar.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Tarde";
+                }
+                disponibilidad = disponibilidad + ";    ";
+            }
+
+            if (CheckBoxViernes.IsChecked == true)
+            {
+                disponibilidad = disponibilidad + "Viernes:";
+                if (CheckBoxViernesMa.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Mañana";
+                }
+                if (CheckBoxViernesTar.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Tarde";
+                }
+                disponibilidad = disponibilidad + ";    ";
+            }
+
+            if (CheckBoxSabado.IsChecked == true)
+            {
+                disponibilidad = disponibilidad + "Sábado:";
+                if (CheckBoxSabadoMa.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Mañana";
+                }
+                if (CheckBoxSabadoTar.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Tarde";
+                }
+                disponibilidad = disponibilidad + ";    ";
+            }
+
+            if (CheckBoxDomingo.IsChecked == true)
+            {
+                disponibilidad = disponibilidad + "Domingo:";
+                if (CheckBoxDomingoMa.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Mañana";
+                }
+                if (CheckBoxDomingoTar.IsChecked == true)
+                {
+                    disponibilidad = disponibilidad + " Tarde";
+                }
+                disponibilidad = disponibilidad + ";    ";
+            }
+
+            return disponibilidad;
+        }
+
 
 
 
@@ -864,14 +1030,7 @@ namespace ProyectoIPO2020_2021
         }
 
 
-        //Luego sigo yo con este metodo, es para seleccionar las filas y que se muestre en los txtbox 
-        private void dataGridPerros_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-            btnBorrarPerro.IsEnabled = true;
-            btnEditarPerro.IsEnabled = true;
-            
-            //txtboxNombrePerro.Text = Convert.ToString(dataGridPerros.SelectedItem);
-        }
+        
 
         
     }
