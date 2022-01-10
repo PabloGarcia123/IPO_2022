@@ -1,0 +1,380 @@
+﻿<Window x:Name="VentanaApp" x:Class="ProyectoIPO2020_2021.Aplicacion"
+        
+        
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoIPO2020_2021"
+        mc:Ignorable="d"
+        Title="AdoptDog" Height="582" Width="1413"
+        MinHeight="583" MinWidth="1413" MaxHeight="583" MaxWidth="1413"
+        WindowStartupLocation="CenterScreen"
+        HorizontalContentAlignment="Stretch"
+        VerticalContentAlignment="Stretch" SizeToContent="WidthAndHeight" Closing="VentanaApp_Closing">
+
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="33*"/>
+            <RowDefinition Height="386*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="178*"/>
+            <ColumnDefinition Width="791*"/>
+            <ColumnDefinition Width="180*"/>
+            <ColumnDefinition Width="0*"/>
+        </Grid.ColumnDefinitions>
+        <TabControl TabStripPlacement="Left" Grid.ColumnSpan="3" Grid.Row="1" Background="White">
+            <TabItem x:Name="tabDatos" Header="Datos personales" FontFamily="Open Sans Semibold" Margin="-2,-2,0,-64" >
+                <Grid x:Name="gridDatos" Height="505" Margin="-1,0,9,-2" MinHeight ="505" VerticalAlignment="Top">
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="130*"/>
+                        <RowDefinition Height="56*"/>
+                        <RowDefinition Height="135*"/>
+                        <RowDefinition Height="17*"/>
+                        <RowDefinition Height="76*"/>
+                        <RowDefinition Height="91*"/>
+                    </Grid.RowDefinitions>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="28*"/>
+                        <ColumnDefinition Width="309*"/>
+                        <ColumnDefinition Width="91*"/>
+                        <ColumnDefinition Width="138*"/>
+                        <ColumnDefinition Width="154*"/>
+                        <ColumnDefinition Width="167*"/>
+                        <ColumnDefinition Width="71*"/>
+                    </Grid.ColumnDefinitions>
+                    <GroupBox x:Name="grpDetUser" Header="Detalles de usuario" Margin="30,10,16,17" Background="#FFADED76" FontSize="16" FontFamily="Open Sans Semibold" Opacity="0.8" FontStretch="ExtraCondensed" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="2">
+                        <StackPanel HorizontalAlignment="Left" Height="93" Margin="8,7,0,-19" VerticalAlignment="Top" Width="331">
+                            <Label Content="Dirección de correo:" HorizontalAlignment="Left" Height="41" Width="321" FontStretch="Normal" FontSize="14" FontWeight="Normal"/>
+                            <TextBlock x:Name="txtblockDetUser" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Width="321" Margin="10,0,0,0" FontSize="13" FontWeight="Normal" />
+
+                        </StackPanel>
+                    </GroupBox>
+                    <GroupBox x:Name="grpDetPers" Header="Detalles personales" Margin="45,17,90,4" Background="#FFADED76" FontSize="16" FontFamily="Open Sans Semibold" Opacity="0.8" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Grid.Column="3" Grid.ColumnSpan="3" Grid.RowSpan="3" Grid.Row="1">
+                        <GroupBox.OpacityMask>
+                            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                <GradientStop Color="Black" Offset="0"/>
+                                <GradientStop Color="White" Offset="1"/>
+                            </LinearGradientBrush>
+                        </GroupBox.OpacityMask>
+                        <StackPanel HorizontalAlignment="Left" Height="141" Margin="2,10,0,0" VerticalAlignment="Top" Width="306">
+                            <Label x:Name="lblDni" Content="DNI:" HorizontalAlignment="Left" Height="32" Width="268" FontSize="14" FontWeight="Normal" Margin="0,0,0,0"/>
+                            <TextBlock x:Name="txtblockDni" HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" Width="286" Margin="10,0,0,0" FontSize="13" FontWeight="Normal"/>
+                            <Label x:Name="lblTelefonoU" Content="Teléfono:" HorizontalAlignment="Left" Height="32" Width="296" FontSize="14" FontWeight="Normal"/>
+                            <TextBlock x:Name="txtblockTelefenoUsuario" HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" Width="286" Margin="10,0,0,0" FontSize="13" FontWeight="Normal"/>
+                        </StackPanel>
+                    </GroupBox>
+
+                    <GroupBox x:Name="grpFecha" Header="Fecha del último acceso" Margin="30,0,81,10" Background="#FFADED76" FontSize="16" FontFamily="Open Sans Semibold" Opacity="0.8" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Grid.ColumnSpan="2" Grid.Column="1" Grid.Row="4">
+                        <TextBlock x:Name="txtblockFecha" HorizontalAlignment="Left" Height="31" TextWrapping="Wrap" Width="232" Margin="10,6,0,-1.8" FontSize="13" FontWeight="Normal"/>
+                    </GroupBox>
+                    <Button x:Name="btnAyuda1" Margin="21,10,0,31" Content="&#x9;Ayuda" Click="btnAyuda_Click" Grid.Column="4" BorderBrush="Black" BorderThickness="2" Background="#FF35B2E0" HorizontalAlignment="Left" Width="123" Grid.Row="5" />
+                    <StackPanel Orientation = "Horizontal" Margin="21,10,71,31" Grid.Column="4" Grid.Row="5">
+                        <Image HorizontalAlignment="Center" Width="61" Source="/Images/imgAyuda.png" Margin="0,5"/>
+                    </StackPanel>
+
+                    <Button x:Name="btnCerrar" Margin="13,10,40,31" Content="Cerrar sesión" Background="#FFE81D1D" FontFamily="Open Sans Semibold" Click="btnCerrar_Click" Grid.Column="5" BorderBrush="Black" BorderThickness="2" Grid.Row="5"/>
+                    <Border x:Name="bordeNombre" BorderBrush="Black" BorderThickness="2" Margin="37,28,33,28" Grid.Column="2" Grid.ColumnSpan="4">
+                        <Label x:Name="lblNombre" FontSize="30" Margin="8,0,-6,-3" Content=""/>
+                    </Border>
+                    <Border x:Name="bordeImg" BorderBrush="Black" BorderThickness="2" HorizontalAlignment="Left" Height="150" Margin="30,28,0,0" VerticalAlignment="Top" Width="157" Grid.Column="1" Grid.RowSpan="2">
+                        <Image x:Name="imgPerfil" Source="{Binding img}" Margin="11,0,2,6">
+                            <Image.OpacityMask>
+                                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                                    <GradientStop Color="Black" Offset="0"/>
+                                    <GradientStop Color="White" Offset="1"/>
+                                </LinearGradientBrush>
+                            </Image.OpacityMask>
+                        </Image>
+                    </Border>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabListaPerros" Header="Listado de perros" FontFamily="Open Sans Semibold" Margin="0,65,0,-125" >
+                <Grid x:Name="gridListadoPerros" Height="505" VerticalAlignment="Top" Margin="-2,0,10,-2">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="156*"/>
+                        <ColumnDefinition Width="23*"/>
+                        <ColumnDefinition Width="785*"/>
+                    </Grid.ColumnDefinitions>
+                    <GroupBox x:Name="gridDatPerro" Header="Datos del perro" HorizontalAlignment="Left" Height="461" Margin="10,34,0,0" VerticalAlignment="Top" Width="519" FontSize="18" Grid.ColumnSpan="3" BorderBrush="Tomato" BorderThickness="2">
+                        <Grid x:Name="gridDatosPerro" HorizontalAlignment="Left" Height="426" Margin="4,3,-2,-22" VerticalAlignment="Top" Width="505">
+                            <Label x:Name="lblNombrePerro" Content="&#x9;Nombre:" Height="26" Margin="0,14,0,0" Width="123" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <TextBox x:Name="txtboxNombrePerro" BorderBrush="Tomato" HorizontalAlignment="Left" Height="22" Margin="164,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" FontSize="13" KeyDown="txtboxNombrePerro_KeyDown"/>
+                            <Label x:Name="lblSexoPerro" Content="&#x9;      Sexo:" HorizontalAlignment="Left" Height="26" Margin="-4,45,0,0" VerticalAlignment="Top" Width="127" FontSize="14"/>
+                            <RadioButton x:Name="radiobMacho" BorderBrush="Tomato" Content="Macho" HorizontalAlignment="Left" Height="18" Margin="164,53,0,0" VerticalAlignment="Top" Width="98" Checked="radiobMacho_Checked" FontSize="12"/>
+                            <RadioButton x:Name="radiobHembra" BorderBrush="Tomato" Content="Hembra" HorizontalAlignment="Left" Height="18" Margin="267,53,0,0" VerticalAlignment="Top" Width="103" Checked="radiobHembra_Checked" FontSize="12"/>
+                            <Label Content="&#x9;      Raza:" HorizontalAlignment="Left" Height="26" Margin="0,76,0,0" VerticalAlignment="Top" Width="123" FontSize="14"/>
+                            <TextBox x:Name="txtboxRazaPerro" BorderBrush="Tomato" HorizontalAlignment="Left" Height="22" Margin="164,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" FontSize="13" KeyDown="txtboxRazaPerro_KeyDown"/>
+                            <Label x:Name="lblPesoPerro" Content="&#x9;      Peso:" HorizontalAlignment="Left" Height="26" Margin="0,107,0,0" VerticalAlignment="Top" Width="123" FontSize="14"/>
+                            <Label x:Name="lblEdadPerro" Content="&#x9;      Edad:" HorizontalAlignment="Left" Height="26" Margin="0,138,0,0" VerticalAlignment="Top" Width="123" FontSize="14"/>
+                            <Label x:Name="lblFechaPerro" Content="Fecha de entrada:" HorizontalAlignment="Left" Height="26" Margin="-4,169,0,0" VerticalAlignment="Top" Width="127" FontSize="14"/>
+                            <Label x:Name="lblAños" Content="Años" HorizontalAlignment="Left" Height="29" Margin="207,138,0,0" VerticalAlignment="Top" Width="55" FontSize="14" />
+                            <Label x:Name="lblApadrinadoPerro" Content="      ¿Apadrinado?" HorizontalAlignment="Left" Height="29" Margin="0,200,0,0" VerticalAlignment="Top" Width="123" FontSize="14"/>
+                            <TextBox x:Name="txtboxPesoPerro" BorderBrush="Tomato" HorizontalAlignment="Left" Height="22" Margin="164,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" KeyDown="txtboxPesoPerro_KeyDown" FontSize="13" PreviewTextInput="txtboxPesoPerro_PreviewTextInput"/>
+                            <Label  x:Name="lblKg" Content="Kg" HorizontalAlignment="Left" Height="29" Margin="207,104,0,0" VerticalAlignment="Top" Width="33" FontSize="14" RenderTransformOrigin="0.5,0.5"/>
+                            <TextBox x:Name="txtEdadPerro" BorderBrush="Tomato" HorizontalAlignment="Left" Height="22" Margin="164,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" KeyDown="txtEdadPerro_KeyDown" FontSize="13" PreviewTextInput="txtEdadPerro_PreviewTextInput"/>
+                            <DatePicker x:Name="dateFechaPerro" BorderBrush="Tomato" HorizontalAlignment="Left" Height="25" Margin="164,172,0,0" VerticalAlignment="Top" Width="156" FontSize="13"  />
+                            <CheckBox x:Name="checkApadrinado" BorderBrush="Tomato" HorizontalAlignment="Left" Height="17" Margin="164,207,0,0" VerticalAlignment="Top" Width="20" Checked="checkApadrinado_Checked"/>
+                            <Button x:Name="btnConsultaApadrinado" BorderBrush="Tomato" Content="Consultar Padrino" HorizontalAlignment="Left" Height="17" Margin="323,212,0,0" VerticalAlignment="Top" Width="99" FontSize="9" IsEnabled="False" Click="btnConsultaApadrinado_Click"/>
+                            <Button x:Name="btnAñadirImagenPerro" BorderBrush="Tomato" Content="Añadir Imagen" HorizontalAlignment="Left" Height="20" Margin="398,120,0,0" VerticalAlignment="Top" Width="70" Click="btnAñadirImagen_Click" FontSize="9" />
+                            <GroupBox Header="Descripción" HorizontalAlignment="Left" Height="153" Margin="10,263,0,0" VerticalAlignment="Top" Width="426" FontSize="14" BorderBrush="Tomato" BorderThickness="2">
+                                <Grid HorizontalAlignment="Left" Height="133" VerticalAlignment="Top" Width="416" Margin="0,10,-2,-16">
+                                    <TextBox x:Name="txtboxDescripcion" BorderBrush="Tomato" HorizontalAlignment="Left" Height="111" Margin="10,0,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="396" FontSize="13"/>
+                                </Grid>
+
+                            </GroupBox>
+                            <Border x:Name="bordeImagenPerro" BorderBrush="Tomato" BorderThickness="1" HorizontalAlignment="Left" Height="89" Margin="384,14,0,0" VerticalAlignment="Top" Width="97">
+                                <Image x:Name="imgPerro" HorizontalAlignment="Center" Height="69" VerticalAlignment="Top" Width="77" Margin="10,9,10,10"/>
+                            </Border>
+                            <ComboBox x:Name="cboxPadrino" BorderBrush="Tomato" HorizontalAlignment="Left" VerticalAlignment="Top" Width="83" Margin="207,207,0,0" Opacity="100" FontSize="13" IsEnabled="{Binding ElementName=checkApadrinado, Path=IsChecked}" SelectionChanged="cboxPadrino_SelectionChanged">
+                                <ComboBox.Background>
+                                    <LinearGradientBrush EndPoint="0,3" StartPoint="0,0">
+                                        <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                        <GradientStop Color="#FF531616" Offset="1"/>
+                                        <GradientStop Color="#FFF0F0F0" Offset="2"/>
+                                    </LinearGradientBrush>
+                                </ComboBox.Background>
+
+                                <Label x:Name="lblLorernzo" Content="Lorenzo" FontFamily="Open Sans Semibold" FontSize="14" />
+                                <Label x:Name="lblSheila" Content="Sheila"  FontFamily="Open Sans Semibold" FontSize="14"  />
+                                <Label x:Name="lblSegio" Content="Sergio"  FontFamily="Open Sans Semibold" FontSize="14"  />
+                            </ComboBox>
+
+                        </Grid>
+                    </GroupBox>
+
+                    <Button x:Name="btnListarPerro" Content="Listar" BorderBrush="Tomato" HorizontalAlignment="Left" Height="46" Margin="505,341,0,0" VerticalAlignment="Top" Width="124" FontSize="14" Click="btnListar_Click" Grid.Column="2" Background="#FF6880D1"/>
+                    <Button x:Name="btnAñadirPerro" Content="Añadir" BorderBrush="Tomato" HorizontalAlignment="Left" Height="46" Margin="711,341,0,0" VerticalAlignment="Top" Width="124" FontSize="14" Click="btnAñadir_Click" Grid.Column="2" Background="#FF62F012"/>
+                    <Button x:Name="btnBorrarPerro" Content="Borrar" BorderBrush="Tomato" HorizontalAlignment="Left" Height="46" Margin="711,407,0,0" VerticalAlignment="Top" Width="124" FontSize="14" Click="btnBorrar_Click" Grid.Column="2" Background="#FF997A3A"/>
+                    <Button x:Name="btnEditarPerro" Content="Editar" BorderBrush="Tomato" HorizontalAlignment="Left" Height="46" Margin="505,407,0,0" VerticalAlignment="Top" Width="124" FontSize="14" Click="btnEditar_Click" Grid.Column="2" Background="#FF77CD9A"/>
+                    <DataGrid x:Name="dataGridPerros" BorderBrush="Tomato" HorizontalAlignment="Left" Height="277" Margin="327,36,0,0" VerticalAlignment="Top" Width="652" SelectionChanged="dataGridPerros_SelectionChanged" AutoGenerateColumns="False" Grid.Column="2">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Sexo" Binding="{Binding sexo}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Raza" Binding="{Binding raza}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Peso" Binding="{Binding peso}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Edad" Binding="{Binding edad}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Fecha de entrada" Binding="{Binding fecha_entrada}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridCheckBoxColumn Header="¿Apadrinado?" Binding="{Binding apadrinado}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Nombre Padrino" Binding="{Binding n_padrino}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Descripción" Binding="{Binding descripcion}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTemplateColumn Header="Imagen">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Width="27" Height="32" Source="{Binding img}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+
+
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabVoluntarios" Header="Voluntarios de la protectora" FontFamily="Open Sans Semibold" Margin="0,126,0,-190" >
+                <Grid x:Name="gridVoluntarios" HorizontalAlignment="Left" Height="505" Margin="-1,-2,-2,-1" VerticalAlignment="Top" Width="985">
+                    <GroupBox x:Name="grpDatosVoluntario" Header="Datos del voluntario" Height="461" Margin="0,34,456,10" HorizontalAlignment="Right" Width="519" BorderBrush="Blue" BorderThickness="2" FontSize="18">
+                        <Grid x:Name="gridDatosVoluntario" HorizontalAlignment="Left" Height="429" Margin="4,3,-85.6,0" VerticalAlignment="Top" Width="572">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="171*"/>
+                                <RowDefinition Height="236*"/>
+                            </Grid.RowDefinitions>
+                            <Label x:Name="lblNombreVoluntario" Content="Nombre:" Height="26" Margin="90,18,0,0" Width="70" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <TextBox x:Name="txtboxNombreVoluntario" HorizontalAlignment="Left" Height="22"  TextWrapping="Wrap" VerticalAlignment="Top" Width="119" FontSize="13" Margin="164,18,0,0" KeyDown="txtboxNombreVoluntario_KeyDown"  BorderBrush="Blue"/>
+                            <Label x:Name="lblApellido" Content="Apellido:" HorizontalAlignment="Left" Height="26" Margin="90,49,0,0" VerticalAlignment="Top" Width="69" FontSize="14"/>
+                            <TextBox x:Name="txtboxApellidoVoluntario" HorizontalAlignment="Left" Height="22" Margin="164,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="202" FontSize="13" RenderTransformOrigin="2,0.509" KeyDown="txtboxApellidoVoluntario_KeyDown"  BorderBrush="Blue"/>
+                            <Label x:Name="lblDNIVoluntario" Content="DNI:" HorizontalAlignment="Left" Height="26" Margin="120,80,0,0" VerticalAlignment="Top" Width="44" FontSize="14"/>
+                            <TextBox x:Name="txtboxDNIVoluntario"  BorderBrush="Blue" HorizontalAlignment="Left" Height="22" Margin="164,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" FontSize="13" KeyDown="txtboxDNIVoluntario_KeyDown" MaxLength="9"/>
+                            <Label x:Name="lblTelefonoVoluntario" Content="Teléfono de contacto:" HorizontalAlignment="Left" Height="26" Margin="6,111,0,0" VerticalAlignment="Top" Width="155" FontSize="14"/>
+                            <Label x:Name="lblCorreoElectronicoVoluntario" Content="Correo electrónico:" HorizontalAlignment="Left" Height="26" Margin="22,142,0,0" VerticalAlignment="Top" Width="138" FontSize="14"/>
+                            <Label x:Name="lblConoVeterinarios" Content="Conocimientos veterinarios:" HorizontalAlignment="Left" Height="29" Margin="0,171,0,0" VerticalAlignment="Top" Width="200" FontSize="14" Grid.RowSpan="2"/>
+                            <TextBox x:Name="txtboxTelefonoVoluntario"  BorderBrush="Blue" FontSize="13" MaxLength="9" HorizontalAlignment="Left" Height="22" Margin="164,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" RenderTransformOrigin="2,0.509" KeyDown="txtboxTelefonoVoluntario_KeyDown" PreviewTextInput="txtboxTelefonoVoluntario_PreviewTextInput"/>
+                            <TextBox x:Name="txtCorreoElectronicoVoluntario"  BorderBrush="Blue" HorizontalAlignment="Left" Height="22" Margin="164,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" FontSize="13"/>
+                            <Button x:Name="btnAñadirImagenVoluntario" Content="Añadir Imagen" HorizontalAlignment="Left"  BorderBrush="Blue" Height="20" Margin="398,120,0,0" VerticalAlignment="Top" Width="70" Click="btnAñadirImagen_Click" FontSize="9" />
+                            <CheckBox x:Name="checkConocimientosVeterinarios"  BorderBrush="Blue" HorizontalAlignment="Left" Height="17" Margin="205,176,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="0.36,-1.306" Grid.RowSpan="2"/>
+                            <GroupBox Header="Disponibilidad" Height="193" Margin="52,46,91,0" VerticalAlignment="Top" FontSize="14" Grid.Row="1" BorderBrush="Blue" BorderThickness="2">
+                                <Grid HorizontalAlignment="Left" Height="173" Margin="10,-8,-44,0" VerticalAlignment="Top" Width="451">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition/>
+                                        <ColumnDefinition/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <CheckBox x:Name="CheckBoxLunes"  BorderBrush="Blue" Content="Lunes" HorizontalAlignment="Left" Height="23" Margin="10,15,0,0" VerticalAlignment="Top" Width="70" Checked="CheckBoxLunes_Checked" Unchecked="CheckBoxLunes_Unchecked"/>
+                                    <CheckBox x:Name="CheckBoxMartes"  BorderBrush="Blue" Content="Martes" HorizontalAlignment="Left" Height="23" Margin="10,35,0,0" VerticalAlignment="Top" Width="70" Checked="CheckBoxMartes_Checked" Unchecked="CheckBoxMartes_Unchecked"/>
+                                    <CheckBox x:Name="CheckBoxMiercoles"  BorderBrush="Blue" Content="Miercoles" HorizontalAlignment="Left" Height="23" Margin="10,55,0,0" VerticalAlignment="Top" Width="84" Checked="CheckBoxMiercoles_Checked" Unchecked="CheckBoxMiercoles_Unchecked"/>
+                                    <CheckBox x:Name="CheckBoxJueves"  BorderBrush="Blue" Content="Jueves" HorizontalAlignment="Left" Height="23" Margin="10,75,0,0" VerticalAlignment="Top" Width="70" Checked="CheckBoxJueves_Checked" Unchecked="CheckBoxJueves_Unchecked"/>
+                                    <CheckBox x:Name="CheckBoxViernes"  BorderBrush="Blue" Content="Viernes" HorizontalAlignment="Left" Height="23" Margin="10,95,0,0" VerticalAlignment="Top" Width="70" Checked="CheckBoxViernes_Checked" Unchecked="CheckBoxViernes_Unchecked"/>
+                                    <CheckBox x:Name="CheckBoxSabado"  BorderBrush="Blue" Content="Sábado" HorizontalAlignment="Left" Height="23" Margin="10,115,0,0" VerticalAlignment="Top" Width="70" Checked="CheckBoxSabado_Checked" Unchecked="CheckBoxSabado_Unchecked"/>
+                                    <CheckBox x:Name="CheckBoxDomingo"  BorderBrush="Blue" Content="Domingo" HorizontalAlignment="Left" Height="23" Margin="10,135,0,0" VerticalAlignment="Top" Width="84" Checked="CheckBoxDomingo_Checked" Unchecked="CheckBoxDomingo_Unchecked"/>
+                                    <GroupBox HorizontalAlignment="Left" Height="163" VerticalAlignment="Top" Width="265" Margin="136,10,0,0" BorderBrush="Blue" BorderThickness="2" Grid.ColumnSpan="2">
+                                        <Grid HorizontalAlignment="Left" Height="163" VerticalAlignment="Top" Width="234" RenderTransformOrigin="0,0.812" Margin="10,0,0,-7" >
+                                            <CheckBox x:Name="CheckBoxLunesMa"  BorderBrush="Blue" Content="Mañana" HorizontalAlignment="Left" Height="23" Margin="0,5,0,0" VerticalAlignment="Top" Width="80" Checked="CheckBoxLunes_Checked" RenderTransformOrigin="0.447,0.887" IsEnabled="False"/>
+                                            <CheckBox x:Name="CheckBoxMartesMa"  BorderBrush="Blue" Content="Mañana" HorizontalAlignment="Left" Height="23" Margin="0,25,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="0.956,0.022" IsEnabled="False"/>
+                                            <CheckBox x:Name="CheckBoxMiercolesMa"  BorderBrush="Blue" Content="Mañana" HorizontalAlignment="Left" Height="23" Margin="0,45,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False"/>
+                                            <CheckBox x:Name="CheckBoxJuevesMa"  BorderBrush="Blue" Content="Mañana" HorizontalAlignment="Left" Height="23" Margin="0,65,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False"/>
+                                            <CheckBox x:Name="CheckBoxViernesMa"  BorderBrush="Blue" Content="Mañana" HorizontalAlignment="Left" Height="23" Margin="0,85,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False"/>
+                                            <CheckBox x:Name="CheckBoxSabadoMa"  BorderBrush="Blue" Content="Mañana" HorizontalAlignment="Left" Height="23" Margin="0,105,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False"/>
+                                            <CheckBox x:Name="CheckBoxDomingoMa"  BorderBrush="Blue" Content="Mañana" HorizontalAlignment="Left" Height="23" Margin="0,125,0,0" VerticalAlignment="Top" Width="75" IsEnabled="False"/>
+                                            <CheckBox x:Name="CheckBoxLunesTar"  BorderBrush="Blue" Content="Tarde" HorizontalAlignment="Left" Height="23" Margin="129,5,0,0" VerticalAlignment="Top" Width="70" Checked="CheckBoxLunes_Checked" RenderTransformOrigin="0.447,0.887" IsEnabled="False"/>
+                                            <CheckBox x:Name="CheckBoxMartesTar"  BorderBrush="Blue" Content="Tarde" HorizontalAlignment="Left" Height="23" Margin="129,25,0,0" VerticalAlignment="Top" Width="70" RenderTransformOrigin="0.956,0.022" IsEnabled="False"/>
+                                            <CheckBox x:Name="CheckBoxMiercolesTar"  BorderBrush="Blue" Content="Tarde" HorizontalAlignment="Left" Height="23" Margin="129,45,0,0" VerticalAlignment="Top" Width="70" IsEnabled="False"/>
+                                            <CheckBox x:Name="CheckBoxJuevesTar"  BorderBrush="Blue" Content="Tarde" HorizontalAlignment="Left" Height="23" Margin="129,65,0,0" VerticalAlignment="Top" Width="70" IsEnabled="False"/>
+                                            <CheckBox x:Name="CheckBoxViernesTar"  BorderBrush="Blue" Content="Tarde" HorizontalAlignment="Left" Height="23" Margin="129,85,0,0" VerticalAlignment="Top" Width="70" IsEnabled="False"/>
+                                            <CheckBox x:Name="CheckBoxSabadoTar"  BorderBrush="Blue" Content="Tarde" HorizontalAlignment="Left" Height="23" Margin="129,105,0,0" VerticalAlignment="Top" Width="70" IsEnabled="False"/>
+                                            <CheckBox x:Name="CheckBoxDomingoTar"  BorderBrush="Blue" Content="Tarde" HorizontalAlignment="Left" Height="23" Margin="129,125,0,0" VerticalAlignment="Top" Width="70" IsEnabled="False"/>
+                                        </Grid>
+                                    </GroupBox>
+
+
+                                </Grid>
+
+                            </GroupBox>
+
+                            <Border x:Name="bordeImgVoluntario"  BorderBrush="Blue" BorderThickness="1" HorizontalAlignment="Left" Height="89" Margin="384,15,0,0" VerticalAlignment="Top" Width="97">
+                                <Image x:Name="imgVoluntario" HorizontalAlignment="Center" Height="69" VerticalAlignment="Top" Width="77" Margin="9.2,9.2,9,0"/>
+                            </Border>
+
+
+
+
+                        </Grid>
+                    </GroupBox>
+                    <Button x:Name="btnListarVoluntario"  BorderBrush="Blue" Content="Listar" HorizontalAlignment="Left" Height="46" Margin="734,347,0,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnListar_Click" Background="#FF6880D1"/>
+                    <Button x:Name="btnAñadirVoluntario"  BorderBrush="Blue" Content="Añadir" HorizontalAlignment="Left" Height="46" Margin="940,347,-78,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnAñadir_Click" Background="#FF62F012"/>
+                    <Button x:Name="btnBorrarVoluntario"  BorderBrush="Blue" Content="Borrar" HorizontalAlignment="Left" Height="46" Margin="940,413,-78,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnBorrar_Click" Background="#FF997A3A"/>
+                    <Button x:Name="btnEditarVoluntario"  BorderBrush="Blue" Content="Editar" HorizontalAlignment="Left" Height="46" Margin="734,413,0,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnEditar_Click" Background="#FF77CD9A"/>
+                    <DataGrid x:Name="dataGridVoluntarios" HorizontalAlignment="Left" Height="277" Margin="550,36,-226,0" VerticalAlignment="Top" Width="661" SelectionChanged="dataGridPerros_SelectionChanged"  BorderBrush="Blue">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Apellidos" Binding="{Binding apellido}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="DNI" Binding="{Binding dni}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Teléfono" Binding="{Binding n_tlf}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Correo Electrónico" Binding="{Binding correo}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="¿Conocimientos Veterinarios?" Binding="{Binding conocimientos}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Disponibilidad" Binding="{Binding disponibilidad}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTemplateColumn Header="Imagen">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Width="27" Height="32" Source="{Binding img}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+            <TabItem x:Name="tabSocios" Header="Gestión de socios" FontFamily="Open Sans Semibold" Margin="0,191,1,-256" >
+                <Grid x:Name="gridSocios" HorizontalAlignment="Left" Height="505" VerticalAlignment="Top" Width="985" Margin="-2,0,-1,-2">
+                    <GroupBox x:Name="grpDatosSocio" Header="Datos del socio" Margin="0,35,456,10"  HorizontalAlignment="Right" Width="519" BorderBrush="Orange" BorderThickness="2" FontSize="18">
+                        <Grid x:Name="gridDatosSocio" HorizontalAlignment="Left" Height="429" Margin="4,3,0,0" VerticalAlignment="Top" Width="582">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="171*"/>
+                                <RowDefinition Height="236*"/>
+                            </Grid.RowDefinitions>
+                            <GroupBox Header="Datos Personales" Height="208" Margin="10,10,89,0" VerticalAlignment="Top" FontSize="14" BorderBrush="Orange" BorderThickness="2" Grid.RowSpan="2">
+                                <Grid HorizontalAlignment="Left" Height="188" Margin="4,-10,0,0" VerticalAlignment="Top" Width="463">
+                                    <Label x:Name="lblNombreSocio" Content="Nombre:" Height="26" Margin="83,15,0,0" Width="71" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                                    <TextBox x:Name="txtboxNombreSocio" BorderBrush="Orange" HorizontalAlignment="Left" Height="22"  TextWrapping="Wrap" VerticalAlignment="Top" Width="132" FontSize="13" Margin="164,15,0,0" KeyDown="txtboxNombreSocio_KeyDown"/>
+                                    <Label x:Name="lblApellidoSocio" Content="Apellido:" HorizontalAlignment="Left" Height="32" Margin="83,49,0,0" VerticalAlignment="Top" Width="71" FontSize="14"/>
+                                    <TextBox x:Name="txtboxApellidoSocio" BorderBrush="Orange" HorizontalAlignment="Left" Height="22" Margin="164,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="193" FontSize="13" RenderTransformOrigin="2,0.509" KeyDown="txtboxApellidoSocio_KeyDown"/>
+                                    <Label Content="DNI:" HorizontalAlignment="Left" Height="26" Margin="110,81,0,0" VerticalAlignment="Top" Width="44" FontSize="14"/>
+                                    <TextBox x:Name="txtboxDNISocio" BorderBrush="Orange" HorizontalAlignment="Left" MaxLength="9" Height="22" Margin="164,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" FontSize="13" KeyDown="txtboxDNISocio_KeyDown"/>
+                                    <Label x:Name="lblTelefonoSocio" Content="NºTeléfono:" HorizontalAlignment="Left" Height="26" Margin="59,111,0,0" VerticalAlignment="Top" Width="95" FontSize="14"/>
+                                    <Button x:Name="btnAñadirImagenSocio" BorderBrush="Orange" Content="Añadir Imagen" HorizontalAlignment="Left" Height="20" Margin="376,117,0,0" VerticalAlignment="Top" Width="70" Click="btnAñadirImagen_Click" FontSize="9" />
+                                    <Label x:Name="lblCorreoElectronico" Content="Correo electrónico:" HorizontalAlignment="Left" Height="26" Margin="10,142,0,0" VerticalAlignment="Top" Width="144" FontSize="14"/>
+                                    <TextBox x:Name="txtboxTelefonoSocio" BorderBrush="Orange" FontSize="13" HorizontalAlignment="Left" MaxLength="9" Height="22" Margin="164,115,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="90" RenderTransformOrigin="2,0.509" KeyDown="txtboxTelefonoSocio_KeyDown" PreviewTextInput="txtboxTelefonoSocio_PreviewTextInput"/>
+                                    <TextBox x:Name="txtCorreoElectronicoSocio" BorderBrush="Orange" HorizontalAlignment="Left" Height="22" Margin="164,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" FontSize="13" KeyDown="txtCorreoElectronicoSocio_KeyDown"/>
+
+                                    <Border x:Name="bordeImgSocio" BorderBrush="Orange" BorderThickness="1" HorizontalAlignment="Left" Height="89" Margin="362,10,0,0" VerticalAlignment="Top" Width="97">
+                                        <Image x:Name="imgSocio" HorizontalAlignment="Center" Height="69" VerticalAlignment="Top" Width="77" Margin="9.2,9.2,9,0"/>
+                                    </Border>
+                                </Grid>
+                            </GroupBox>
+                            <GroupBox Header="Datos Bancarios" Height="169" Margin="10,61,89,0" VerticalAlignment="Top" FontSize="14" Grid.Row="1" BorderBrush="Orange" BorderThickness="2">
+                                <Grid Height="167" Margin="-3,-8,-2,-16" VerticalAlignment="Top">
+                                    <Label x:Name="lblEntidadBancaria" Content="Entidad Bancaria:" HorizontalAlignment="Left" Height="29" Margin="28,10,0,0" VerticalAlignment="Top" Width="132" FontSize="14"/>
+                                    <TextBox x:Name="txtEntidadBancaria" BorderBrush="Orange" HorizontalAlignment="Left" Height="22" Margin="161,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" FontSize="13" KeyDown="txtEntidadBancaria_KeyDown"/>
+                                    <Label x:Name="lblIBAN" Content=" IBAN:" HorizontalAlignment="Left" Height="29" Margin="105,39,0,0" VerticalAlignment="Top" Width="51" FontSize="14"/>
+                                    <TextBox x:Name="txtIBAN1" BorderBrush="Orange" HorizontalAlignment="Left" MaxLength="4" Height="22" Margin="161,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" FontSize="13" KeyDown="txtIBAN1_KeyDown"/>
+                                    <TextBox x:Name="txtIBAN2" BorderBrush="Orange" HorizontalAlignment="Left" MaxLength="4" Height="22" Margin="209,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" FontSize="13" KeyDown="txtIBAN2_KeyDown" PreviewTextInput="txtIBAN2_PreviewTextInput"/>
+                                    <TextBox x:Name="txtIBAN3" BorderBrush="Orange" HorizontalAlignment="Left" MaxLength="4" Height="22" Margin="257,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" FontSize="13" KeyDown="txtIBAN3_KeyDown" PreviewTextInput="txtIBAN3_PreviewTextInput"/>
+                                    <TextBox x:Name="txtIBAN4" BorderBrush="Orange" HorizontalAlignment="Left" MaxLength="4" Height="22" Margin="305,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" FontSize="13" KeyDown="txtIBAN4_KeyDown" PreviewTextInput="txtIBAN4_PreviewTextInput"/>
+                                    <TextBox x:Name="txtIBAN5" BorderBrush="Orange" HorizontalAlignment="Left" MaxLength="4" Height="22" Margin="353,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" FontSize="13" KeyDown="txtIBAN5_KeyDown" PreviewTextInput="txtIBAN5_PreviewTextInput"/>
+                                    <TextBox x:Name="txtIBAN6" BorderBrush="Orange" HorizontalAlignment="Left" MaxLength="4" Height="22" Margin="401,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" FontSize="13" KeyDown="txtIBAN6_keyDown" PreviewTextInput="txtIBAN6_PreviewTextInput"/>
+                                    <Label x:Name="lblCuantia" Content="Cuantía de la ayuda:" HorizontalAlignment="Left" Height="29" Margin="10,70,0,0" VerticalAlignment="Top" Width="147" FontSize="14"/>
+                                    <TextBox x:Name="txtCuantia" BorderBrush="Orange" HorizontalAlignment="Left" Height="22" Margin="161,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="13" KeyDown="txtCuantia_KeyDown" PreviewTextInput="txtCuantia_PreviewTextInput"/>
+                                    <Label x:Name="lblFormPago" Content="Forma de pago:" HorizontalAlignment="Left" Height="29" Margin="42,100,0,0" VerticalAlignment="Top" Width="115" FontSize="14"/>
+                                    <Label x:Name="lblEuros" Content="€" HorizontalAlignment="Left" Height="29" Margin="275,70,0,0" VerticalAlignment="Top" Width="26" FontSize="14"/>
+                                    <Grid HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" Width="226" Margin="150,100,0,0">
+                                        <ComboBox x:Name="cboxformPago" BorderBrush="Orange" HorizontalAlignment="Left" VerticalAlignment="Top" Width="222" Margin="10,0,-6,0" Opacity="100" FontSize="13" >
+                                            <ComboBox.Background>
+                                                <LinearGradientBrush EndPoint="0,3" StartPoint="0,0">
+                                                    <GradientStop Color="#FFF0F0F0" Offset="0"/>
+                                                    <GradientStop Color="#FF531616" Offset="1"/>
+                                                    <GradientStop Color="#FFF0F0F0" Offset="2"/>
+                                                    <GradientStop Color="#FF531616" Offset="3"/>
+                                                </LinearGradientBrush>
+                                            </ComboBox.Background>
+
+                                            <Label x:Name="lblTarjetadeCrédito" Content="Tarjeta de crédito y débito" FontFamily="Open Sans Semibold" FontSize="14" />
+                                            <Label x:Name="lblTransferenciasDomiciliaciones" Content="Transferencias y domiciliaciones"  FontFamily="Open Sans Semibold" FontSize="14"  />
+                                            <Label x:Name="lblPaypal" Content="Paypal"  FontFamily="Open Sans Semibold" FontSize="14"  />
+                                            <Label x:Name="lblBizum" Content="Bizum"  FontFamily="Open Sans Semibold" FontSize="14"  />
+                                        </ComboBox>
+                                    </Grid>
+
+
+                                </Grid>
+
+
+                            </GroupBox>
+
+
+
+
+                        </Grid>
+                    </GroupBox>
+                    <Button x:Name="btnListarSocio" Content="Listar" BorderBrush="Orange" HorizontalAlignment="Left" Height="46" Margin="726,350,0,0" VerticalAlignment="Top" Width="124" FontSize="14" Click="btnListar_Click" Background="#FF6880D1" />
+                    <Button x:Name="btnAñadirSocio" Content="Añadir" BorderBrush="Orange" HorizontalAlignment="Left" Height="46" Margin="932,350,-71,0" VerticalAlignment="Top" Width="124" FontSize="14" Click="btnAñadir_Click" Background="#FF62F012"/>
+                    <Button x:Name="btnBorrarSocio" Content="Borrar" BorderBrush="Orange" HorizontalAlignment="Left" Height="46" Margin="932,416,-71,0" VerticalAlignment="Top" Width="124" FontSize="14" Click="btnBorrar_Click" Background="#FF997A3A"/>
+                    <Button x:Name="btnEditarSocio" Content="Editar" BorderBrush="Orange" HorizontalAlignment="Left" Height="46" Margin="726,416,0,0" VerticalAlignment="Top" Width="124" FontSize="14" Click="btnEditar_Click" Background="#FF77CD9A"/>
+                    <DataGrid x:Name="dataGridSocio" BorderBrush="Orange" HorizontalAlignment="Left" Height="277" Margin="534,37,-223,0" VerticalAlignment="Top" Width="674" SelectionChanged="dataGridPerros_SelectionChanged">
+                        <DataGrid.Columns>
+                            <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Apellidos" Binding="{Binding apellido}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="DNI" Binding="{Binding dni}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Teléfono" Binding="{Binding n_tlf}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Correo Electrónico" Binding="{Binding correo}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Entidad Bancaria" Binding="{Binding ent_bancaria}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="IBAN" Binding="{Binding IBAN1}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="" Binding="{Binding IBAN1}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="" Binding="{Binding IBAN2}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="" Binding="{Binding IBAN3}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="" Binding="{Binding IBAN4}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="" Binding="{Binding IBAN5}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="" Binding="{Binding IBAN6}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Cuantia de la ayuda" Binding="{Binding cuantia}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTextColumn Header="Forma de pago" Binding="{Binding metodo_pago}" ClipboardContentBinding="{x:Null}"/>
+                            <DataGridTemplateColumn Header="Imagen">
+                                <DataGridTemplateColumn.CellTemplate>
+                                    <DataTemplate>
+                                        <Image Width="27" Height="32" Source="{Binding img}"/>
+                                    </DataTemplate>
+                                </DataGridTemplateColumn.CellTemplate>
+                            </DataGridTemplateColumn>
+                        </DataGrid.Columns>
+                    </DataGrid>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+        <Button x:Name="btnAyuda" Grid.Column="2" Height="23" Margin="0,10,20,0" VerticalAlignment="Top" Background="#FF35B2E0" Click="btnAyuda_Click" HorizontalAlignment="Right" Width="23">
+            <Image x:Name="imgAyuda" Height="19" Width="20" Source="/Images/imgAyuda.png"/>
+        </Button>
+        <ComboBox x:Name="cboxPerfil" Grid.Column="2" Height="23" Margin="40,10,0,0" VerticalAlignment="Top" Background="Black" HorizontalAlignment="Left" Width="108">
+            <Button x:Name="btnCbPerfil" Content="Perfil Personal" FontFamily="Open Sans Semibold"  Width="97" Background="#FF3CFFE4" Click="btnCbPerfil_Click"/>
+            <Button x:Name="btnCbCerrarSesion" Content="Cerrar Sesión" Background="#FFE81D1D" FontFamily="Open Sans Semibold" Click="btnCerrar_Click" HorizontalAlignment="Center" Width="96"/>
+        </ComboBox>
+    </Grid>
+</Window>

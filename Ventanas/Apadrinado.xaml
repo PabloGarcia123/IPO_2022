@@ -1,0 +1,68 @@
+﻿<Window x:Class="ProyectoIPO2020_2021.Apadrinado"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:ProyectoIPO2020_2021"
+        mc:Ignorable="d"
+        Title="Apadrinado" Height="450" Width="862.148" Closing="Window_Closing"
+        MinHeight="450" MinWidth="862.148">
+
+    <Grid Margin="0,0,2,0" Background="#FF889BEE">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40*"/>
+            <RowDefinition Height="168*"/>
+            <RowDefinition Height="190*"/>
+            <RowDefinition Height="21*"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="36*"/>
+            <ColumnDefinition Width="284*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="295*"/>
+            <ColumnDefinition Width="119*"/>
+            <ColumnDefinition Width="98*"/>
+        </Grid.ColumnDefinitions>
+        <GroupBox Header="Datos Personales" Margin="33,1,1,0" Background="#FF96C0F1" FontSize="16" FontFamily="Open Sans Semibold" Opacity="0.8" FontStretch="ExtraCondensed" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Grid.ColumnSpan="2" Grid.Row="1" Grid.RowSpan="2" Height="334" VerticalAlignment="Top">
+            <StackPanel Margin="10,0,-2,-4">
+                <Label Content="Nombre:" Height="26" FontStretch="Normal" FontSize="14" FontWeight="Normal" Margin="0,0,165,0"/>
+                <TextBlock x:Name="txtblockNombre" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Width="221" Margin="10,0,0,0" FontSize="13" FontWeight="Normal" />
+                <Label Content="Apellidos:" HorizontalAlignment="Left" Height="30" Width="101" FontStretch="Normal" FontSize="14" FontWeight="Normal"/>
+                <TextBlock x:Name="txtblockApellido" Height="32" TextWrapping="Wrap" Margin="10,0,35,0" FontSize="13" FontWeight="Normal" />
+                <Label Content="DNI:" HorizontalAlignment="Left" Height="29" Width="101" FontStretch="Normal" FontSize="14" FontWeight="Normal"/>
+                <TextBlock x:Name="txtblockDNI" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Width="221" Margin="10,0,0,0" FontSize="13" FontWeight="Normal" />
+                <Label Content="Correo:" HorizontalAlignment="Left" Height="29" Width="101" FontStretch="Normal" FontSize="14" FontWeight="Normal"/>
+                <TextBlock x:Name="txtblockCorreo" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Width="221" Margin="10,0,0,0" FontSize="13" FontWeight="Normal" />
+                <Label Content="Nº Teléfono:" HorizontalAlignment="Left" Height="29" Width="101" FontStretch="Normal" FontSize="14" FontWeight="Normal"/>
+                <TextBlock x:Name="txtblockNtlf" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Width="221" Margin="10,0,0,0" FontSize="13" FontWeight="Normal" />
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Datos Bancarios" Background="#FF96C0F1" FontSize="16" FontFamily="Open Sans Semibold" Opacity="0.8" FontStretch="ExtraCondensed" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Grid.Column="3" Grid.ColumnSpan="2" Grid.Row="2" Margin="0,14,0,23">
+            <StackPanel Margin="4,3,-2,6">
+                <Label Content="Numero de cuenta:" Height="26" FontStretch="Normal" FontSize="14" FontWeight="Normal" Margin="0,0,257,0"/>
+                <TextBlock x:Name="txtblockNCuenta" HorizontalAlignment="Left" Height="32" TextWrapping="Wrap" Width="209" Margin="10,0,0,0" FontSize="13" FontWeight="Normal" />
+                <Label Content="Forma de pago:" Height="30" FontStretch="Normal" FontSize="14" FontWeight="Normal" Margin="0,0,257,0"/>
+                <TextBlock x:Name="txtblockFormapago" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Width="156" Margin="10,0,0,0" FontSize="13" FontWeight="Normal" />
+            </StackPanel>
+        </GroupBox>
+        <GroupBox Header="Datos del apadrinamiento" Margin="0,1,0,10" Background="#FF96C0F1" FontSize="16" FontFamily="Open Sans Semibold" Opacity="0.8" FontStretch="ExtraCondensed" BorderBrush="Black" BorderThickness="2" FontWeight="Bold" Grid.Column="3" Grid.Row="1">
+            <StackPanel Margin="4,3,-2,3">
+                <Label Content="Fecha de apadrinamiento:" Height="31" FontStretch="Normal" FontSize="14" FontWeight="Normal" Margin="0,0,91,0"/>
+                <TextBlock x:Name="txtblockFechaapa" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Width="180" Margin="10,0,0,0" FontSize="13" FontWeight="Normal" />
+                <Label Content="Aportación:" Height="30" FontStretch="Normal" FontSize="14" FontWeight="Normal" Margin="0,0,187,0"/>
+                <TextBlock x:Name="txtblockAportacion" HorizontalAlignment="Left" Height="30" TextWrapping="Wrap" Width="69" Margin="10,0,0,0" FontSize="13" FontWeight="Normal" />
+
+            </StackPanel>
+        </GroupBox>
+        <Border x:Name="bordeImg" BorderBrush="Black" BorderThickness="2" Height="150" Margin="42,11,0,0" VerticalAlignment="Top" Grid.Column="4" Grid.ColumnSpan="2" HorizontalAlignment="Left" Width="156" Grid.Row="1">
+            <Image x:Name="imgPerfil"  HorizontalAlignment="Center" Height="140"  VerticalAlignment="Top" Width="140" Source="{Binding imagen}" Margin="8.4,0.4,0,-1.2">
+                <Image.OpacityMask>
+                    <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                        <GradientStop Color="Black" Offset="0"/>
+                        <GradientStop Color="White" Offset="1"/>
+                    </LinearGradientBrush>
+                </Image.OpacityMask>
+            </Image>
+        </Border>
+    </Grid>
+</Window>
