@@ -18,6 +18,10 @@ namespace ProyectoIPO2020_2021.Clases
         public string disponibilidad { set; get; }
         public ImageSource img { set; get; }
 
+        public Voluntario()
+        {
+
+        }
         public Voluntario(string nombre, string apellido, string dni, int n_tlf,string correo,bool conocimientos, string disponibilidad, ImageSource img)
         {
             this.nombre = nombre;
