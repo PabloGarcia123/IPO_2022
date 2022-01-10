@@ -7,8 +7,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoIPO2020_2021"
         mc:Ignorable="d"
-        Title="AdoptDog" Height="582" Width="1157"
-        MinHeight="583" MinWidth="1157"
+        Title="AdoptDog" Height="582" Width="1413"
+        MinHeight="583" MinWidth="1413" MaxHeight="583" MaxWidth="1413"
         WindowStartupLocation="CenterScreen"
         HorizontalContentAlignment="Stretch"
         VerticalContentAlignment="Stretch" SizeToContent="WidthAndHeight" Closing="VentanaApp_Closing">
@@ -26,7 +26,7 @@
         </Grid.ColumnDefinitions>
         <TabControl TabStripPlacement="Left" Grid.ColumnSpan="3" Grid.Row="1" Background="White">
             <TabItem x:Name="tabDatos" Header="Datos personales" FontFamily="Open Sans Semibold" Margin="-2,-2,0,-64" >
-                <Grid x:Name="gridDatos" Height="505" Margin="-1,0,9,-2" VerticalAlignment="Top">
+                <Grid x:Name="gridDatos" Height="505" Margin="-1,0,9,-2" MinHeight ="505" VerticalAlignment="Top">
                     <Grid.RowDefinitions>
                         <RowDefinition Height="130*"/>
                         <RowDefinition Height="56*"/>
@@ -91,7 +91,7 @@
                 </Grid>
             </TabItem>
             <TabItem x:Name="tabListaPerros" Header="Listado de perros" FontFamily="Open Sans Semibold" Margin="0,65,0,-125" >
-                <Grid x:Name="gridListadoPerros" HorizontalAlignment="Left" Height="505" VerticalAlignment="Top" Width="964" Margin="-2,0,-6,-2">
+                <Grid x:Name="gridListadoPerros" Height="505" VerticalAlignment="Top" Margin="-2,0,10,-2">
                     <Grid.ColumnDefinitions>
                         <ColumnDefinition Width="156*"/>
                         <ColumnDefinition Width="23*"/>
@@ -111,9 +111,9 @@
                             <Label x:Name="lblFechaPerro" Content="Fecha de entrada:" HorizontalAlignment="Left" Height="26" Margin="-4,169,0,0" VerticalAlignment="Top" Width="127" FontSize="14"/>
                             <Label x:Name="lblAños" Content="Años" HorizontalAlignment="Left" Height="29" Margin="207,138,0,0" VerticalAlignment="Top" Width="55" FontSize="14" />
                             <Label x:Name="lblApadrinadoPerro" Content="      ¿Apadrinado?" HorizontalAlignment="Left" Height="29" Margin="0,200,0,0" VerticalAlignment="Top" Width="123" FontSize="14"/>
-                            <TextBox x:Name="txtboxPesoPerro" BorderBrush="Tomato" HorizontalAlignment="Left" Height="22" Margin="164,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" KeyDown="txtboxPesoPerro_KeyDown" FontSize="13"/>
+                            <TextBox x:Name="txtboxPesoPerro" BorderBrush="Tomato" HorizontalAlignment="Left" Height="22" Margin="164,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" KeyDown="txtboxPesoPerro_KeyDown" FontSize="13" PreviewTextInput="txtboxPesoPerro_PreviewTextInput"/>
                             <Label  x:Name="lblKg" Content="Kg" HorizontalAlignment="Left" Height="29" Margin="207,104,0,0" VerticalAlignment="Top" Width="33" FontSize="14" RenderTransformOrigin="0.5,0.5"/>
-                            <TextBox x:Name="txtEdadPerro" BorderBrush="Tomato" HorizontalAlignment="Left" Height="22" Margin="164,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" KeyDown="txtEdadPerro_KeyDown" FontSize="13"/>
+                            <TextBox x:Name="txtEdadPerro" BorderBrush="Tomato" HorizontalAlignment="Left" Height="22" Margin="164,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" KeyDown="txtEdadPerro_KeyDown" FontSize="13" PreviewTextInput="txtEdadPerro_PreviewTextInput"/>
                             <DatePicker x:Name="dateFechaPerro" BorderBrush="Tomato" HorizontalAlignment="Left" Height="25" Margin="164,172,0,0" VerticalAlignment="Top" Width="156" FontSize="13"  />
                             <CheckBox x:Name="checkApadrinado" BorderBrush="Tomato" HorizontalAlignment="Left" Height="17" Margin="164,207,0,0" VerticalAlignment="Top" Width="20" Checked="checkApadrinado_Checked"/>
                             <Button x:Name="btnConsultaApadrinado" BorderBrush="Tomato" Content="Consultar Padrino" HorizontalAlignment="Left" Height="17" Margin="323,212,0,0" VerticalAlignment="Top" Width="99" FontSize="9" IsEnabled="False" Click="btnConsultaApadrinado_Click"/>
@@ -144,11 +144,11 @@
                         </Grid>
                     </GroupBox>
 
-                    <Button x:Name="btnListarPerro" Content="Listar" BorderBrush="Tomato" HorizontalAlignment="Left" Height="46" Margin="390,350,0,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnListar_Click" Grid.Column="2" Background="#FF6880D1"/>
-                    <Button x:Name="btnAñadirPerro" Content="Añadir" BorderBrush="Tomato" HorizontalAlignment="Left" Height="46" Margin="596,350,0,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnAñadir_Click" Grid.Column="2" Background="#FF62F012"/>
-                    <Button x:Name="btnBorrarPerro" Content="Borrar" BorderBrush="Tomato" HorizontalAlignment="Left" Height="46" Margin="596,416,0,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnBorrar_Click" Grid.Column="2" Background="#FF997A3A"/>
-                    <Button x:Name="btnEditarPerro" Content="Editar" BorderBrush="Tomato" HorizontalAlignment="Left" Height="46" Margin="390,416,0,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnEditar_Click" Grid.Column="2" Background="#FF77CD9A"/>
-                    <DataGrid x:Name="dataGridPerros" BorderBrush="Tomato" HorizontalAlignment="Left" Height="277" Margin="355,36,0,0" VerticalAlignment="Top" Width="420" SelectionChanged="dataGridPerros_SelectionChanged" AutoGenerateColumns="False" Grid.Column="2">
+                    <Button x:Name="btnListarPerro" Content="Listar" BorderBrush="Tomato" HorizontalAlignment="Left" Height="46" Margin="505,341,0,0" VerticalAlignment="Top" Width="124" FontSize="14" Click="btnListar_Click" Grid.Column="2" Background="#FF6880D1"/>
+                    <Button x:Name="btnAñadirPerro" Content="Añadir" BorderBrush="Tomato" HorizontalAlignment="Left" Height="46" Margin="711,341,0,0" VerticalAlignment="Top" Width="124" FontSize="14" Click="btnAñadir_Click" Grid.Column="2" Background="#FF62F012"/>
+                    <Button x:Name="btnBorrarPerro" Content="Borrar" BorderBrush="Tomato" HorizontalAlignment="Left" Height="46" Margin="711,407,0,0" VerticalAlignment="Top" Width="124" FontSize="14" Click="btnBorrar_Click" Grid.Column="2" Background="#FF997A3A"/>
+                    <Button x:Name="btnEditarPerro" Content="Editar" BorderBrush="Tomato" HorizontalAlignment="Left" Height="46" Margin="505,407,0,0" VerticalAlignment="Top" Width="124" FontSize="14" Click="btnEditar_Click" Grid.Column="2" Background="#FF77CD9A"/>
+                    <DataGrid x:Name="dataGridPerros" BorderBrush="Tomato" HorizontalAlignment="Left" Height="277" Margin="327,36,0,0" VerticalAlignment="Top" Width="652" SelectionChanged="dataGridPerros_SelectionChanged" AutoGenerateColumns="False" Grid.Column="2">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}" ClipboardContentBinding="{x:Null}"/>
                             <DataGridTextColumn Header="Sexo" Binding="{Binding sexo}" ClipboardContentBinding="{x:Null}"/>
@@ -189,7 +189,7 @@
                             <Label x:Name="lblTelefonoVoluntario" Content="Teléfono de contacto:" HorizontalAlignment="Left" Height="26" Margin="6,111,0,0" VerticalAlignment="Top" Width="155" FontSize="14"/>
                             <Label x:Name="lblCorreoElectronicoVoluntario" Content="Correo electrónico:" HorizontalAlignment="Left" Height="26" Margin="22,142,0,0" VerticalAlignment="Top" Width="138" FontSize="14"/>
                             <Label x:Name="lblConoVeterinarios" Content="Conocimientos veterinarios:" HorizontalAlignment="Left" Height="29" Margin="0,171,0,0" VerticalAlignment="Top" Width="200" FontSize="14" Grid.RowSpan="2"/>
-                            <TextBox x:Name="txtboxTelefonoVoluntario"  BorderBrush="Blue" FontSize="13" MaxLength="9" HorizontalAlignment="Left" Height="22" Margin="164,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" RenderTransformOrigin="2,0.509" KeyDown="txtboxTelefonoVoluntario_KeyDown"/>
+                            <TextBox x:Name="txtboxTelefonoVoluntario"  BorderBrush="Blue" FontSize="13" MaxLength="9" HorizontalAlignment="Left" Height="22" Margin="164,111,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" RenderTransformOrigin="2,0.509" KeyDown="txtboxTelefonoVoluntario_KeyDown" PreviewTextInput="txtboxTelefonoVoluntario_PreviewTextInput"/>
                             <TextBox x:Name="txtCorreoElectronicoVoluntario"  BorderBrush="Blue" HorizontalAlignment="Left" Height="22" Margin="164,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" FontSize="13"/>
                             <Button x:Name="btnAñadirImagenVoluntario" Content="Añadir Imagen" HorizontalAlignment="Left"  BorderBrush="Blue" Height="20" Margin="398,120,0,0" VerticalAlignment="Top" Width="70" Click="btnAñadirImagen_Click" FontSize="9" />
                             <CheckBox x:Name="checkConocimientosVeterinarios"  BorderBrush="Blue" HorizontalAlignment="Left" Height="17" Margin="205,176,0,0" VerticalAlignment="Top" Width="20" RenderTransformOrigin="0.36,-1.306" Grid.RowSpan="2"/>
@@ -240,11 +240,11 @@
 
                         </Grid>
                     </GroupBox>
-                    <Button x:Name="btnListarVoluntario"  BorderBrush="Blue" Content="Listar" HorizontalAlignment="Left" Height="46" Margin="569,350,0,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnListar_Click" Background="#FF6880D1"/>
-                    <Button x:Name="btnAñadirVoluntario"  BorderBrush="Blue" Content="Añadir" HorizontalAlignment="Left" Height="46" Margin="775,350,0,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnAñadir_Click" Background="#FF62F012"/>
-                    <Button x:Name="btnBorrarVoluntario"  BorderBrush="Blue" Content="Borrar" HorizontalAlignment="Left" Height="46" Margin="775,416,0,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnBorrar_Click" Background="#FF997A3A"/>
-                    <Button x:Name="btnEditarVoluntario"  BorderBrush="Blue" Content="Editar" HorizontalAlignment="Left" Height="46" Margin="569,416,0,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnEditar_Click" Background="#FF77CD9A"/>
-                    <DataGrid x:Name="dataGridVoluntarios" HorizontalAlignment="Left" Height="277" Margin="534,36,0,0" VerticalAlignment="Top" Width="420" SelectionChanged="dataGridPerros_SelectionChanged"  BorderBrush="Blue">
+                    <Button x:Name="btnListarVoluntario"  BorderBrush="Blue" Content="Listar" HorizontalAlignment="Left" Height="46" Margin="734,347,0,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnListar_Click" Background="#FF6880D1"/>
+                    <Button x:Name="btnAñadirVoluntario"  BorderBrush="Blue" Content="Añadir" HorizontalAlignment="Left" Height="46" Margin="940,347,-78,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnAñadir_Click" Background="#FF62F012"/>
+                    <Button x:Name="btnBorrarVoluntario"  BorderBrush="Blue" Content="Borrar" HorizontalAlignment="Left" Height="46" Margin="940,413,-78,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnBorrar_Click" Background="#FF997A3A"/>
+                    <Button x:Name="btnEditarVoluntario"  BorderBrush="Blue" Content="Editar" HorizontalAlignment="Left" Height="46" Margin="734,413,0,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnEditar_Click" Background="#FF77CD9A"/>
+                    <DataGrid x:Name="dataGridVoluntarios" HorizontalAlignment="Left" Height="277" Margin="550,36,-226,0" VerticalAlignment="Top" Width="661" SelectionChanged="dataGridPerros_SelectionChanged"  BorderBrush="Blue">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}" ClipboardContentBinding="{x:Null}"/>
                             <DataGridTextColumn Header="Apellidos" Binding="{Binding apellido}" ClipboardContentBinding="{x:Null}"/>
@@ -276,14 +276,14 @@
                                 <Grid HorizontalAlignment="Left" Height="188" Margin="4,-10,0,0" VerticalAlignment="Top" Width="463">
                                     <Label x:Name="lblNombreSocio" Content="Nombre:" Height="26" Margin="83,15,0,0" Width="71" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                                     <TextBox x:Name="txtboxNombreSocio" BorderBrush="Orange" HorizontalAlignment="Left" Height="22"  TextWrapping="Wrap" VerticalAlignment="Top" Width="132" FontSize="13" Margin="164,15,0,0" KeyDown="txtboxNombreSocio_KeyDown"/>
-                                    <Label x:Name="lblApellidoSocio" Content="Apellido:" HorizontalAlignment="Left" Height="26" Margin="83,49,0,0" VerticalAlignment="Top" Width="71" FontSize="14"/>
+                                    <Label x:Name="lblApellidoSocio" Content="Apellido:" HorizontalAlignment="Left" Height="32" Margin="83,49,0,0" VerticalAlignment="Top" Width="71" FontSize="14"/>
                                     <TextBox x:Name="txtboxApellidoSocio" BorderBrush="Orange" HorizontalAlignment="Left" Height="22" Margin="164,49,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="193" FontSize="13" RenderTransformOrigin="2,0.509" KeyDown="txtboxApellidoSocio_KeyDown"/>
                                     <Label Content="DNI:" HorizontalAlignment="Left" Height="26" Margin="110,81,0,0" VerticalAlignment="Top" Width="44" FontSize="14"/>
                                     <TextBox x:Name="txtboxDNISocio" BorderBrush="Orange" HorizontalAlignment="Left" MaxLength="9" Height="22" Margin="164,85,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="90" FontSize="13" KeyDown="txtboxDNISocio_KeyDown"/>
                                     <Label x:Name="lblTelefonoSocio" Content="NºTeléfono:" HorizontalAlignment="Left" Height="26" Margin="59,111,0,0" VerticalAlignment="Top" Width="95" FontSize="14"/>
                                     <Button x:Name="btnAñadirImagenSocio" BorderBrush="Orange" Content="Añadir Imagen" HorizontalAlignment="Left" Height="20" Margin="376,117,0,0" VerticalAlignment="Top" Width="70" Click="btnAñadirImagen_Click" FontSize="9" />
                                     <Label x:Name="lblCorreoElectronico" Content="Correo electrónico:" HorizontalAlignment="Left" Height="26" Margin="10,142,0,0" VerticalAlignment="Top" Width="144" FontSize="14"/>
-                                    <TextBox x:Name="txtboxTelefonoSocio" BorderBrush="Orange" FontSize="13" HorizontalAlignment="Left" MaxLength="9" Height="22" Margin="164,115,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="90" RenderTransformOrigin="2,0.509" KeyDown="txtboxTelefonoSocio_KeyDown"/>
+                                    <TextBox x:Name="txtboxTelefonoSocio" BorderBrush="Orange" FontSize="13" HorizontalAlignment="Left" MaxLength="9" Height="22" Margin="164,115,0,0"  TextWrapping="Wrap" VerticalAlignment="Top" Width="90" RenderTransformOrigin="2,0.509" KeyDown="txtboxTelefonoSocio_KeyDown" PreviewTextInput="txtboxTelefonoSocio_PreviewTextInput"/>
                                     <TextBox x:Name="txtCorreoElectronicoSocio" BorderBrush="Orange" HorizontalAlignment="Left" Height="22" Margin="164,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" FontSize="13" KeyDown="txtCorreoElectronicoSocio_KeyDown"/>
 
                                     <Border x:Name="bordeImgSocio" BorderBrush="Orange" BorderThickness="1" HorizontalAlignment="Left" Height="89" Margin="362,10,0,0" VerticalAlignment="Top" Width="97">
@@ -297,13 +297,13 @@
                                     <TextBox x:Name="txtEntidadBancaria" BorderBrush="Orange" HorizontalAlignment="Left" Height="22" Margin="161,13,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="125" FontSize="13" KeyDown="txtEntidadBancaria_KeyDown"/>
                                     <Label x:Name="lblIBAN" Content=" IBAN:" HorizontalAlignment="Left" Height="29" Margin="105,39,0,0" VerticalAlignment="Top" Width="51" FontSize="14"/>
                                     <TextBox x:Name="txtIBAN1" BorderBrush="Orange" HorizontalAlignment="Left" MaxLength="4" Height="22" Margin="161,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" FontSize="13" KeyDown="txtIBAN1_KeyDown"/>
-                                    <TextBox x:Name="txtIBAN2" BorderBrush="Orange" HorizontalAlignment="Left" MaxLength="4" Height="22" Margin="209,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" FontSize="13" KeyDown="txtIBAN2_KeyDown"/>
-                                    <TextBox x:Name="txtIBAN3" BorderBrush="Orange" HorizontalAlignment="Left" MaxLength="4" Height="22" Margin="257,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" FontSize="13" KeyDown="txtIBAN3_KeyDown"/>
-                                    <TextBox x:Name="txtIBAN4" BorderBrush="Orange" HorizontalAlignment="Left" MaxLength="4" Height="22" Margin="305,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" FontSize="13" KeyDown="txtIBAN4_KeyDown"/>
-                                    <TextBox x:Name="txtIBAN5" BorderBrush="Orange" HorizontalAlignment="Left" MaxLength="4" Height="22" Margin="353,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" FontSize="13" KeyDown="txtIBAN5_KeyDown"/>
-                                    <TextBox x:Name="txtIBAN6" BorderBrush="Orange" HorizontalAlignment="Left" MaxLength="4" Height="22" Margin="401,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" FontSize="13" KeyDown="txtIBAN6_keyDown"/>
+                                    <TextBox x:Name="txtIBAN2" BorderBrush="Orange" HorizontalAlignment="Left" MaxLength="4" Height="22" Margin="209,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" FontSize="13" KeyDown="txtIBAN2_KeyDown" PreviewTextInput="txtIBAN2_PreviewTextInput"/>
+                                    <TextBox x:Name="txtIBAN3" BorderBrush="Orange" HorizontalAlignment="Left" MaxLength="4" Height="22" Margin="257,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" FontSize="13" KeyDown="txtIBAN3_KeyDown" PreviewTextInput="txtIBAN3_PreviewTextInput"/>
+                                    <TextBox x:Name="txtIBAN4" BorderBrush="Orange" HorizontalAlignment="Left" MaxLength="4" Height="22" Margin="305,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" FontSize="13" KeyDown="txtIBAN4_KeyDown" PreviewTextInput="txtIBAN4_PreviewTextInput"/>
+                                    <TextBox x:Name="txtIBAN5" BorderBrush="Orange" HorizontalAlignment="Left" MaxLength="4" Height="22" Margin="353,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" FontSize="13" KeyDown="txtIBAN5_KeyDown" PreviewTextInput="txtIBAN5_PreviewTextInput"/>
+                                    <TextBox x:Name="txtIBAN6" BorderBrush="Orange" HorizontalAlignment="Left" MaxLength="4" Height="22" Margin="401,43,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="43" FontSize="13" KeyDown="txtIBAN6_keyDown" PreviewTextInput="txtIBAN6_PreviewTextInput"/>
                                     <Label x:Name="lblCuantia" Content="Cuantía de la ayuda:" HorizontalAlignment="Left" Height="29" Margin="10,70,0,0" VerticalAlignment="Top" Width="147" FontSize="14"/>
-                                    <TextBox x:Name="txtCuantia" BorderBrush="Orange" HorizontalAlignment="Left" Height="22" Margin="161,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="13" KeyDown="txtCuantia_KeyDown"/>
+                                    <TextBox x:Name="txtCuantia" BorderBrush="Orange" HorizontalAlignment="Left" Height="22" Margin="161,70,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="110" FontSize="13" KeyDown="txtCuantia_KeyDown" PreviewTextInput="txtCuantia_PreviewTextInput"/>
                                     <Label x:Name="lblFormPago" Content="Forma de pago:" HorizontalAlignment="Left" Height="29" Margin="42,100,0,0" VerticalAlignment="Top" Width="115" FontSize="14"/>
                                     <Label x:Name="lblEuros" Content="€" HorizontalAlignment="Left" Height="29" Margin="275,70,0,0" VerticalAlignment="Top" Width="26" FontSize="14"/>
                                     <Grid HorizontalAlignment="Left" Height="37" VerticalAlignment="Top" Width="226" Margin="150,100,0,0">
@@ -335,11 +335,11 @@
 
                         </Grid>
                     </GroupBox>
-                    <Button x:Name="btnListarSocio" Content="Listar" BorderBrush="Orange" HorizontalAlignment="Left" Height="46" Margin="569,350,0,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnListar_Click" Background="#FF6880D1" />
-                    <Button x:Name="btnAñadirSocio" Content="Añadir" BorderBrush="Orange" HorizontalAlignment="Left" Height="46" Margin="775,350,0,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnAñadir_Click" Background="#FF62F012"/>
-                    <Button x:Name="btnBorrarSocio" Content="Borrar" BorderBrush="Orange" HorizontalAlignment="Left" Height="46" Margin="775,416,0,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnBorrar_Click" Background="#FF997A3A"/>
-                    <Button x:Name="btnEditarSocio" Content="Editar" BorderBrush="Orange" HorizontalAlignment="Left" Height="46" Margin="569,416,0,0" VerticalAlignment="Top" Width="123" FontSize="14" Click="btnEditar_Click" Background="#FF77CD9A"/>
-                    <DataGrid x:Name="dataGridSocio" BorderBrush="Orange" HorizontalAlignment="Left" Height="277" Margin="534,37,0,0" VerticalAlignment="Top" Width="420" SelectionChanged="dataGridPerros_SelectionChanged">
+                    <Button x:Name="btnListarSocio" Content="Listar" BorderBrush="Orange" HorizontalAlignment="Left" Height="46" Margin="726,350,0,0" VerticalAlignment="Top" Width="124" FontSize="14" Click="btnListar_Click" Background="#FF6880D1" />
+                    <Button x:Name="btnAñadirSocio" Content="Añadir" BorderBrush="Orange" HorizontalAlignment="Left" Height="46" Margin="932,350,-71,0" VerticalAlignment="Top" Width="124" FontSize="14" Click="btnAñadir_Click" Background="#FF62F012"/>
+                    <Button x:Name="btnBorrarSocio" Content="Borrar" BorderBrush="Orange" HorizontalAlignment="Left" Height="46" Margin="932,416,-71,0" VerticalAlignment="Top" Width="124" FontSize="14" Click="btnBorrar_Click" Background="#FF997A3A"/>
+                    <Button x:Name="btnEditarSocio" Content="Editar" BorderBrush="Orange" HorizontalAlignment="Left" Height="46" Margin="726,416,0,0" VerticalAlignment="Top" Width="124" FontSize="14" Click="btnEditar_Click" Background="#FF77CD9A"/>
+                    <DataGrid x:Name="dataGridSocio" BorderBrush="Orange" HorizontalAlignment="Left" Height="277" Margin="534,37,-223,0" VerticalAlignment="Top" Width="674" SelectionChanged="dataGridPerros_SelectionChanged">
                         <DataGrid.Columns>
                             <DataGridTextColumn Header="Nombre" Binding="{Binding nombre}" ClipboardContentBinding="{x:Null}"/>
                             <DataGridTextColumn Header="Apellidos" Binding="{Binding apellido}" ClipboardContentBinding="{x:Null}"/>
@@ -369,10 +369,10 @@
             </TabItem>
 
         </TabControl>
-        <Button x:Name="btnAyuda" Grid.Column="2" Height="23" Margin="0,10,10,0" VerticalAlignment="Top" Background="#FF35B2E0" Click="btnAyuda_Click" HorizontalAlignment="Right" Width="23">
+        <Button x:Name="btnAyuda" Grid.Column="2" Height="23" Margin="0,10,20,0" VerticalAlignment="Top" Background="#FF35B2E0" Click="btnAyuda_Click" HorizontalAlignment="Right" Width="23">
             <Image x:Name="imgAyuda" Height="19" Width="20" Source="/Images/imgAyuda.png"/>
         </Button>
-        <ComboBox x:Name="cboxPerfil" Grid.Column="2" Height="23" Margin="19,10,0,0" VerticalAlignment="Top" Background="Black" HorizontalAlignment="Left" Width="108">
+        <ComboBox x:Name="cboxPerfil" Grid.Column="2" Height="23" Margin="40,10,0,0" VerticalAlignment="Top" Background="Black" HorizontalAlignment="Left" Width="108">
             <Button x:Name="btnCbPerfil" Content="Perfil Personal" FontFamily="Open Sans Semibold"  Width="97" Background="#FF3CFFE4" Click="btnCbPerfil_Click"/>
             <Button x:Name="btnCbCerrarSesion" Content="Cerrar Sesión" Background="#FFE81D1D" FontFamily="Open Sans Semibold" Click="btnCerrar_Click" HorizontalAlignment="Center" Width="96"/>
         </ComboBox>

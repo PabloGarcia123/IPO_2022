@@ -5,7 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProyectoIPO2020_2021"
         mc:Ignorable="d"
-        Title="Ayuda" Height="600" Width="417.518" Closing="Window_Closing">
+        Title="Ayuda" Height="600" Width="417.518" Closing="Window_Closing"
+        MinHeight="600" MaxHeight="600" MinWidth="417.518" MaxWidth="417.518">
 
     <Grid Margin="0,0,-1.2,-132.4">
         <Grid.RowDefinitions>
