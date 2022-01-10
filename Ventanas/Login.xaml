@@ -15,9 +15,9 @@
             <ColumnDefinition Width="80*"/>
             <ColumnDefinition Width="134*"/>
             <ColumnDefinition Width="99*"/>
-            <ColumnDefinition Width="130*"/>
-            <ColumnDefinition Width="101*"/>
-            <ColumnDefinition Width="29*"/>
+            <ColumnDefinition Width="129*"/>
+            <ColumnDefinition Width="65*"/>
+            <ColumnDefinition Width="65*"/>
             <ColumnDefinition Width="44*"/>
             <ColumnDefinition Width="94*"/>
             <ColumnDefinition Width="80*"/>
@@ -42,31 +42,31 @@
 
 
 
-        <Rectangle x:Name="FondoVentana" Stroke="Black" Grid.RowSpan="14" Grid.ColumnSpan="9" Margin="0,0,-6,-0.6" MouseEnter="FondoVentana_MouseEnter">
+        <Rectangle x:Name="FondoVentana" Stroke="Black" Grid.RowSpan="14" Grid.ColumnSpan="9" Margin="0,0,0,-1" MouseEnter="FondoVentana_MouseEnter">
             <Rectangle.Fill>
                 <ImageBrush Opacity="0.6" ImageSource="/Images/fondoLogin.jpg"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Rectangle x:Name="FondoLogin" Margin="2,0.2,74,0" Stroke="Black" Grid.Row="2" Grid.Column="1" Grid.RowSpan="10" Grid.ColumnSpan="8">
+        <Rectangle x:Name="FondoLogin" Margin="2,0,0,0" Stroke="Black" Grid.Row="2" Grid.Column="1" Grid.RowSpan="10" Grid.ColumnSpan="7">
             <Rectangle.Fill>
                 <SolidColorBrush Color="#FFACBDA6"/>
             </Rectangle.Fill>
         </Rectangle>
-        <Label x:Name="lblLogin" Content="Correo electrónico" Margin="134,2.2,41.6,1" FontFamily="Open Sans Semibold" FontSize="16" Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="6"/>
-        <TextBox x:Name="txtUsuario" TextWrapping="Wrap" FontFamily="Open Sans Semibold" Padding="4" TabIndex="1" KeyDown="txtUsuario_KeyDown" Grid.Row="5" Grid.Column="1" Grid.RowSpan="2" Grid.ColumnSpan="5" Margin="134,0,26.6,2.4"/>
-        <Label x:Name="lblContraseña" Content="Contraseña" Margin="134,6.8,46,0.4" FontFamily="Open Sans Semibold" FontSize="16" Grid.Row="6" Grid.Column="1" Grid.ColumnSpan="3" Grid.RowSpan="2"/>
-        <PasswordBox x:Name="passContra" Padding="4" TabIndex="2"  Grid.Row="7" Grid.Column="1" Grid.ColumnSpan="5" Margin="134,27.6,26.6,10.4" KeyDown="passContra_KeyDown" FontFamily="Open Sans Semibold" Grid.RowSpan="2"/>
-        <Button x:Name="btnLogin" Content="Iniciar Sesión" Padding="6" TabIndex="3" AllowDrop="True" Click="btnLogin_Click" Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="3" Margin="48.6,0.6,47.8,2.8" FontFamily="Open Sans Semibold" FontSize="14"/>
-        <Label x:Name="lblTituloLogin" Content="AdoptDog" FontFamily="Open Sans Semibold" FontSize="43" Grid.Row="2" Grid.Column="1" Grid.ColumnSpan="6" Margin="134,0,41.6,0" VerticalAlignment="Bottom" Height="68"/>
-        <Image x:Name="imgAvatar" Margin="2,1.2,0.4,35" Source="/images/icono.png" Grid.Row="2" Grid.Column="1" Grid.RowSpan="3"  MouseEnter="imgAvatar_MouseEnter" MouseLeave="imgAvatar_MouseLeave">
+        <Label x:Name="lblLogin" Content="Correo electrónico" Margin="0,2,4,1" FontFamily="Open Sans Semibold" FontSize="16" Grid.Row="4" Grid.Column="2" Grid.ColumnSpan="4"/>
+        <TextBox x:Name="txtUsuario" TextWrapping="Wrap" FontFamily="Open Sans Semibold" Padding="4" TabIndex="1" KeyDown="txtUsuario_KeyDown" Grid.Row="5" Grid.Column="2" Grid.RowSpan="2" Grid.ColumnSpan="4" Margin="0,0,33,2"/>
+        <Label x:Name="lblContraseña" Content="Contraseña" Margin="0,0,46,0" FontFamily="Open Sans Semibold" FontSize="16" Grid.Row="7" Grid.Column="2" Grid.ColumnSpan="2"/>
+        <PasswordBox x:Name="passContra" Padding="4" TabIndex="2"  Grid.Row="8" Grid.Column="2" Grid.ColumnSpan="4" Margin="0,0,33,10" KeyDown="passContra_KeyDown" FontFamily="Open Sans Semibold"/>
+        <Button x:Name="btnLogin" Content="Iniciar Sesión" Padding="6" TabIndex="3" AllowDrop="True" Click="btnLogin_Click" Grid.Row="9" Grid.Column="2" Grid.ColumnSpan="3" Margin="67.6,9.6,33,5.6" FontFamily="Open Sans Semibold" FontSize="14" Grid.RowSpan="2"/>
+        <Label x:Name="lblTituloLogin" Content="AdoptDog" FontFamily="Open Sans Semibold" FontSize="43" Grid.Row="2" Grid.Column="2" Grid.ColumnSpan="4" Margin="0,0,4,0" VerticalAlignment="Bottom" Height="68"/>
+        <Image x:Name="imgAvatar" Margin="2,1,0,0" Source="/images/icono.png" Grid.Row="2" Grid.Column="1" Grid.RowSpan="2"  MouseEnter="imgAvatar_MouseEnter" MouseLeave="imgAvatar_MouseLeave">
             <Image.OpacityMask>
                 <ImageBrush ImageSource="/images/icono.png"/>
             </Image.OpacityMask>
         </Image>
-        <Image x:Name="imgCheckUsuario" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="30" Grid.Row="5" Grid.Column="6" Grid.RowSpan="2" Margin="6.4,0,0,0"/>
-        <Image x:Name="imgCheckContrasena" HorizontalAlignment="Left" Height="30" Margin="6.4,1.6,0,0" VerticalAlignment="Top" Width="30" Grid.Row="8" Grid.Column="6"/>
-        <Button x:Name="btnSalir" Content="Salir" Grid.Column="6" Margin="16.4,9.6,28,2.8" Grid.Row="9" Click="btnSalir_Click" Grid.ColumnSpan="2" Background="#FFAAAAAA" FontFamily="Open Sans Semibold" FontSize="14" />
-        <Button x:Name ="ContraseñaOlvidada" Grid.ColumnSpan="5" Content="¿Ha olvidado su contraseña?" Grid.Column="3" Margin="129.4,2.6,88,5.4" Grid.Row="7" Click="ContraseñaOlvidada_Click" FontFamily="Open Sans Semibold"/>
+        <Image x:Name="imgCheckUsuario" HorizontalAlignment="Left" Height="30" VerticalAlignment="Top" Width="30" Grid.Row="5" Grid.Column="6" Grid.RowSpan="2"/>
+        <Image x:Name="imgCheckContrasena" HorizontalAlignment="Left" Height="30" Margin="0,2,0,0" VerticalAlignment="Top" Width="30" Grid.Row="8" Grid.Column="6"/>
+        <Button x:Name="btnSalir" Content="Salir" Grid.Column="6" Margin="10,10,34,3" Grid.Row="9" Click="btnSalir_Click" Grid.ColumnSpan="2" Background="#FFAAAAAA" FontFamily="Open Sans Semibold" FontSize="14" />
+        <Button x:Name ="ContraseñaOlvidada" Grid.ColumnSpan="3" Content="¿Ha olvidado su contraseña?" Grid.Column="4" Margin="0,3,0,5" Grid.Row="7" Click="ContraseñaOlvidada_Click" FontFamily="Open Sans Semibold"/>
 
     </Grid>
 </Window>
