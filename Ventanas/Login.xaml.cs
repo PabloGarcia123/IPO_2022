@@ -12,8 +12,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using Microsoft.Win32;
-using System.Data.OleDb;
-using Oracle.DataAccess;
+
 
 namespace ProyectoIPO2020_2021
 {
@@ -57,7 +56,7 @@ namespace ProyectoIPO2020_2021
         {
          
             InitializeComponent();
-  
+            
         }
 
 
@@ -128,22 +127,29 @@ namespace ProyectoIPO2020_2021
                     // habilitar entrada de contraseña y pasarle el foco
                     passContra.IsEnabled = true;
                     passContra.Focus();
-                    // deshabilitar entrada de login
-                    txtUsuario.IsEnabled = false;
+                    
                 }
             }
 
         }
         private void passContra_KeyDown(object sender, KeyEventArgs e)
         {
-                if (e.Key == Key.Return)
-                {
+            if (e.Key == Key.Return)
+            {
 
-                    if (!string.IsNullOrEmpty(txtUsuario.Text) && !string.IsNullOrEmpty(passContra.Password) && ComprobarEntrada(txtUsuario.Text, establecerCorreo(), txtUsuario, imgCheckUsuario) && ComprobarEntrada(passContra.Password, establecerContra(), passContra, imgCheckContrasena))
-                    {
-                        ventanaApp.Show();
-                    }
+                if (!string.IsNullOrEmpty(txtUsuario.Text) && !string.IsNullOrEmpty(passContra.Password) && ComprobarEntrada(txtUsuario.Text, establecerCorreo(), txtUsuario, imgCheckUsuario) && ComprobarEntrada(passContra.Password, establecerContra(), passContra, imgCheckContrasena))
+                {
+                    ventanaApp.Show();
+                    txtUsuario.BorderBrush = Brushes.White;
+                    txtUsuario.Background = Brushes.White;
+                    passContra.BorderBrush = Brushes.White;
+                    passContra.Background = Brushes.White;
+                    txtUsuario.Text = "";
+                    passContra.Password = "";
+                    //imagenFeedBack.Source = null;
+
                 }
+            }
         }
         private void btnLogin_Click(object sender, RoutedEventArgs e)
         {
@@ -152,6 +158,13 @@ namespace ProyectoIPO2020_2021
             if (ComprobarEntrada(txtUsuario.Text, establecerCorreo(), txtUsuario, imgCheckUsuario) && (ComprobarEntrada(passContra.Password, establecerContra(), passContra, imgCheckContrasena)))
             {
                 ventanaApp.Show();
+                txtUsuario.BorderBrush = Brushes.White;
+                txtUsuario.Background = Brushes.White;
+                passContra.BorderBrush = Brushes.White;
+                passContra.Background = Brushes.White;
+                txtUsuario.Text = "";
+                passContra.Password = "";
+                //imagenFeedBack.Source = null;
             }
         }
 
@@ -183,6 +196,7 @@ namespace ProyectoIPO2020_2021
                 imagenFeedBack.Source = imagCross;
                 valido = false;
             }
+            
             return valido;
         }
 
@@ -217,6 +231,12 @@ namespace ProyectoIPO2020_2021
                 "Estableciendo como asunto HE OLVIDADO MI CONTRASEÑA. Se pondrán en contacto con usted lo antes posible.", 
                 "Cerrar");
             //ventanaAyudaContraseña.Show();
+        }
+
+        private void FondoVentana_MouseEnter(object sender, MouseEventArgs e)
+        {
+            imgCheckUsuario.Source = null;
+            imgCheckContrasena.Source = null;
         }
     }
 }
