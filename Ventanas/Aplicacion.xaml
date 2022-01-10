@@ -97,20 +97,20 @@
                         <ColumnDefinition Width="23*"/>
                         <ColumnDefinition Width="785*"/>
                     </Grid.ColumnDefinitions>
-                    <GroupBox x:Name="gridDatPerro" Header="Datos del perro" HorizontalAlignment="Left" Height="461" Margin="10,34,0,0" VerticalAlignment="Top" Width="519" FontSize="18" Grid.ColumnSpan="3" BorderBrush="Tomato" BorderThickness="2">
+                    <GroupBox x:Name="gridDatPerro" Header="Datos del perro" HorizontalAlignment="Left" Height="461" Margin="10,19,0,0" VerticalAlignment="Top" Width="519" FontSize="18" Grid.ColumnSpan="3" BorderBrush="Tomato" BorderThickness="2">
                         <Grid x:Name="gridDatosPerro" HorizontalAlignment="Left" Height="426" Margin="4,3,-2,-22" VerticalAlignment="Top" Width="505">
-                            <Label x:Name="lblNombrePerro" Content="&#x9;Nombre:" Height="26" Margin="0,14,0,0" Width="123" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top"/>
+                            <Label x:Name="lblNombrePerro" Content="&#x9;Nombre:" Height="26" Margin="36,14,0,0" Width="123" FontSize="14" HorizontalAlignment="Left" VerticalAlignment="Top"/>
                             <TextBox x:Name="txtboxNombrePerro" BorderBrush="Tomato" HorizontalAlignment="Left" Height="22" Margin="164,18,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="142" FontSize="13" KeyDown="txtboxNombrePerro_KeyDown"/>
-                            <Label x:Name="lblSexoPerro" Content="&#x9;      Sexo:" HorizontalAlignment="Left" Height="26" Margin="-4,45,0,0" VerticalAlignment="Top" Width="127" FontSize="14"/>
+                            <Label x:Name="lblSexoPerro" Content="&#x9;      Sexo:" HorizontalAlignment="Left" Height="26" Margin="32,50,0,0" VerticalAlignment="Top" Width="127" FontSize="14"/>
                             <RadioButton x:Name="radiobMacho" BorderBrush="Tomato" Content="Macho" HorizontalAlignment="Left" Height="18" Margin="164,53,0,0" VerticalAlignment="Top" Width="98" Checked="radiobMacho_Checked" FontSize="12"/>
                             <RadioButton x:Name="radiobHembra" BorderBrush="Tomato" Content="Hembra" HorizontalAlignment="Left" Height="18" Margin="267,53,0,0" VerticalAlignment="Top" Width="103" Checked="radiobHembra_Checked" FontSize="12"/>
-                            <Label Content="&#x9;      Raza:" HorizontalAlignment="Left" Height="26" Margin="0,76,0,0" VerticalAlignment="Top" Width="123" FontSize="14"/>
+                            <Label Content="&#x9;      Raza:" HorizontalAlignment="Left" Height="26" Margin="32,80,0,0" VerticalAlignment="Top" Width="123" FontSize="14"/>
                             <TextBox x:Name="txtboxRazaPerro" BorderBrush="Tomato" HorizontalAlignment="Left" Height="22" Margin="164,80,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" FontSize="13" KeyDown="txtboxRazaPerro_KeyDown"/>
-                            <Label x:Name="lblPesoPerro" Content="&#x9;      Peso:" HorizontalAlignment="Left" Height="26" Margin="0,107,0,0" VerticalAlignment="Top" Width="123" FontSize="14"/>
-                            <Label x:Name="lblEdadPerro" Content="&#x9;      Edad:" HorizontalAlignment="Left" Height="26" Margin="0,138,0,0" VerticalAlignment="Top" Width="123" FontSize="14"/>
-                            <Label x:Name="lblFechaPerro" Content="Fecha de entrada:" HorizontalAlignment="Left" Height="26" Margin="-4,169,0,0" VerticalAlignment="Top" Width="127" FontSize="14"/>
+                            <Label x:Name="lblPesoPerro" Content="&#x9;      Peso:" HorizontalAlignment="Left" Height="26" Margin="32,111,0,0" VerticalAlignment="Top" Width="123" FontSize="14"/>
+                            <Label x:Name="lblEdadPerro" Content="&#x9;      Edad:" HorizontalAlignment="Left" Height="26" Margin="32,142,0,0" VerticalAlignment="Top" Width="123" FontSize="14"/>
+                            <Label x:Name="lblFechaPerro" Content="Fecha de entrada:" HorizontalAlignment="Left" Height="26" Margin="37,169,0,0" VerticalAlignment="Top" Width="118" FontSize="14"/>
                             <Label x:Name="lblAños" Content="Años" HorizontalAlignment="Left" Height="29" Margin="207,138,0,0" VerticalAlignment="Top" Width="55" FontSize="14" />
-                            <Label x:Name="lblApadrinadoPerro" Content="      ¿Apadrinado?" HorizontalAlignment="Left" Height="29" Margin="0,200,0,0" VerticalAlignment="Top" Width="123" FontSize="14"/>
+                            <Label x:Name="lblApadrinadoPerro" Content="      ¿Apadrinado?" HorizontalAlignment="Left" Height="29" Margin="32,200,0,0" VerticalAlignment="Top" Width="123" FontSize="14"/>
                             <TextBox x:Name="txtboxPesoPerro" BorderBrush="Tomato" HorizontalAlignment="Left" Height="22" Margin="164,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" KeyDown="txtboxPesoPerro_KeyDown" FontSize="13" PreviewTextInput="txtboxPesoPerro_PreviewTextInput"/>
                             <Label  x:Name="lblKg" Content="Kg" HorizontalAlignment="Left" Height="29" Margin="207,104,0,0" VerticalAlignment="Top" Width="33" FontSize="14" RenderTransformOrigin="0.5,0.5"/>
                             <TextBox x:Name="txtEdadPerro" BorderBrush="Tomato" HorizontalAlignment="Left" Height="22" Margin="164,142,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="38" KeyDown="txtEdadPerro_KeyDown" FontSize="13" PreviewTextInput="txtEdadPerro_PreviewTextInput"/>
@@ -174,7 +174,7 @@
             </TabItem>
             <TabItem x:Name="tabVoluntarios" Header="Voluntarios de la protectora" FontFamily="Open Sans Semibold" Margin="0,126,0,-190" >
                 <Grid x:Name="gridVoluntarios" HorizontalAlignment="Left" Height="505" Margin="-1,-2,-2,-1" VerticalAlignment="Top" Width="985">
-                    <GroupBox x:Name="grpDatosVoluntario" Header="Datos del voluntario" Height="461" Margin="0,34,456,10" HorizontalAlignment="Right" Width="519" BorderBrush="Blue" BorderThickness="2" FontSize="18">
+                    <GroupBox x:Name="grpDatosVoluntario" Header="Datos del voluntario" Height="461" Margin="0,19,456,25" HorizontalAlignment="Right" Width="519" BorderBrush="Blue" BorderThickness="2" FontSize="18">
                         <Grid x:Name="gridDatosVoluntario" HorizontalAlignment="Left" Height="429" Margin="4,3,-85.6,0" VerticalAlignment="Top" Width="572">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="171*"/>
@@ -266,7 +266,7 @@
             </TabItem>
             <TabItem x:Name="tabSocios" Header="Gestión de socios" FontFamily="Open Sans Semibold" Margin="0,191,1,-256" >
                 <Grid x:Name="gridSocios" HorizontalAlignment="Left" Height="505" VerticalAlignment="Top" Width="985" Margin="-2,0,-1,-2">
-                    <GroupBox x:Name="grpDatosSocio" Header="Datos del socio" Margin="0,35,456,10"  HorizontalAlignment="Right" Width="519" BorderBrush="Orange" BorderThickness="2" FontSize="18">
+                    <GroupBox x:Name="grpDatosSocio" Header="Datos del socio" Margin="0,20,456,25"  HorizontalAlignment="Right" Width="519" BorderBrush="Orange" BorderThickness="2" FontSize="18">
                         <Grid x:Name="gridDatosSocio" HorizontalAlignment="Left" Height="429" Margin="4,3,0,0" VerticalAlignment="Top" Width="582">
                             <Grid.RowDefinitions>
                                 <RowDefinition Height="171*"/>

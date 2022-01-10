@@ -507,7 +507,7 @@ namespace ProyectoIPO2020_2021
                 voluntario.correo = txtCorreoElectronicoVoluntario.Text;
                 voluntario.conocimientos = (bool)checkConocimientosVeterinarios.IsChecked;
                 voluntario.disponibilidad = obtenerDisponibilidad();
-                voluntario.img = imgPerro.Source;
+                voluntario.img = imgVoluntario.Source;
 
                 if (voluntario != line)
                 {
@@ -536,7 +536,7 @@ namespace ProyectoIPO2020_2021
                 socio.IBAN6 = int.Parse(txtIBAN6.Text);
                 socio.cuantia = double.Parse(txtCuantia.Text);
                 socio.metodo_pago = cboxformPago.Text;
-                socio.img = imgPerro.Source;
+                socio.img = imgSocio.Source;
 
                 if (socio != line)
                 {
